@@ -45,12 +45,12 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .nav-cta{background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:var(--shadow-gold);}
 .nav-cta:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 6px 28px rgba(212,175,55,0.30);}
 .nav-cta:active{transform:translateY(0);}
-.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:10px;min-width:44px;min-height:44px;align-items:center;justify-content:center;}
 .nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink2);border-radius:2px;transition:transform 0.25s,opacity 0.2s;}
-.nav-mobile{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--cream);z-index:99;flex-direction:column;padding:32px;gap:8px;}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;bottom:0;background:var(--cream);z-index:99;flex-direction:column;padding:24px 20px;gap:0;overflow-y:auto;}
 .nav-mobile.open{display:flex;}
-.nav-mobile a{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--gold-border);}
-.nav-mobile .nav-cta{margin-top:16px;text-align:center;padding:16px;font-size:14px;}
+.nav-mobile a{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--ink);text-decoration:none;padding:14px 0;border-bottom:1px solid var(--gold-border);min-height:52px;display:flex;align-items:center;}
+.nav-mobile .nav-cta{margin-top:20px;text-align:center;padding:16px;font-size:14px;min-height:52px;justify-content:center;border-bottom:none;}
 
 /* ── HERO ── */
 .hero{min-height:100vh;padding-top:70px;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;}
@@ -251,45 +251,158 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .fade-up.visible{opacity:1;transform:translateY(0);}
 
 /* ── RESPONSIVE ── */
+
+/* ─ 1100px: tablet / small desktop ─ */
 @media(max-width:1100px){
   .hero{grid-template-columns:1fr;}
   .hero-right{display:none;}
-  .hero-left{padding:60px 40px;text-align:center;}
+  .hero-left{padding:64px 48px;text-align:center;}
   .hero-eyebrow{justify-content:center;}
   .hero-btns{justify-content:center;}
   .hero-chips{justify-content:center;}
+  .hero-desc{margin-left:auto;margin-right:auto;}
   .hero-badge{right:50%;transform:translateX(50%);bottom:24px;}
   .about-inner{grid-template-columns:1fr;gap:48px;}
   .about-img-wrap{max-width:480px;margin:0 auto;}
+  .about-deco{display:none;}
   .goldankauf-inner{grid-template-columns:1fr;gap:48px;}
   .contact-grid{grid-template-columns:1fr;}
   .contact-map-panel iframe{min-height:380px;}
+  .map-gate{min-height:380px;}
   .contact-info-panel{padding:60px 40px;}
   .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
 }
+
+/* ─ 768px: tablets ─ */
 @media(max-width:768px){
+  /* Nav */
   .nav-links,.nav-cta{display:none;}
   .nav-hamburger{display:flex;}
-  .hero-left{padding:48px 24px;}
-  .section{padding:72px 24px;}
-  .services-grid{grid-template-columns:1fr;}
+  .nav-inner{padding:0 20px;height:64px;}
+  .nav-mobile{top:64px;}
+  .nav-logo-full{height:44px;}
 
+  /* Sections */
+  .section{padding:64px 20px;}
+  .gallery{padding:64px 20px;}
+  .about{padding:64px 20px;}
+  .goldankauf{padding:64px 20px;}
+  .insta{padding:64px 20px;}
+
+  /* Hero */
+  .hero{padding-top:64px;}
+  .hero-left{padding:48px 20px;}
+
+  /* Stats */
+  .stats{padding:0 20px;}
+  .stats-inner{gap:0;flex-direction:column;}
+  .stat-item{padding:16px 24px;border-right:none;border-bottom:1px solid rgba(26,18,8,0.15);width:100%;justify-content:center;}
+  .stat-item:last-child{border-bottom:none;}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;margin-top:40px;}
+  .svc-card{padding:28px 24px;}
+
+  /* Gallery */
   .gallery-grid{grid-template-columns:repeat(2,1fr);}
   .g-item:nth-child(3n+1){grid-row:span 1;}
-  .ga-right{grid-template-columns:1fr;}
-  .insta-profile{flex-direction:column;align-items:flex-start;gap:20px;padding:24px;}
-  .insta-stats{gap:24px;}
+
+  /* About */
+  .about-features{grid-template-columns:1fr;}
+  .about-stamp{right:-8px;}
+
+  /* Goldankauf */
+  .ga-right{grid-template-columns:1fr 1fr;}
+  .ga-card{padding:20px 16px;}
+
+  /* Contact */
+  .contact-info-panel{padding:48px 24px;}
+  .hours-block{padding:20px;}
+  .map-gate{min-height:300px;}
+
+  /* Instagram */
+  .insta-pending{padding:32px 24px;}
+
+  /* Footer */
+  .footer{padding:48px 20px 24px;}
   .footer-top{grid-template-columns:1fr;}
-  .stats-inner{gap:0;}
-  .stat-item{padding:8px 20px;border-right:none;border-bottom:1px solid rgba(26,18,8,0.20);}
-  .stat-item:last-child{border-bottom:none;}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px;}
+  .footer-legal{flex-wrap:wrap;gap:12px;}
+  .footer-logo-full{height:72px;}
 }
+
+/* ─ 480px: phones ─ */
 @media(max-width:480px){
-  .gallery-grid{grid-template-columns:1fr 1fr;}
-  .hero-h1{font-size:36px;}
-  .contact-info-panel{padding:40px 24px;}
-  .hero-badge{width:72px;height:72px;}
+  /* Sections */
+  .section{padding:56px 16px;}
+  .gallery{padding:56px 16px;}
+  .about{padding:56px 16px;}
+  .goldankauf{padding:56px 16px;}
+  .insta{padding:56px 16px;}
+
+  /* Hero */
+  .hero-left{padding:40px 16px;}
+  .hero-h1{font-size:clamp(32px,8vw,40px);}
+  .hero-btns{flex-direction:column;width:100%;max-width:320px;margin-left:auto;margin-right:auto;}
+  .btn-primary,.btn-secondary{width:100%;justify-content:center;padding:16px 20px;min-height:52px;}
+  .hero-badge{width:72px;height:72px;bottom:16px;}
   .hero-badge-num{font-size:22px;}
+  .hero-badge-txt{font-size:6.5px;}
+
+  /* Services */
+  .svc-card{padding:24px 16px;}
+  .svc-card.featured .svc-cta{width:100%;justify-content:center;text-align:center;}
+
+  /* Gallery */
+  .gallery-grid{grid-template-columns:1fr 1fr;gap:8px;}
+  .gallery-head{flex-direction:column;align-items:flex-start;gap:16px;}
+  .gallery-filters{width:100%;justify-content:flex-start;}
+  .gf-btn{padding:8px 14px;font-size:10px;}
+
+  /* About */
+  .about-stamp{right:-4px;width:80px;height:80px;}
+  .about-stamp-num{font-size:22px;}
+  .about-stamp-txt{font-size:6.5px;}
+
+  /* Goldankauf */
+  .ga-right{grid-template-columns:1fr;}
+
+  /* Contact */
+  .contact-info-panel{padding:36px 16px;}
+  .hours-block{padding:16px;}
+  .hours-row{font-size:13px;}
+  .hours-label{font-size:9px;}
+  .ci-icon{width:40px;height:40px;}
+  .map-gate{min-height:260px;}
+  .map-gate-inner{padding:28px 16px;}
+
+  /* Instagram */
+  .insta-pending{padding:24px 16px;}
+  .insta-pending-title{font-size:17px;}
+  .insta-cta-btn{width:100%;justify-content:center;padding:16px 20px;}
+  .insta-cta-text{font-size:14px;}
+
+  /* Footer */
+  .footer{padding:40px 16px 20px;}
+  .footer-logo-full{height:60px;}
+  .footer-tagline{font-size:12px;}
+  .footer-top{gap:28px;}
+}
+
+/* ─ 375px: small phones (iPhone SE etc.) ─ */
+@media(max-width:375px){
+  .section,.gallery,.about,.goldankauf,.insta{padding:48px 14px;}
+  .hero-left{padding:36px 14px;}
+  .hero-h1{font-size:30px;}
+  .section-h2{font-size:30px;}
+  .nav-inner{padding:0 14px;}
+  .svc-card{padding:20px 14px;}
+  .contact-info-panel{padding:28px 14px;}
+  .hours-block{padding:14px;}
+  .footer{padding:36px 14px 20px;}
+  .ga-card{padding:16px 12px;}
+  .stat-num{font-size:24px;}
+  .hero-btns{max-width:100%;}
 }
 
 /* ── MAP CONSENT GATE ── */
