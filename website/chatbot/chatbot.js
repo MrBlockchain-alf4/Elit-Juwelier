@@ -55,13 +55,14 @@
   }
 
   var css=[
-    '#ej-fab{position:fixed;bottom:28px;right:28px;z-index:9000;width:56px;height:56px;border-radius:50%;background:'+INK+';border:2px solid '+GOLD+';display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 24px rgba(212,175,55,0.35);transition:transform 0.2s,box-shadow 0.2s;}',
-    '#ej-fab:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(212,175,55,0.55);}',
+    '#ej-fab{position:fixed;bottom:28px;right:28px;z-index:9000;width:60px;height:60px;border-radius:50%;background:#FEFCF8;border:2.5px solid '+GOLD+';display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 24px rgba(212,175,55,0.40),0 2px 8px rgba(26,18,8,0.18);transition:transform 0.2s,box-shadow 0.2s;padding:6px;}',
+    '#ej-fab:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(212,175,55,0.60),0 4px 12px rgba(26,18,8,0.20);}',
+    '#ej-fab img{width:100%;height:100%;object-fit:contain;display:block;}',
     '#ej-panel{position:fixed;bottom:100px;right:28px;z-index:9000;width:360px;display:flex;flex-direction:column;border-radius:8px;box-shadow:0 16px 64px rgba(26,18,8,0.28);overflow:hidden;height:0;opacity:0;pointer-events:none;transition:height 0.35s cubic-bezier(0.34,1.56,0.64,1),opacity 0.22s;}',
     '#ej-panel.ej-open{height:560px;opacity:1;pointer-events:all;}',
     '#ej-head{background:'+INK+';padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(212,175,55,0.18);flex-shrink:0;}',
     '#ej-head-left{display:flex;align-items:center;gap:12px;}',
-    '.ej-avatar{width:36px;height:36px;border-radius:50%;background:'+GOLD+';display:flex;align-items:center;justify-content:center;flex-shrink:0;}',
+    '.ej-avatar{width:36px;height:36px;border-radius:50%;background:#FEFCF8;border:1.5px solid rgba(212,175,55,0.6);display:flex;align-items:center;justify-content:center;flex-shrink:0;padding:4px;overflow:hidden;}',
     '.ej-head-name{font-family:"Playfair Display",Georgia,serif;font-size:15px;font-weight:700;color:#fff;line-height:1.2;}',
     '.ej-head-sub{font-size:10px;color:rgba(255,255,255,0.55);margin-top:2px;letter-spacing:0.06em;}',
     '#ej-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.50);font-size:18px;line-height:1;padding:4px;transition:color 0.2s;font-family:sans-serif;}',
@@ -88,8 +89,9 @@
   st.textContent=css;
   document.head.appendChild(st);
 
-  var diamondSvg='<svg viewBox="0 0 24 24" fill="none" stroke="'+GOLD+'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20"/><path d="M12 3l4 6H8z"/></svg>';
-  var chatSvg='<svg viewBox="0 0 24 24" fill="none" stroke="'+INK+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>';
+  var logoPath=(function(){var s=document.currentScript;return s?s.src.replace(/chatbot\.js.*/,'')+'../public/images/elit-diamond.png':'public/images/elit-diamond.png';})();
+  var diamondSvg='<img src="'+logoPath+'" alt="Elit Juwelier" style="width:100%;height:100%;object-fit:contain;display:block;">';
+  var chatSvg='<img src="'+logoPath+'" alt="Elit Juwelier" style="width:26px;height:26px;object-fit:contain;display:block;">';
 
   var chips=CHIPS.map(function(c){return '<button class="ej-chip">'+c.l+'</button>';}).join('');
 
