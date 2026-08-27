@@ -1,270 +1,171 @@
-/* Elit Juwelier chatbot — gold/black luxury theme */
 (function(){
-  const mobileStyle = document.createElement('style');
-  mobileStyle.textContent = `
-    @media(max-width:600px){
-      #ej-cb-root{bottom:16px !important;right:16px !important;}
-      #ej-cb-panel{
-        position:fixed !important;width:100vw !important;max-width:100vw !important;
-        left:0 !important;right:0 !important;bottom:0 !important;
-        height:85vh !important;height:85dvh !important;
-        border-radius:16px 16px 0 0 !important;overflow:hidden !important;
+  'use strict';
+
+  var GOLD='#D4AF37',GOLD2='#B8960C',INK='#1A1208',INK2='#2C1F0E',CREAM='#F5F1E8',MUTED='#7A6A4F',WHITE='#FFFFFF';
+
+  var KB=[
+    {keys:['goldankauf','altgold','ankauf','gold verkauf','gold verkaufen','altschmuck','gold kaufen'],
+     text:'Gerne kaufen wir Ihr Gold zu fairen Tagespreisen!\n\nWir kaufen:\n• Goldschmuck (333er – 999er)\n• Goldmünzen & Barren\n• Zahngold & Zahnkronen\n\n✓ Kostenlose Bewertung\n✓ Sofortauszahlung in Bar\n✓ Faire, transparente Preise\n\nKein Termin nötig — einfach vorbeikommen!'},
+    {keys:['trauring','ehering','hochzeitsring','heiraten','hochzeit','ehe'],
+     text:'Unsere Trauringe & Eheringe in Gelbgold, Weißgold, Rosegold oder Platin:\n\n• Hunderte Designs zur Auswahl\n• Individuelle Anfertigung nach Maß\n• Gravur & Personalisierung\n• Für jedes Budget\n\nWir begleiten Sie gerne auf dem Weg zum perfekten Ring!'},
+    {keys:['verlobung','verlobungsring','antrag','diamant','solitär','heiratsantrag'],
+     text:'Der perfekte Verlobungsring für den schönsten Moment:\n\n• Ringe mit echten Diamanten\n• Lab-Diamanten (faire Alternative)\n• Zirkonia-Besatz\n• Individuelle Anfertigung\n\nGerne beraten wir Sie diskret und ohne Zeitdruck.'},
+    {keys:['öffnungszeit','geöffnet','öffnen','uhrzeit','wann','stunden','zeiten','heute offen'],
+     text:'Unsere Öffnungszeiten:\n\nMontag – Freitag:  10:00 – 18:30 Uhr\nSamstag:  10:00 – 14:00 Uhr\nSonntag:  Geschlossen\n\nKein Termin nötig — einfach vorbeikommen!'},
+    {keys:['adresse','standort','wo','hagen','elberfelder','finden','anfahrt','lage','ort'],
+     text:'Sie finden uns hier:\n\nElberfelder Straße 1\n58095 Hagen, NRW\n\nGut erreichbar mit Bus & Bahn.\nParkplätze sind in der Nähe vorhanden.'},
+    {keys:['telefon','anrufen','tel','nummer','telefonisch','rufen'],
+     text:'Rufen Sie uns gerne an:\n\n+49 (0)2331 987 654\n\nErreichbar:\nMontag – Freitag: 10:00 – 18:30 Uhr\nSamstag: 10:00 – 14:00 Uhr'},
+    {keys:['whatsapp','nachricht schreiben','chat','sms','messenger'],
+     text:'Schreiben Sie uns auf WhatsApp:\n\n+49 (0)151 234 567 89\n\nWir antworten schnell während der Öffnungszeiten — gerne auch mit Fotos Ihres Schmucks!'},
+    {keys:['preis','kosten','wieviel','wie viel','budget','günstig','teuer','wert','bezahlen'],
+     text:'Unsere Preise sind transparent und fair:\n\n• Trauringe je nach Material & Design\n• Goldankauf nach aktuellem Tagespreis\n• Kostenlose, unverbindliche Bewertung\n\nKommen Sie vorbei — wir beraten Sie ehrlich und ohne Druck.'},
+    {keys:['erfahrung','seit','jahre','1999','geschichte','famili','gründung','tradition'],
+     text:'Elit Juwelier steht seit 1999 für Qualität und Vertrauen in Hagen.\n\n25 Jahre Erfahrung bedeuten:\n• Tiefes Fachwissen in Gold & Schmuck\n• Langjährige Kundenbeziehungen\n• Persönliche, familiäre Atmosphäre\n\nVom kleinen Familienbetrieb zum etablierten Fachgeschäft — immer mit Herzblut.'},
+    {keys:['schmuck','kette','halskette','armband','ohrring','accessoir','anhänger'],
+     text:'Unser Schmucksortiment:\n\n• Goldketten & Halsketten\n• Armbänder & Armreifen\n• Ohrringe & Ohrstecker\n• Anhänger & Charms\n\nAlles in hochwertiger Goldqualität — schauen Sie gerne bei uns rein!'},
+    {keys:['reparatur','reparieren','umarbeit','gravur','größe ändern','resize'],
+     text:'Wir reparieren und bearbeiten auch Ihren Schmuck:\n\n• Ringgröße anpassen\n• Schmuckreparaturen aller Art\n• Gravuren & Personalisierung\n• Umarbeitung von altem Schmuck\n\nBringen Sie Ihr Stück einfach vorbei!'}
+  ];
+
+  var GREET='Herzlich willkommen bei Elit Juwelier! 💛\n\nIch helfe Ihnen gerne weiter. Was suchen Sie?';
+  var FALLBACK='Das beantworte ich Ihnen gerne persönlich!\n\n📍 Elberfelder Straße 1, 58095 Hagen\n📞 +49 (0)2331 987 654\n\nÖffnungszeiten:\nMo–Fr 10–18:30 Uhr | Sa 10–14 Uhr';
+
+  var CHIPS=[
+    {l:'Goldankauf',m:'Was kaufen Sie für Gold an?'},
+    {l:'Trauringe',m:'Welche Trauringe haben Sie?'},
+    {l:'Verlobungsring',m:'Ich suche einen Verlobungsring'},
+    {l:'Öffnungszeiten',m:'Wann haben Sie geöffnet?'},
+    {l:'Adresse & Lage',m:'Wo finden Sie sich?'}
+  ];
+
+  function respond(msg){
+    var lc=msg.toLowerCase();
+    for(var i=0;i<KB.length;i++){
+      var entry=KB[i];
+      for(var j=0;j<entry.keys.length;j++){
+        if(lc.indexOf(entry.keys[j])!==-1) return entry.text;
       }
-      #ej-cb-input-row{
-        padding:10px 12px !important;
-        padding-bottom:max(10px,env(safe-area-inset-bottom,0px)) !important;
-        flex-shrink:0 !important;
-      }
-      #ej-cb-send{width:44px !important;height:44px !important;}
-      #ej-cb-inp{font-size:16px !important;padding:12px 14px !important;}
     }
-  `;
-  document.head.appendChild(mobileStyle);
+    return FALLBACK;
+  }
 
-  const C = {
-    gold:'#D4AF37', goldDk:'#B8960C', goldDim:'rgba(212,175,55,0.12)',
-    black:'#0A0A0A', card:'#141414', soft:'#1E1E1E',
-    border:'rgba(212,175,55,0.2)', text:'#fff', muted:'rgba(255,255,255,0.6)',
-  };
+  function fmt(text){
+    return text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
+  }
 
-  const root = document.createElement('div');
-  root.id = 'ej-cb-root';
-  Object.assign(root.style,{position:'fixed',bottom:'24px',right:'24px',zIndex:'9999',fontFamily:"'Jost','Segoe UI',sans-serif"});
-  document.body.appendChild(root);
+  var css=[
+    '#ej-fab{position:fixed;bottom:28px;right:28px;z-index:9000;width:56px;height:56px;border-radius:50%;background:'+INK+';border:2px solid '+GOLD+';display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 24px rgba(212,175,55,0.35);transition:transform 0.2s,box-shadow 0.2s;}',
+    '#ej-fab:hover{transform:scale(1.08);box-shadow:0 8px 32px rgba(212,175,55,0.55);}',
+    '#ej-panel{position:fixed;bottom:100px;right:28px;z-index:9000;width:360px;display:flex;flex-direction:column;border-radius:8px;box-shadow:0 16px 64px rgba(26,18,8,0.28);overflow:hidden;height:0;opacity:0;pointer-events:none;transition:height 0.35s cubic-bezier(0.34,1.56,0.64,1),opacity 0.22s;}',
+    '#ej-panel.ej-open{height:560px;opacity:1;pointer-events:all;}',
+    '#ej-head{background:'+INK+';padding:18px 20px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(212,175,55,0.18);flex-shrink:0;}',
+    '#ej-head-left{display:flex;align-items:center;gap:12px;}',
+    '.ej-avatar{width:36px;height:36px;border-radius:50%;background:'+GOLD+';display:flex;align-items:center;justify-content:center;flex-shrink:0;}',
+    '.ej-head-name{font-family:"Playfair Display",Georgia,serif;font-size:15px;font-weight:700;color:#fff;line-height:1.2;}',
+    '.ej-head-sub{font-size:10px;color:rgba(255,255,255,0.55);margin-top:2px;letter-spacing:0.06em;}',
+    '#ej-close{background:none;border:none;cursor:pointer;color:rgba(255,255,255,0.50);font-size:18px;line-height:1;padding:4px;transition:color 0.2s;font-family:sans-serif;}',
+    '#ej-close:hover{color:#fff;}',
+    '#ej-msgs{flex:1;overflow-y:auto;padding:18px 16px;background:'+CREAM+';display:flex;flex-direction:column;gap:12px;}',
+    '#ej-msgs::-webkit-scrollbar{width:3px;}',
+    '#ej-msgs::-webkit-scrollbar-thumb{background:rgba(212,175,55,0.35);border-radius:2px;}',
+    '.ej-msg{max-width:84%;line-height:1.58;font-size:13.5px;font-family:"Inter","Helvetica Neue",sans-serif;animation:ej-up 0.22s ease;}',
+    '.ej-bot{align-self:flex-start;background:'+WHITE+';border:1px solid rgba(212,175,55,0.22);border-radius:2px 12px 12px 2px;padding:11px 14px;color:'+INK2+';box-shadow:0 2px 8px rgba(26,18,8,0.06);}',
+    '.ej-user{align-self:flex-end;background:'+INK+';color:#fff;border-radius:12px 2px 2px 12px;padding:11px 14px;}',
+    '#ej-chips{padding:10px 12px;background:'+CREAM+';border-top:1px solid rgba(212,175,55,0.18);display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0;}',
+    '.ej-chip{background:'+WHITE+';border:1.5px solid rgba(212,175,55,0.38);color:'+MUTED+';font-family:"Inter","Helvetica Neue",sans-serif;font-size:11px;font-weight:700;letter-spacing:0.05em;padding:5px 11px;border-radius:20px;cursor:pointer;white-space:nowrap;transition:background 0.18s,border-color 0.18s,color 0.18s;}',
+    '.ej-chip:hover{background:'+GOLD+';border-color:'+GOLD+';color:'+INK+';}',
+    '#ej-foot{display:flex;gap:8px;padding:10px 12px;background:'+CREAM+';border-top:1px solid rgba(212,175,55,0.18);flex-shrink:0;}',
+    '#ej-input{flex:1;background:'+WHITE+';border:1.5px solid rgba(212,175,55,0.32);border-radius:3px;padding:9px 13px;font-family:"Inter","Helvetica Neue",sans-serif;font-size:13px;color:'+INK+';outline:none;transition:border-color 0.2s;}',
+    '#ej-input:focus{border-color:'+GOLD+';}',
+    '#ej-send{background:'+GOLD+';border:none;color:'+INK+';padding:9px 16px;border-radius:3px;cursor:pointer;font-family:"Inter","Helvetica Neue",sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;transition:background 0.18s;}',
+    '#ej-send:hover{background:'+GOLD2+';}',
+    '@keyframes ej-up{from{transform:translateY(7px);opacity:0;}to{transform:translateY(0);opacity:1;}}',
+    '@media(max-width:480px){#ej-panel{width:calc(100vw - 20px);right:10px;bottom:90px;}#ej-panel.ej-open{height:520px;}}'
+  ].join('');
 
-  /* Launcher */
-  const btn = document.createElement('button');
-  btn.setAttribute('aria-label','Termin anfragen');
-  Object.assign(btn.style,{
-    width:'56px',height:'56px',borderRadius:'50%',
-    background:C.gold,border:'none',cursor:'pointer',
-    display:'flex',alignItems:'center',justifyContent:'center',
-    boxShadow:'0 4px 20px rgba(212,175,55,0.40)',
-    transition:'transform 180ms,box-shadow 180ms',
-  });
-  btn.innerHTML=`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${C.black}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
-  btn.addEventListener('mouseenter',()=>{btn.style.transform='scale(1.08)';btn.style.boxShadow='0 8px 28px rgba(212,175,55,0.55)';});
-  btn.addEventListener('mouseleave',()=>{btn.style.transform='scale(1)';btn.style.boxShadow='0 4px 20px rgba(212,175,55,0.40)';});
-  root.appendChild(btn);
+  var st=document.createElement('style');
+  st.textContent=css;
+  document.head.appendChild(st);
 
-  /* Panel */
-  const panel = document.createElement('div');
-  panel.id = 'ej-cb-panel';
-  Object.assign(panel.style,{
-    display:'none',flexDirection:'column',
-    position:'absolute',bottom:'72px',right:'0',
-    width:'400px',height:'560px',
-    background:C.card,borderRadius:'6px',
-    boxShadow:'0 16px 56px rgba(0,0,0,0.6)',
-    border:`1px solid ${C.border}`,overflow:'hidden',
-  });
-  root.appendChild(panel);
+  var diamondSvg='<svg viewBox="0 0 24 24" fill="none" stroke="'+GOLD+'" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M6 3h12l4 6-10 13L2 9z"/><path d="M2 9h20"/><path d="M12 3l4 6H8z"/></svg>';
+  var chatSvg='<svg viewBox="0 0 24 24" fill="none" stroke="'+INK+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>';
 
-  /* Header */
-  const header = document.createElement('div');
-  Object.assign(header.style,{
-    background:C.black,padding:'16px 18px',borderBottom:`1px solid ${C.border}`,
-    display:'flex',alignItems:'center',justifyContent:'space-between',flexShrink:'0',
-  });
-  header.innerHTML=`
-    <div style="display:flex;align-items:center;gap:11px;">
-      <div style="width:36px;height:36px;border-radius:50%;background:${C.goldDim};border:1px solid ${C.border};display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="${C.gold}" stroke-width="1.5" stroke-linecap="round"><path d="M12 2l2 7h7l-6 4 2 7-5-4-5 4 2-7-6-4h7z"/></svg>
-      </div>
-      <div>
-        <div style="font-size:13px;font-weight:600;color:${C.gold};letter-spacing:0.05em;">Elit Juwelier</div>
-        <div style="font-size:11px;color:${C.muted};margin-top:1px;">● Online</div>
-      </div>
-    </div>
-    <button id="ej-cb-close" aria-label="Schließen" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);cursor:pointer;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:${C.muted};font-size:16px;line-height:1;transition:background 160ms;">✕</button>
-  `;
-  panel.appendChild(header);
+  var chips=CHIPS.map(function(c){return '<button class="ej-chip">'+c.l+'</button>';}).join('');
 
-  /* Messages */
-  const msgs = document.createElement('div');
-  Object.assign(msgs.style,{flex:'1',overflowY:'auto',padding:'14px 12px',display:'flex',flexDirection:'column',gap:'10px',background:C.soft});
-  panel.appendChild(msgs);
+  var wrap=document.createElement('div');
+  wrap.innerHTML=
+    '<div id="ej-fab" role="button" aria-label="Chat öffnen" title="Chat mit Elit Juwelier">'+diamondSvg+'</div>'+
+    '<div id="ej-panel" role="dialog" aria-label="Elit Juwelier Chat">'+
+      '<div id="ej-head">'+
+        '<div id="ej-head-left">'+
+          '<div class="ej-avatar">'+chatSvg+'</div>'+
+          '<div>'+
+            '<div class="ej-head-name">Elit Juwelier</div>'+
+            '<div class="ej-head-sub">Virtueller Assistent · Hagen</div>'+
+          '</div>'+
+        '</div>'+
+        '<button id="ej-close" aria-label="Schließen">&#x2715;</button>'+
+      '</div>'+
+      '<div id="ej-msgs"></div>'+
+      '<div id="ej-chips">'+chips+'</div>'+
+      '<div id="ej-foot">'+
+        '<input id="ej-input" type="text" placeholder="Ihre Frage..." maxlength="200" autocomplete="off">'+
+        '<button id="ej-send">Senden</button>'+
+      '</div>'+
+    '</div>';
+  document.body.appendChild(wrap);
 
-  /* Input row */
-  const inputRow = document.createElement('div');
-  inputRow.id = 'ej-cb-input-row';
-  Object.assign(inputRow.style,{display:'flex',gap:'8px',padding:'12px 12px',borderTop:`1px solid ${C.border}`,background:C.black,flexShrink:'0'});
-  const inp = document.createElement('input');
-  inp.id = 'ej-cb-inp'; inp.type = 'text'; inp.placeholder = 'Ihre Nachricht …';
-  Object.assign(inp.style,{flex:'1',padding:'10px 14px',borderRadius:'4px',border:`1px solid ${C.border}`,outline:'none',fontSize:'14px',color:C.text,background:C.card,fontFamily:'inherit',transition:'border-color 180ms'});
-  inp.addEventListener('focus',()=>{inp.style.borderColor=C.gold;});
-  inp.addEventListener('blur',()=>{inp.style.borderColor=C.border;});
-  const sendBtn = document.createElement('button');
-  sendBtn.id = 'ej-cb-send'; sendBtn.setAttribute('aria-label','Senden');
-  Object.assign(sendBtn.style,{width:'40px',height:'40px',borderRadius:'4px',background:C.gold,border:'none',cursor:'pointer',display:'flex',alignItems:'center',justifyContent:'center',flexShrink:'0',transition:'background 160ms,transform 140ms'});
-  sendBtn.innerHTML=`<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="${C.black}" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>`;
-  sendBtn.addEventListener('mouseenter',()=>{sendBtn.style.background=C.goldDk;sendBtn.style.transform='scale(1.05)';});
-  sendBtn.addEventListener('mouseleave',()=>{sendBtn.style.background=C.gold;sendBtn.style.transform='scale(1)';});
-  inputRow.appendChild(inp); inputRow.appendChild(sendBtn);
-  panel.appendChild(inputRow);
+  var fab=document.getElementById('ej-fab');
+  var panel=document.getElementById('ej-panel');
+  var msgs=document.getElementById('ej-msgs');
+  var input=document.getElementById('ej-input');
+  var sendBtn=document.getElementById('ej-send');
+  var closeBtn=document.getElementById('ej-close');
+  var chipBtns=document.querySelectorAll('.ej-chip');
+  var isOpen=false;
+  var greeted=false;
 
-  /* Helpers */
-  function bubble(text,who){
-    const isBot=who==='bot';
-    const wrap=document.createElement('div');
-    wrap.style.cssText=`display:flex;justify-content:${isBot?'flex-start':'flex-end'};`;
-    const b=document.createElement('div');
-    Object.assign(b.style,{
-      maxWidth:'82%',padding:'10px 14px',
-      borderRadius:isBot?'3px 12px 12px 12px':'12px 3px 12px 12px',
-      background:isBot?C.card:'linear-gradient(135deg,'+C.gold+','+C.goldDk+')',
-      color:isBot?C.text:C.black,fontSize:'13.5px',lineHeight:'1.6',
-      border:isBot?`1px solid ${C.border}`:'none',
+  function addMsg(text,who){
+    var d=document.createElement('div');
+    d.className='ej-msg ej-'+who;
+    d.innerHTML=fmt(text);
+    msgs.appendChild(d);
+    msgs.scrollTop=msgs.scrollHeight;
+  }
+
+  function send(text){
+    text=(text||'').trim();
+    if(!text) return;
+    addMsg(text,'user');
+    input.value='';
+    setTimeout(function(){addMsg(respond(text),'bot');},400);
+  }
+
+  function open(){
+    panel.classList.add('ej-open');
+    fab.setAttribute('aria-label','Chat schließen');
+    isOpen=true;
+    if(!greeted){addMsg(GREET,'bot');greeted=true;}
+    setTimeout(function(){input.focus();},350);
+  }
+
+  function close(){
+    panel.classList.remove('ej-open');
+    fab.setAttribute('aria-label','Chat öffnen');
+    isOpen=false;
+  }
+
+  fab.addEventListener('click',function(){isOpen?close():open();});
+  closeBtn.addEventListener('click',close);
+  sendBtn.addEventListener('click',function(){send(input.value);});
+  input.addEventListener('keydown',function(e){if(e.key==='Enter')send(input.value);});
+
+  chipBtns.forEach(function(btn,i){
+    btn.addEventListener('click',function(){
+      if(!isOpen)open();
+      setTimeout(function(){send(CHIPS[i].m);},isOpen?0:380);
     });
-    b.textContent=text; wrap.appendChild(b); msgs.appendChild(wrap);
-    msgs.scrollTop=msgs.scrollHeight; return b;
-  }
+  });
 
-  function chips(options,onSelect){
-    const row=document.createElement('div');
-    row.style.cssText='display:flex;flex-wrap:wrap;gap:7px;margin-top:2px;';
-    options.forEach(opt=>{
-      const c=document.createElement('button');
-      Object.assign(c.style,{padding:'7px 14px',borderRadius:'20px',cursor:'pointer',fontSize:'12px',fontWeight:'500',border:`1px solid ${C.border}`,background:C.goldDim,color:C.gold,fontFamily:'inherit',transition:'background 160ms,color 160ms'});
-      c.textContent=opt;
-      c.addEventListener('click',()=>{row.querySelectorAll('button').forEach(x=>{x.disabled=true;x.style.opacity='0.4';x.style.cursor='default';});c.style.background=C.gold;c.style.color=C.black;c.style.opacity='1';onSelect(opt);});
-      c.addEventListener('mouseenter',()=>{if(!c.disabled){c.style.background=C.gold;c.style.color=C.black;}});
-      c.addEventListener('mouseleave',()=>{if(!c.disabled&&c.style.color!==C.black){c.style.background=C.goldDim;c.style.color=C.gold;}});
-      row.appendChild(c);
-    });
-    const wrap=document.createElement('div');wrap.style.cssText='display:flex;justify-content:flex-start;';
-    wrap.appendChild(row);msgs.appendChild(wrap);msgs.scrollTop=msgs.scrollHeight;
-  }
-
-  function typing(){
-    const wrap=document.createElement('div');wrap.style.cssText='display:flex;justify-content:flex-start;';
-    const b=document.createElement('div');
-    Object.assign(b.style,{padding:'10px 14px',borderRadius:'3px 12px 12px 12px',background:C.card,border:`1px solid ${C.border}`,display:'flex',gap:'4px',alignItems:'center'});
-    const st=document.createElement('style');
-    st.textContent='@keyframes ejDot{0%,80%,100%{transform:scale(0.6);opacity:0.3;}40%{transform:scale(1);opacity:1;}}';
-    document.head.appendChild(st);
-    for(let i=0;i<3;i++){const d=document.createElement('div');Object.assign(d.style,{width:'7px',height:'7px',borderRadius:'50%',background:C.gold,opacity:'0.3',animation:`ejDot 1.2s ${i*0.2}s infinite ease-in-out`});b.appendChild(d);}
-    wrap.appendChild(b);msgs.appendChild(wrap);msgs.scrollTop=msgs.scrollHeight;
-    return{remove:()=>wrap.remove()};
-  }
-
-  function delay(ms){return new Promise(r=>setTimeout(r,ms));}
-  async function bot(text,ms=600){const t=typing();await delay(ms);t.remove();bubble(text,'bot');}
-
-  /* State */
-  let step=null,data={};
-
-  const KARAT_MAP={'333er (8K)':8,'585er (14K)':14,'750er (18K)':18,'900er (21K+)':21.6,'Ich weiß es nicht':14};
-  const GOLD_BASE=68; // €/g for 24K
-
-  const STEPS={
-    start:async()=>{
-      await bot('Hallo! ✨ Willkommen bei Elit Juwelier. Womit kann ich Ihnen helfen?',700);
-      chips(['Schmuckberatung','Goldankauf','Uhrenreparatur','Ohrenlöcher Stechen','Allgemeine Frage'],async sel=>{
-        bubble(sel,'user');
-        data.service=sel;
-        if(sel==='Allgemeine Frage'){step='faq_name';await bot('Gerne! Wie heißen Sie?',500);}
-        else if(sel==='Goldankauf'){step='gold_intro';await STEPS.gold_intro();}
-        else{step='name';await STEPS.name();}
-      });
-    },
-    gold_intro:async()=>{
-      await bot('Möchten Sie Gold verkaufen? Ich kann Ihnen einen ungefähren Preis berechnen! 💛',650);
-      chips(['Ja, Gold-Rechner','Nein, Termin anfragen'],async sel=>{
-        bubble(sel,'user');
-        if(sel==='Ja, Gold-Rechner'){step='gold_karat';await STEPS.gold_karat();}
-        else{step='name';await STEPS.name();}
-      });
-    },
-    gold_karat:async()=>{
-      await bot('Welche Goldsorte haben Sie? (Goldlegierung / Karat)',550);
-      chips(['333er (8K)','585er (14K)','750er (18K)','900er (21K+)','Ich weiß es nicht'],async sel=>{
-        bubble(sel,'user');
-        data.karat=sel;
-        step='gold_weight';
-        await bot(sel==='Ich weiß es nicht'
-          ?'Kein Problem! Wir schätzen dann mit 14 Karat. Wie viele Gramm Gold möchten Sie verkaufen?'
-          :'Super! Und wie viele Gramm Gold möchten Sie verkaufen?',550);
-      });
-    },
-    gold_result:async()=>{
-      const karatVal=KARAT_MAP[data.karat]||14;
-      const pricePerGram=GOLD_BASE*(karatVal/24);
-      const total=Math.round(pricePerGram*data.grams);
-      const totalStr=total.toLocaleString('de-DE');
-      const t=typing();await new Promise(r=>setTimeout(r,800));t.remove();
-
-      // Rich result bubble
-      const wrap=document.createElement('div');wrap.style.cssText='display:flex;justify-content:flex-start;';
-      const b=document.createElement('div');
-      Object.assign(b.style,{
-        maxWidth:'88%',padding:'14px 16px',
-        borderRadius:'3px 12px 12px 12px',
-        background:'linear-gradient(135deg,rgba(212,175,55,0.15),rgba(212,175,55,0.05))',
-        border:`1px solid ${C.gold}`,color:C.text,fontSize:'13.5px',lineHeight:'1.7',
-      });
-      b.innerHTML=`<div style="font-weight:700;color:${C.gold};margin-bottom:8px;letter-spacing:0.04em;">💛 Ungefähre Wertberechnung</div>`
-        +`<div style="margin-bottom:3px;">• Goldsorte: <b>${data.karat}</b></div>`
-        +`<div style="margin-bottom:3px;">• Menge: <b>${data.grams} Gramm</b></div>`
-        +`<div style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(212,175,55,0.3);font-size:15px;font-weight:700;color:${C.gold};">ca. €${totalStr}</div>`
-        +`<div style="font-size:11.5px;color:${C.muted};margin-top:6px;">Richtwert · endgültiger Preis bei Besichtigung</div>`;
-      wrap.appendChild(b);msgs.appendChild(wrap);msgs.scrollTop=msgs.scrollHeight;
-
-      await new Promise(r=>setTimeout(r,500));
-      await bot('Möchten Sie vorbeikommen? Wir beraten Sie gerne persönlich und unverbindlich.',600);
-      step=null;
-      chips(['Termin anfragen','Anrufen','Neue Anfrage'],async sel=>{
-        bubble(sel,'user');
-        if(sel==='Termin anfragen'){data={service:'Goldankauf'};step='name';await STEPS.name();}
-        else if(sel==='Anrufen'){await bot('Sie erreichen uns unter ☎ +49 2331 5936841 — Mo–Sa 10–19 Uhr.',500);}
-        else{data={};step='start';msgs.innerHTML='';await STEPS.start();}
-      });
-    },
-    name:async()=>{await bot(`Sehr gut! Wie heißen Sie?`,550);},
-    phone:async()=>{await bot(`Danke, ${data.name}! Unter welcher Nummer können wir Sie erreichen?`,500);},
-    email:async()=>{await bot('Und Ihre E-Mail-Adresse?',450);},
-    details:async()=>{await bot('Bitte beschreiben Sie kurz, womit wir Ihnen helfen können:',500);},
-    done:async()=>{
-      await bot(`Vielen Dank, ${data.name}! ✨\n\nWir melden uns bald unter ${data.phone}. Unser Team freut sich auf Sie!`,700);
-      step=null;
-      chips(['Neue Anfrage'],async()=>{data={};step='start';msgs.innerHTML='';await STEPS.start();});
-    },
-  };
-
-  async function freeText(text){
-    if(!text.trim())return;
-    bubble(text,'user'); inp.value='';
-    if(step==='gold_weight'){
-      const g=parseFloat(text.replace(',','.'));
-      if(isNaN(g)||g<=0){await bot('Bitte geben Sie eine gültige Gramm-Anzahl ein (z.B. 15 oder 3.5).',400);return;}
-      data.grams=g;
-      await STEPS.gold_result();
-    }
-    else if(step==='name'||step===null){data.name=text;step='phone';await STEPS.phone();}
-    else if(step==='phone'){data.phone=text;step='email';await STEPS.email();}
-    else if(step==='email'){data.email=text;step='details';await STEPS.details();}
-    else if(step==='details'){data.details=text;step='done';await STEPS.done();}
-    else if(step==='faq_name'){data.name=text;step='faq_q';await bot(`Danke ${data.name}! Bitte stellen Sie Ihre Frage:`,500);}
-    else if(step==='faq_q'){data.question=text;await bot('Danke! Wir melden uns so schnell wie möglich. Sie erreichen uns auch unter ☎ +49 2331 5936841',700);step=null;chips(['Termin anfragen','Zum Start'],async sel=>{bubble(sel,'user');if(sel==='Termin anfragen'){data={};step='start';msgs.innerHTML='';await STEPS.start();}else{data={};step='start';msgs.innerHTML='';await STEPS.start();}});}
-    else{await bot('Bitte nutzen Sie die Auswahloptionen.',400);}
-  }
-
-  sendBtn.addEventListener('click',()=>freeText(inp.value));
-  inp.addEventListener('keydown',e=>{if(e.key==='Enter')freeText(inp.value);});
-
-  /* Toggle */
-  let open=false;
-  function toggle(){
-    open=!open;
-    panel.style.display=open?'flex':'none';
-    btn.style.display=(open&&window.innerWidth<=600)?'none':'flex';
-    btn.innerHTML=open
-      ?`<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="${C.black}" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`
-      :`<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="${C.black}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>`;
-    if(open&&msgs.children.length===0){step='start';STEPS.start();}
-  }
-
-  btn.addEventListener('click',toggle);
-  document.getElementById('ej-cb-close').addEventListener('click',()=>{if(open)toggle();if(window.innerWidth<=600){btn.style.display='flex';}});
-  window.ejCbOpen=()=>{if(!open)toggle();};
 })();
