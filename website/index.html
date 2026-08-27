@@ -6,7 +6,7 @@
 <title>Elit Juwelier — Trauringe & Verlobungsringe | Hagen</title>
 <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="public/images/elit-diamond.png" type="image/png">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google Fonts loaded dynamically after cookie consent (DSGVO §25 TTDSG) -->
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
@@ -291,6 +291,45 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .hero-badge{width:72px;height:72px;}
   .hero-badge-num{font-size:22px;}
 }
+
+/* ── MAP CONSENT GATE ── */
+.map-gate{width:100%;height:100%;min-height:580px;background:var(--cream2);display:flex;align-items:center;justify-content:center;}
+.map-gate-inner{text-align:center;padding:40px 32px;max-width:320px;}
+.map-gate-icon{width:56px;height:56px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
+.map-gate-icon svg{width:24px;height:24px;color:var(--gold2);}
+.map-gate-title{font-family:var(--serif);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:8px;}
+.map-gate-sub{font-size:13px;color:var(--muted);line-height:1.6;margin-bottom:24px;}
+.map-gate-btn{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);border:none;padding:12px 24px;border-radius:3px;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.06em;cursor:pointer;transition:background 0.18s;}
+.map-gate-btn:hover{background:var(--gold2);}
+
+/* ── COOKIE BANNER ── */
+#ej-cb{position:fixed;bottom:0;left:0;right:0;z-index:99998;background:var(--ink);border-top:2px solid rgba(212,175,55,0.40);padding:20px 40px;display:flex;align-items:center;gap:32px;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+#ej-cb.ej-cb-visible{transform:translateY(0);}
+.ej-cb-text{flex:1;font-family:var(--sans);font-size:13px;color:rgba(255,255,255,0.80);line-height:1.6;}
+.ej-cb-text strong{color:#fff;display:block;margin-bottom:4px;font-size:14px;}
+.ej-cb-text a{color:var(--gold);text-decoration:none;}
+.ej-cb-text a:hover{text-decoration:underline;}
+.ej-cb-btns{display:flex;gap:10px;flex-shrink:0;}
+.ej-cb-btn{padding:11px 20px;border-radius:3px;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.05em;cursor:pointer;border:none;white-space:nowrap;transition:background 0.18s,color 0.18s;}
+.ej-cb-accept{background:var(--gold);color:var(--ink);}
+.ej-cb-accept:hover{background:var(--gold2);}
+.ej-cb-essential{background:transparent;color:rgba(255,255,255,0.70);border:1.5px solid rgba(255,255,255,0.25) !important;}
+.ej-cb-essential:hover{background:rgba(255,255,255,0.08);color:#fff;}
+@media(max-width:768px){#ej-cb{flex-direction:column;align-items:flex-start;padding:20px 24px;gap:16px;}.ej-cb-btns{width:100%;}.ej-cb-btn{flex:1;text-align:center;}}
+
+/* ── LEGAL MODALS ── */
+.ej-modal-overlay{position:fixed;inset:0;background:rgba(26,18,8,0.72);z-index:99999;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.25s;}
+.ej-modal-overlay.open{opacity:1;pointer-events:all;}
+.ej-modal{background:var(--white);border-radius:6px;max-width:680px;width:100%;max-height:80vh;display:flex;flex-direction:column;box-shadow:0 24px 80px rgba(26,18,8,0.30);}
+.ej-modal-head{padding:28px 32px 20px;border-bottom:1px solid var(--gold-border);display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.ej-modal-head h3{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--ink);}
+.ej-modal-close{background:none;border:none;font-size:20px;cursor:pointer;color:var(--muted);padding:4px;line-height:1;transition:color 0.18s;}
+.ej-modal-close:hover{color:var(--ink);}
+.ej-modal-body{padding:28px 32px;overflow-y:auto;font-family:var(--sans);font-size:14px;color:var(--ink2);line-height:1.75;}
+.ej-modal-body h4{font-family:var(--serif);font-size:16px;font-weight:700;color:var(--ink);margin:20px 0 8px;}
+.ej-modal-body h4:first-child{margin-top:0;}
+.ej-modal-body p{margin-bottom:12px;}
+.ej-modal-body a{color:var(--gold2);}
 </style>
 </head>
 <body>
@@ -639,21 +678,30 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.77 9.13a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 15a16 16 0 006.29 6.29l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
           <div class="ci-content">
             <strong>Telefon</strong>
-            <a href="tel:+4923319876543">+49 (0)2331 987 654</a>
+            <a href="tel:+4923315936841">02331 / 5936841</a>
           </div>
         </div>
         <div class="ci-item">
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
           <div class="ci-content">
             <strong>WhatsApp</strong>
-            <a href="https://wa.me/4915123456789">+49 (0)151 234 567 89</a>
+            <a href="https://wa.me/491749155488">0174 / 9155488</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- RIGHT: Large Map -->
-    <div class="contact-map-panel">
-      <iframe src="https://maps.google.com/maps?q=Elberfelder+Stra%C3%9Fe+1%2C+58095+Hagen%2C+Germany&output=embed&hl=de&z=15" title="Elit Juwelier Standort"></iframe>
+    <!-- RIGHT: Large Map (loads after cookie consent) -->
+    <div class="contact-map-panel" id="ej-map-container">
+      <div class="map-gate" id="ej-map-gate">
+        <div class="map-gate-inner">
+          <div class="map-gate-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <p class="map-gate-title">Karte von Google Maps</p>
+          <p class="map-gate-sub">Das Laden der Karte überträgt Ihre IP-Adresse an Google Ireland Ltd. Bitte stimmen Sie zu, um die Karte anzuzeigen.</p>
+          <button class="map-gate-btn" id="ej-map-activate">Karte aktivieren</button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -688,8 +736,8 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
         <ul>
           <li><a href="#ueber-uns">Über Uns</a></li>
           <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#">Impressum</a></li>
-          <li><a href="#">Datenschutz</a></li>
+          <li><a href="#" onclick="openModal('impressum');return false;">Impressum</a></li>
+          <li><a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a></li>
         </ul>
       </div>
     </div>
@@ -697,9 +745,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 Elit Juwelier Hagen. Alle Rechte vorbehalten.</span>
       <div class="footer-legal">
-        <a href="#">Impressum</a>
-        <a href="#">Datenschutz</a>
-        <a href="#">AGB</a>
+        <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
+        <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+        <a href="#" onclick="openModal('datenschutz');return false;">Cookie-Einstellungen</a>
       </div>
     </div>
   </div>
@@ -772,5 +820,199 @@ document.addEventListener('keydown', e => {
 });
 </script>
 <script src="chatbot/chatbot.js"></script>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     LEGAL MODALS: Impressum & Datenschutzerklärung
+     ═══════════════════════════════════════════════════════════════════════ -->
+
+<!-- Impressum Modal -->
+<div class="ej-modal-overlay" id="modal-impressum" role="dialog" aria-modal="true" aria-labelledby="impressum-title" onclick="if(event.target===this)closeModal('impressum')">
+  <div class="ej-modal">
+    <div class="ej-modal-head">
+      <h3 id="impressum-title">Impressum</h3>
+      <button class="ej-modal-close" onclick="closeModal('impressum')" aria-label="Schließen">&#x2715;</button>
+    </div>
+    <div class="ej-modal-body">
+      <h4>Angaben gemäß § 5 TMG</h4>
+      <p><strong>Elit Juwelier</strong><br>
+      Elberfelder Straße 1<br>
+      58095 Hagen<br>
+      Deutschland</p>
+
+      <h4>Kontakt</h4>
+      <p>Telefon: 02331 / 5936841<br>
+      WhatsApp: 0174 / 9155488</p>
+
+      <h4>Umsatzsteuer-ID</h4>
+      <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz: auf Anfrage erhältlich.</p>
+
+      <h4>Streitschlichtung</h4>
+      <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Unsere E-Mail-Adresse finden Sie oben im Impressum. Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+      <h4>Haftung für Inhalte</h4>
+      <p>Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen.</p>
+
+      <h4>Urheberrecht</h4>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Datenschutz Modal -->
+<div class="ej-modal-overlay" id="modal-datenschutz" role="dialog" aria-modal="true" aria-labelledby="datenschutz-title" onclick="if(event.target===this)closeModal('datenschutz')">
+  <div class="ej-modal">
+    <div class="ej-modal-head">
+      <h3 id="datenschutz-title">Datenschutzerklärung</h3>
+      <button class="ej-modal-close" onclick="closeModal('datenschutz')" aria-label="Schließen">&#x2715;</button>
+    </div>
+    <div class="ej-modal-body">
+      <h4>1. Verantwortlicher</h4>
+      <p>Elit Juwelier, Elberfelder Straße 1, 58095 Hagen. Telefon: 02331 / 5936841.</p>
+
+      <h4>2. Erhebung und Verarbeitung personenbezogener Daten</h4>
+      <p>Diese Website erhebt keine personenbezogenen Daten aktiv. Es werden keine Analyse- oder Tracking-Tools eingesetzt. Keine Cookies werden ohne Ihre Einwilligung gesetzt.</p>
+
+      <h4>3. Lokale Speicherung (localStorage)</h4>
+      <p>Wir speichern Ihre Cookie-Einwilligung ausschließlich lokal in Ihrem Browser (localStorage). Diese Daten verlassen Ihr Gerät nicht und werden nicht an uns übertragen.</p>
+
+      <h4>4. Google Fonts (externe Schriftarten)</h4>
+      <p>Diese Website verwendet Schriftarten von Google Fonts, einem Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Beim Laden der Schriftarten wird Ihre IP-Adresse an Google übertragen. Dies geschieht nur mit Ihrer ausdrücklichen Einwilligung. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Datenschutzerklärung Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+
+      <h4>5. Google Maps</h4>
+      <p>Zur Darstellung unseres Standorts nutzen wir Google Maps, einen Dienst der Google Ireland Limited. Das Einbetten der Karte überträgt Ihre IP-Adresse an Google. Dies geschieht nur nach Ihrer Einwilligung durch Klick auf „Karte aktivieren". Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</p>
+
+      <h4>6. Ihre Rechte</h4>
+      <p>Sie haben das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17), Einschränkung der Verarbeitung (Art. 18), Datenübertragbarkeit (Art. 20) und Widerspruch (Art. 21 DSGVO). Zur Ausübung dieser Rechte wenden Sie sich an: 02331 / 5936841.</p>
+
+      <h4>7. Widerruf der Einwilligung / Cookie-Einstellungen</h4>
+      <p>Sie können Ihre Einwilligung jederzeit widerrufen. Klicken Sie dazu auf „Cookie-Einstellungen" im Footer.</p>
+      <p style="margin-top:16px;"><button onclick="resetConsent()" style="background:var(--gold);color:var(--ink);border:none;padding:10px 20px;border-radius:3px;font-weight:700;cursor:pointer;font-size:13px;">Cookie-Einwilligung zurücksetzen</button></p>
+
+      <h4>8. Beschwerderecht</h4>
+      <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Zuständig für NRW: Landesbeauftragte für Datenschutz und Informationsfreiheit NRW, <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">www.ldi.nrw.de</a>.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     COOKIE CONSENT BANNER
+     ═══════════════════════════════════════════════════════════════════════ -->
+<div id="ej-cb" role="dialog" aria-label="Cookie-Einstellungen" aria-live="polite">
+  <div class="ej-cb-text">
+    <strong>Datenschutzeinstellungen</strong>
+    Wir nutzen externe Dienste (Google Maps & Google Fonts). Diese übertragen Daten an Google. Mit „Alle akzeptieren" stimmen Sie zu. Details: <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.
+  </div>
+  <div class="ej-cb-btns">
+    <button class="ej-cb-btn ej-cb-essential" id="ej-cb-essential">Nur Notwendige</button>
+    <button class="ej-cb-btn ej-cb-accept" id="ej-cb-accept">Alle akzeptieren</button>
+  </div>
+</div>
+
+<script>
+// ── Cookie Consent & External Services ──────────────────────────────────────
+(function(){
+  var KEY='ej_consent_v1';
+  var MAPS='https://maps.google.com/maps?q=Elberfelder+Stra%C3%9Fe+1%2C+58095+Hagen%2C+Germany&output=embed&hl=de&z=15';
+  var FONTS='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap';
+
+  function getConsent(){
+    try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}
+    catch(e){return null;}
+  }
+  function saveConsent(ext){
+    try{localStorage.setItem(KEY,JSON.stringify({essential:true,external:ext,ts:Date.now()}));}
+    catch(e){}
+  }
+
+  function loadFonts(){
+    if(document.querySelector('link[data-ej-fonts]'))return;
+    var l=document.createElement('link');
+    l.rel='stylesheet';l.setAttribute('data-ej-fonts','1');
+    l.href=FONTS;document.head.appendChild(l);
+  }
+  function loadMap(){
+    var gate=document.getElementById('ej-map-gate');
+    var container=document.getElementById('ej-map-container');
+    if(!container)return;
+    var iframe=document.createElement('iframe');
+    iframe.src=MAPS;iframe.title='Elit Juwelier Standort';
+    iframe.setAttribute('loading','lazy');
+    iframe.style.cssText='width:100%;height:100%;border:0;display:block;min-height:580px;';
+    container.innerHTML='';
+    container.appendChild(iframe);
+  }
+  function applyExternal(){loadFonts();loadMap();}
+
+  function hideBanner(){
+    var b=document.getElementById('ej-cb');
+    if(b){b.style.transform='translateY(110%)';setTimeout(function(){b.style.display='none';},400);}
+  }
+  function showBanner(){
+    var b=document.getElementById('ej-cb');
+    if(b){b.style.display='';setTimeout(function(){b.classList.add('ej-cb-visible');},80);}
+  }
+
+  function setupMapBtn(){
+    var btn=document.getElementById('ej-map-activate');
+    if(btn){
+      btn.addEventListener('click',function(){
+        saveConsent(true);applyExternal();
+      });
+    }
+  }
+
+  // Init
+  var c=getConsent();
+  if(c){
+    if(c.external)applyExternal();
+    document.addEventListener('DOMContentLoaded',setupMapBtn);
+  } else {
+    document.addEventListener('DOMContentLoaded',function(){
+      setupMapBtn();
+      setTimeout(showBanner,700);
+    });
+  }
+
+  // Button handlers
+  document.addEventListener('DOMContentLoaded',function(){
+    var acceptBtn=document.getElementById('ej-cb-accept');
+    var essentialBtn=document.getElementById('ej-cb-essential');
+    if(acceptBtn){
+      acceptBtn.addEventListener('click',function(){
+        saveConsent(true);applyExternal();hideBanner();
+      });
+    }
+    if(essentialBtn){
+      essentialBtn.addEventListener('click',function(){
+        saveConsent(false);hideBanner();
+      });
+    }
+  });
+
+  // Expose reset function for Datenschutz modal
+  window.resetConsent=function(){
+    try{localStorage.removeItem(KEY);}catch(e){}
+    location.reload();
+  };
+})();
+
+// ── Modal helpers ────────────────────────────────────────────────────────────
+function openModal(id){
+  var m=document.getElementById('modal-'+id);
+  if(m){m.classList.add('open');document.body.style.overflow='hidden';}
+}
+function closeModal(id){
+  var m=document.getElementById('modal-'+id);
+  if(m){m.classList.remove('open');document.body.style.overflow='';}
+}
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape'){
+    document.querySelectorAll('.ej-modal-overlay.open').forEach(function(m){
+      m.classList.remove('open');
+    });
+    document.body.style.overflow='';
+  }
+});
+</script>
 </body>
 </html>
