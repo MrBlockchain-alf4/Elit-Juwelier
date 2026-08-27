@@ -1,834 +1,731 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Elit Juwelier – Schmuck, Gold & Uhren in Hagen</title>
-  <meta name="description" content="Elit Juwelier in Hagen – Premium Schmuck, Goldankauf, Uhrenservice und Ohrenlöcher stechen. Elberfelder Str. 22, 58095 Hagen.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-    html{scroll-behavior:smooth;}
-    body{font-family:'Jost',sans-serif;color:#fff;background:#0A0A0A;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-    a{text-decoration:none;color:inherit;}
-    img{display:block;max-width:100%;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Elit Juwelier — Trauringe & Verlobungsringe | Hagen</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cream:#F5F1E8;
+  --cream2:#EDE8DC;
+  --cream3:#E0D9CC;
+  --gold:#D4AF37;
+  --gold2:#B8960C;
+  --gold3:#F0D060;
+  --gold-pale:rgba(212,175,55,0.12);
+  --gold-border:rgba(212,175,55,0.30);
+  --ink:#1A1208;
+  --ink2:#3D2F0E;
+  --muted:#7A6A4F;
+  --muted2:#A08C6E;
+  --white:#FEFCF5;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Inter','Helvetica Neue',sans-serif;
+  --ease-out:cubic-bezier(0.22,1,0.36,1);
+  --shadow-gold:0 4px 24px rgba(212,175,55,0.18),0 1px 4px rgba(212,175,55,0.10);
+  --shadow-sm:0 2px 12px rgba(26,18,8,0.08),0 1px 3px rgba(26,18,8,0.05);
+  --shadow-md:0 8px 32px rgba(26,18,8,0.10),0 2px 8px rgba(26,18,8,0.06);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-height:1.6;overflow-x:hidden;}
 
-    :root{
-      --gold:      #D4AF37;
-      --gold-lt:   #E8CC60;
-      --gold-dk:   #B8960C;
-      --gold-dim:  rgba(212,175,55,0.12);
-      --gold-glow: rgba(212,175,55,0.22);
-      --black:     #0A0A0A;
-      --black-card:#141414;
-      --black-mid: #191919;
-      --black-soft:#222222;
-      --white:     #ffffff;
-      --cream:     #F5F0E8;
-      --text-lt:   rgba(255,255,255,0.62);
-      --border:    rgba(212,175,55,0.18);
-      --border-sub:rgba(255,255,255,0.07);
-    }
+/* ── NAVBAR ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(245,241,232,0.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gold-border);transition:box-shadow 0.3s;}
+.nav.scrolled{box-shadow:var(--shadow-sm);}
+.nav-inner{max-width:1280px;margin:0 auto;padding:0 32px;height:70px;display:flex;align-items:center;justify-content:space-between;gap:24px;}
+.nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-diamond{width:36px;height:36px;mix-blend-mode:multiply;filter:contrast(1.05);}
+.nav-name{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--gold2);letter-spacing:0.04em;line-height:1;white-space:nowrap;}
+.nav-name span{display:block;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted);margin-top:2px;}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none;}
+.nav-links a{font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink2);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;padding:10px 22px;border-radius:2px;text-decoration:none;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:var(--shadow-gold);}
+.nav-cta:hover{background:var(--gold2);transform:translateY(-1px);box-shadow:0 6px 28px rgba(212,175,55,0.30);}
+.nav-cta:active{transform:translateY(0);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink2);border-radius:2px;transition:transform 0.25s,opacity 0.2s;}
+.nav-mobile{display:none;position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--cream);z-index:99;flex-direction:column;padding:32px;gap:8px;}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--gold-border);}
+.nav-mobile .nav-cta{margin-top:16px;text-align:center;padding:16px;font-size:14px;}
 
-    /* ─── NAV ──────────────────────────────────────────────────── */
-    .nav{
-      position:fixed;top:0;left:0;right:0;z-index:500;
-      height:72px;display:flex;align-items:center;justify-content:space-between;
-      padding:0 52px;background:var(--black);
-      border-bottom:1px solid var(--border);
-      transition:border-color 400ms;
-    }
-    .nav-logo{display:flex;flex-direction:column;align-items:center;gap:3px;}
-    .nav-logo img{height:34px;width:auto;mix-blend-mode:screen;will-change:opacity;}
-    #nav-logo-text{
-      font-family:'Cormorant Garamond',Georgia,serif;font-size:10.5px;font-weight:600;
-      letter-spacing:0.2em;color:var(--gold);text-transform:uppercase;
-      white-space:nowrap;opacity:0;will-change:opacity;
-    }
-    .nav-links{list-style:none;display:flex;gap:32px;align-items:center;}
-    .nav-links a{
-      font-size:12px;font-weight:500;color:var(--text-lt);
-      letter-spacing:0.12em;text-transform:uppercase;
-      transition:color 200ms;
-    }
-    .nav-links a:hover{color:var(--gold);}
-    .nav-cta{
-      padding:10px 22px;background:var(--gold);color:var(--black);
-      font-size:11px;font-weight:600;border-radius:3px;
-      letter-spacing:0.1em;text-transform:uppercase;
-      transition:background 200ms,transform 160ms;cursor:pointer;
-    }
-    .nav-cta:hover{background:var(--gold-lt);transform:translateY(-1px);}
-    .nav-burger{
-      display:none;flex-direction:column;justify-content:center;gap:5px;
-      background:none;border:none;cursor:pointer;padding:8px;width:44px;height:44px;
-    }
-    .nav-burger span{display:block;width:22px;height:1.5px;background:var(--gold);transition:transform 220ms,opacity 180ms;}
-    .nav-burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
-    .nav-burger.open span:nth-child(2){opacity:0;}
-    .nav-burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+/* ── HERO ── */
+.hero{min-height:100vh;padding-top:70px;display:grid;grid-template-columns:1fr 1fr;align-items:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 80% at 20% 50%,rgba(212,175,55,0.08) 0%,transparent 70%),
+  radial-gradient(ellipse 50% 60% at 80% 20%,rgba(212,175,55,0.05) 0%,transparent 60%);pointer-events:none;}
+.hero-left{padding:80px 64px 80px 80px;position:relative;z-index:1;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.20em;text-transform:uppercase;color:var(--gold2);margin-bottom:24px;}
+.hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.hero-h1{font-family:var(--serif);font-size:clamp(42px,4.5vw,68px);font-weight:800;line-height:1.08;letter-spacing:-0.02em;color:var(--ink);margin-bottom:8px;}
+.hero-h1 em{font-style:italic;color:var(--gold);}
+.hero-subtitle{font-family:var(--serif);font-size:clamp(16px,1.5vw,22px);font-weight:400;font-style:italic;color:var(--muted);margin-bottom:32px;line-height:1.4;}
+.hero-desc{font-size:15px;color:var(--ink2);line-height:1.75;margin-bottom:40px;max-width:440px;}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+.hero-chip{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold2);background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:2px;padding:6px 12px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:15px 32px;border-radius:2px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:var(--shadow-gold);}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,0.28);}
+.btn-primary:active{transform:translateY(0);}
+.btn-secondary{background:transparent;color:var(--ink2);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:14px 30px;border-radius:2px;text-decoration:none;border:1.5px solid var(--gold-border);display:inline-flex;align-items:center;gap:8px;transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.btn-secondary:hover{border-color:var(--gold);color:var(--gold2);background:var(--gold-pale);}
+.hero-badge{position:absolute;bottom:80px;right:80px;width:90px;height:90px;border-radius:50%;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-gold);animation:badge-pulse 3s ease-in-out infinite;}
+.hero-badge-num{font-family:var(--serif);font-size:28px;font-weight:800;color:var(--ink);line-height:1;}
+.hero-badge-txt{font-family:var(--sans);font-size:7px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink2);text-align:center;line-height:1.2;}
+@keyframes badge-pulse{0%,100%{transform:scale(1);box-shadow:0 4px 24px rgba(212,175,55,0.18),0 0 0 0 rgba(212,175,55,0.30);}50%{transform:scale(1.04);box-shadow:0 4px 24px rgba(212,175,55,0.25),0 0 0 8px rgba(212,175,55,0.08);}}
+.hero-right{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.hero-img-wrap{position:relative;width:580px;height:680px;border-radius:4px 120px 4px 120px;overflow:hidden;box-shadow:0 24px 80px rgba(26,18,8,0.20),0 4px 16px rgba(26,18,8,0.10);}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s var(--ease-out);}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(212,175,55,0.08) 0%,rgba(0,0,0,0.18) 100%);pointer-events:none;}
+.hero-img-frame{position:absolute;top:-16px;right:-16px;bottom:16px;left:16px;border:1.5px solid var(--gold-border);border-radius:4px 120px 4px 120px;pointer-events:none;}
+.hero-float-card{position:absolute;bottom:80px;left:24px;background:var(--white);border:1px solid var(--gold-border);border-radius:4px;padding:16px 20px;box-shadow:var(--shadow-md);min-width:160px;}
+.hero-float-card .card-label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.hero-float-card .card-val{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--gold2);line-height:1;}
+.hero-float-card .card-sub{font-size:11px;color:var(--muted2);margin-top:2px;}
 
-    /* ─── HERO (ANIMATED) ──────────────────────────────────────── */
-    .hero-wrapper{height:220vh;position:relative;}
-    .hero-sticky{
-      position:sticky;top:0;height:100vh;
-      overflow:hidden;background:var(--black);
-    }
+/* ── STATS BAR ── */
+.stats{background:var(--gold);padding:20px 32px;}
+.stats-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
+.stat-item{display:flex;align-items:center;gap:12px;padding:8px 40px;border-right:1px solid rgba(26,18,8,0.20);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--serif);font-size:28px;font-weight:800;color:var(--ink);line-height:1;}
+.stat-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink2);line-height:1.3;}
 
-    /* Splash layer */
-    .hero-splash{
-      position:absolute;inset:0;
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      z-index:3;
-      opacity:0;transform:scale(0.88) translateY(24px);
-      will-change:opacity,transform;
-    }
-    @keyframes splashIn{
-      from{opacity:0;transform:scale(0.88);}
-      to{opacity:1;transform:scale(1);}
-    }
-    .splash-icon{
-      width:min(160px,26vw);height:auto;
-      mix-blend-mode:screen;
-      filter:drop-shadow(0 0 50px rgba(212,175,55,0.45));
-    }
-    .splash-brand-name{
-      margin-top:20px;
-      font-family:'Cormorant Garamond',Georgia,serif;
-      font-size:clamp(40px,5.5vw,72px);font-weight:600;
-      letter-spacing:0.22em;text-transform:uppercase;
-      color:var(--gold);
-      filter:drop-shadow(0 0 30px rgba(212,175,55,0.25));
-    }
-    .splash-lines{
-      display:flex;align-items:center;gap:20px;margin-top:28px;
-      animation:splashLinesIn 1.8s 0.6s cubic-bezier(0.16,1,0.3,1) both;
-    }
-    @keyframes splashLinesIn{
-      from{opacity:0;transform:scaleX(0.3);}
-      to{opacity:1;transform:scaleX(1);}
-    }
-    .splash-line{height:1px;width:120px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
-    .splash-diamond{width:6px;height:6px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
-    .splash-tagline{
-      margin-top:18px;font-family:'Cormorant Garamond',serif;
-      font-size:14px;font-weight:300;letter-spacing:0.4em;text-transform:uppercase;
-      color:var(--gold);opacity:0.8;
-      animation:splashLinesIn 2s 1s both;
-    }
-    @keyframes splashFadeIn{from{opacity:0;}to{opacity:1;}}
-    .splash-scroll-hint{
-      position:absolute;bottom:40px;left:0;right:0;
-      display:flex;flex-direction:column;align-items:center;gap:8px;
-      animation:splashFadeIn 2s 1.8s both;
-    }
-    .splash-scroll-text{font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--text-lt);}
-    .scroll-arrow{width:1px;height:32px;background:linear-gradient(to bottom,var(--gold),transparent);animation:scrollBounce 2s infinite;}
-    @keyframes scrollBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(8px);}}
+/* ── SECTION GENERIC ── */
+.section{padding:100px 32px;}
+.section-inner{max-width:1280px;margin:0 auto;}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.section-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--gold);}
+.section-h2{font-family:var(--serif);font-size:clamp(36px,3.5vw,52px);font-weight:800;color:var(--ink);letter-spacing:-0.02em;line-height:1.10;margin-bottom:16px;}
+.section-h2 em{font-style:italic;color:var(--gold);}
+.section-lead{font-size:16px;color:var(--muted);line-height:1.75;max-width:560px;}
 
-    /* Hero content layer */
-    .hero-content{
-      position:absolute;inset:0;z-index:2;
-      display:grid;grid-template-columns:1fr 1fr;
-      align-items:center;padding:0 80px;gap:60px;
-      padding-top:72px;
-      opacity:0;
-      pointer-events:none;
-    }
-    .hero-content.active{pointer-events:auto;}
-    .hero-left{}
-    .hero-eyebrow{
-      font-size:10px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;
-      color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:14px;
-    }
-    .hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);opacity:0.5;}
-    .hero-h1{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(36px,4.5vw,62px);font-weight:400;
-      line-height:1.1;letter-spacing:-0.01em;color:#fff;
-      margin-bottom:20px;
-    }
-    .hero-h1 em{font-style:italic;color:var(--gold);}
-    .hero-desc{
-      font-size:15px;font-weight:300;line-height:1.8;color:var(--text-lt);
-      max-width:440px;margin-bottom:36px;
-    }
-    .hero-actions{display:flex;gap:14px;flex-wrap:wrap;}
-    .btn-gold{
-      display:inline-block;padding:14px 32px;background:var(--gold);color:var(--black);
-      font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
-      border-radius:2px;transition:background 200ms,transform 160ms;cursor:pointer;
-    }
-    .btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);}
-    .btn-outline-gold{
-      display:inline-block;padding:13px 28px;border:1px solid var(--gold);color:var(--gold);
-      font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
-      border-radius:2px;transition:background 200ms,color 200ms;
-    }
-    .btn-outline-gold:hover{background:var(--gold-dim);}
-    .hero-right{position:relative;}
-    .hero-img-wrap{
-      position:relative;border-radius:2px;overflow:hidden;
-      aspect-ratio:4/5;
-    }
-    .hero-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
-    .hero-img-wrap::before{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(135deg,rgba(212,175,55,0.12) 0%,transparent 60%);
-      z-index:1;pointer-events:none;
-    }
-    .hero-img-border{
-      position:absolute;top:16px;left:16px;right:-16px;bottom:-16px;
-      border:1px solid var(--border);border-radius:2px;z-index:-1;
-    }
+/* ── SERVICES ── */
+.services-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:20px;margin-top:56px;}
+.svc-card{background:var(--white);border:1px solid var(--gold-border);border-radius:4px;padding:40px;position:relative;overflow:hidden;transition:transform 0.25s var(--ease-out),box-shadow 0.25s;}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.svc-card.featured{background:var(--ink);border-color:var(--gold);grid-column:1;grid-row:1 / span 2;}
+.svc-card.featured .svc-icon{color:var(--gold);}
+.svc-card.featured .svc-title{color:var(--white);}
+.svc-card.featured .svc-desc{color:var(--muted2);}
+.svc-card.featured .svc-link{color:var(--gold);}
+.svc-card.featured::before{content:'GOLDANKAUF';position:absolute;top:24px;right:24px;font-size:9px;font-weight:700;letter-spacing:0.20em;color:var(--gold);background:rgba(212,175,55,0.15);padding:4px 10px;border-radius:2px;border:1px solid rgba(212,175,55,0.30);}
+.svc-icon{font-size:36px;margin-bottom:20px;display:block;}
+.svc-title{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.2;}
+.svc-desc{font-size:14px;color:var(--muted);line-height:1.70;margin-bottom:24px;}
+.svc-link{font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--gold2);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s;}
+.svc-link:hover{gap:10px;}
+.svc-card.featured .svc-cta{display:inline-block;margin-top:8px;background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:13px 28px;border-radius:2px;text-decoration:none;transition:background 0.2s,transform 0.15s;}
+.svc-card.featured .svc-cta:hover{background:var(--gold3);transform:translateY(-1px);}
 
-    /* Grain texture overlay on hero */
-    .hero-grain{
-      position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0.025;
-      background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-size:200px 200px;
-    }
+/* ── GALLERY ── */
+.gallery{padding:100px 32px;background:var(--cream2);}
+.gallery-inner{max-width:1360px;margin:0 auto;}
+.gallery-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:40px;gap:24px;flex-wrap:wrap;}
+.gallery-filters{display:flex;gap:8px;flex-wrap:wrap;}
+.gf-btn{background:transparent;border:1.5px solid var(--gold-border);color:var(--muted);font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;padding:8px 18px;border-radius:2px;cursor:pointer;transition:all 0.2s;}
+.gf-btn.active,.gf-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.g-item{position:relative;overflow:hidden;border-radius:2px;cursor:pointer;background:var(--cream3);}
+.g-item:nth-child(3n+1){grid-row:span 2;}
+.g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s var(--ease-out);}
+.g-item:hover img{transform:scale(1.06);}
+.g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,0.70) 0%,rgba(212,175,55,0.10) 100%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:20px;}
+.g-item:hover .g-overlay{opacity:1;}
+.g-overlay-text{color:#fff;font-family:var(--serif);font-size:16px;font-weight:600;transform:translateY(8px);transition:transform 0.3s;}
+.g-item:hover .g-overlay-text{transform:translateY(0);}
 
-    /* ─── ABOUT ─────────────────────────────────────────────────── */
-    .about{padding:120px 80px;background:var(--black);}
-    .about-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-    .sec-eyebrow{
-      font-size:9px;font-weight:600;letter-spacing:0.4em;text-transform:uppercase;
-      color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:12px;
-    }
-    .sec-eyebrow::after{content:'';height:1px;width:40px;background:var(--gold);opacity:0.4;}
-    .sec-h2{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(30px,3.5vw,48px);font-weight:400;
-      line-height:1.15;letter-spacing:-0.01em;color:#fff;
-    }
-    .sec-h2 em{font-style:italic;color:var(--gold);}
-    .about-p{font-size:14px;font-weight:300;line-height:1.9;color:var(--text-lt);margin-top:16px;}
-    .about-gold-rule{
-      display:flex;align-items:center;gap:14px;margin:28px 0;
-    }
-    .about-gold-rule span{height:1px;flex:1;background:linear-gradient(90deg,var(--gold),transparent);opacity:0.4;}
-    .about-gold-rule em{font-family:'Cormorant Garamond',serif;font-size:16px;font-style:italic;color:var(--gold);}
-    .about-stats{display:flex;gap:36px;margin-top:28px;padding-top:24px;border-top:1px solid var(--border-sub);}
-    .about-stat-num{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:600;color:var(--gold);line-height:1;}
-    .about-stat-lbl{font-size:10px;font-weight:400;color:var(--text-lt);letter-spacing:0.12em;text-transform:uppercase;margin-top:4px;}
-    .about-img-wrap{position:relative;}
-    .about-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px;display:block;}
-    .about-img-frame{position:absolute;top:20px;left:-20px;right:20px;bottom:-20px;border:1px solid var(--border);border-radius:2px;z-index:-1;}
-    .about-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.5) 0%,transparent 50%);border-radius:2px;}
+/* ── LIGHTBOX ── */
+.lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(26,18,8,0.90);align-items:center;justify-content:center;}
+.lightbox.open{display:flex;}
+.lightbox-img{max-width:90vw;max-height:90vh;border-radius:2px;box-shadow:0 32px 80px rgba(0,0,0,0.50);}
+.lightbox-close{position:absolute;top:24px;right:32px;font-size:32px;color:#fff;cursor:pointer;background:none;border:none;line-height:1;transition:color 0.2s;font-family:var(--sans);}
+.lightbox-close:hover{color:var(--gold);}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(212,175,55,0.20);border:1px solid var(--gold-border);color:#fff;border-radius:2px;padding:12px 16px;font-size:20px;cursor:pointer;transition:background 0.2s;user-select:none;}
+.lb-prev{left:24px;}
+.lb-next{right:24px;}
+.lb-nav:hover{background:var(--gold);}
 
-    /* ─── SERVICES ──────────────────────────────────────────────── */
-    .services{padding:120px 80px;background:var(--black-mid);}
-    .services-inner{max-width:1240px;margin:0 auto;}
-    .services-head{text-align:center;margin-bottom:72px;}
-    .srv-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);}
-    .srv-card{
-      background:var(--black-card);padding:48px 32px;
-      position:relative;overflow:hidden;
-      transition:background 280ms;
-    }
-    .srv-card::before{
-      content:'';position:absolute;top:0;left:0;right:0;height:2px;
-      background:var(--gold);transform:scaleX(0);transform-origin:left;
-      transition:transform 380ms cubic-bezier(0.16,1,0.3,1);
-    }
-    .srv-card:hover{background:var(--black-soft);}
-    .srv-card:hover::before{transform:scaleX(1);}
-    .srv-icon{
-      width:48px;height:48px;margin-bottom:24px;
-      display:flex;align-items:center;justify-content:center;
-      border:1px solid var(--border);border-radius:2px;background:var(--gold-dim);
-    }
-    .srv-icon svg{width:22px;height:22px;stroke:var(--gold);}
-    .srv-name{
-      font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;
-      color:#fff;margin-bottom:12px;line-height:1.2;
-    }
-    .srv-desc{font-size:13px;font-weight:300;line-height:1.8;color:var(--text-lt);}
-    .srv-num{
-      position:absolute;top:28px;right:28px;
-      font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;
-      color:rgba(212,175,55,0.06);line-height:1;
-    }
+/* ── ABOUT ── */
+.about{padding:100px 32px;background:var(--white);}
+.about-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.about-img-wrap{position:relative;}
+.about-img-main{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px 80px 4px 80px;display:block;box-shadow:var(--shadow-md);}
+.about-deco{position:absolute;bottom:-24px;right:-24px;width:200px;height:200px;border:2px solid var(--gold-border);border-radius:4px 60px 4px 60px;z-index:-1;}
+.about-stamp{position:absolute;top:24px;right:-32px;width:100px;height:100px;border-radius:50%;background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-gold);}
+.about-stamp-num{font-family:var(--serif);font-size:30px;font-weight:800;color:var(--ink);line-height:1;}
+.about-stamp-txt{font-size:8px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--ink2);text-align:center;line-height:1.3;}
+.about-text .section-h2{max-width:440px;}
+.about-text p{font-size:15px;color:var(--ink2);line-height:1.80;margin-bottom:20px;}
+.about-features{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+.about-feat{display:flex;align-items:flex-start;gap:12px;}
+.about-feat-icon{width:36px;height:36px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.about-feat-text strong{display:block;font-family:var(--serif);font-size:14px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.about-feat-text span{font-size:12px;color:var(--muted);}
 
-    /* ─── COLLECTION ────────────────────────────────────────────── */
-    .collection{padding:120px 80px;background:var(--black);}
-    .collection-inner{max-width:1240px;margin:0 auto;}
-    .collection-head{text-align:center;margin-bottom:60px;}
-    .collection-img-wrap{
-      position:relative;overflow:hidden;border-radius:2px;
-      border:1px solid var(--border);
-    }
-    .collection-img-wrap img{width:100%;max-height:560px;object-fit:cover;display:block;}
-    .collection-img-wrap::after{
-      content:'';position:absolute;inset:0;
-      background:linear-gradient(to top,rgba(10,10,10,0.6) 0%,transparent 40%);
-    }
-    .collection-caption{
-      position:absolute;bottom:0;left:0;right:0;z-index:1;
-      padding:48px 52px;
-      display:flex;align-items:flex-end;justify-content:space-between;
-    }
-    .collection-caption-text{}
-    .collection-caption h3{
-      font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;
-      color:#fff;letter-spacing:0.02em;margin-bottom:4px;
-    }
-    .collection-caption p{font-size:12px;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;}
+/* ── GOLDANKAUF SECTION ── */
+.goldankauf{padding:100px 32px;background:var(--ink);position:relative;overflow:hidden;}
+.goldankauf::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 60% 60% at 20% 50%,rgba(212,175,55,0.08) 0%,transparent 70%),
+  radial-gradient(ellipse 40% 40% at 80% 30%,rgba(212,175,55,0.05) 0%,transparent 60%);pointer-events:none;}
+.goldankauf-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;}
+.ga-left .section-eyebrow{color:var(--gold);}
+.ga-left .section-eyebrow::before{background:var(--gold);}
+.ga-left .section-h2{color:var(--white);}
+.ga-left p{font-size:15px;color:var(--muted2);line-height:1.80;margin-bottom:20px;}
+.ga-cta{background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:15px 32px;border-radius:2px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background 0.2s,transform 0.15s;box-shadow:0 4px 24px rgba(212,175,55,0.30);margin-top:8px;}
+.ga-cta:hover{background:var(--gold3);transform:translateY(-2px);}
+.ga-right{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ga-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.20);border-radius:4px;padding:28px 24px;}
+.ga-card-icon{font-size:28px;margin-bottom:12px;display:block;}
+.ga-card-title{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px;}
+.ga-card-desc{font-size:13px;color:var(--muted2);line-height:1.60;}
 
-    /* ─── TESTIMONIALS ──────────────────────────────────────────── */
-    .testimonial{padding:120px 80px;background:var(--black-mid);border-top:1px solid var(--border-sub);}
-    .testimonial-inner{max-width:860px;margin:0 auto;text-align:center;}
-    .t-eyebrow{font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:10px;}
-    .t-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3vw,34px);font-weight:300;color:#fff;margin-bottom:52px;}
-    .t-stars{font-size:18px;color:var(--gold);letter-spacing:4px;margin-bottom:28px;}
-    @keyframes tcFade{from{opacity:0;}to{opacity:1;}}
-    .tc-outer{display:flex;align-items:center;gap:16px;}
-    .t-carousel{flex:1;min-height:140px;}
-    .t-slide{display:none;}
-    .t-slide.tc-on{display:block;animation:tcFade 0.35s ease;}
-    .tc-arr{
-      width:44px;height:44px;border-radius:50%;flex-shrink:0;user-select:none;
-      border:1px solid var(--border);background:transparent;cursor:pointer;
-      color:var(--gold);font-size:22px;font-family:serif;
-      display:flex;align-items:center;justify-content:center;
-      transition:background 200ms,border-color 200ms;
-    }
-    .tc-arr:hover{background:var(--gold-dim);border-color:var(--gold);}
-    .tc-arr:active{transform:scale(0.92);}
-    .t-dots{display:flex;gap:8px;justify-content:center;margin-top:28px;}
-    .t-dot{width:5px;height:5px;border-radius:50%;background:rgba(212,175,55,0.25);border:none;padding:0;cursor:pointer;transition:background 250ms;}
-    .t-dot.tc-dot-on{background:var(--gold);}
-    .t-quote{
-      font-family:'Cormorant Garamond',serif;
-      font-size:clamp(18px,2.2vw,24px);font-weight:300;font-style:italic;
-      color:rgba(255,255,255,0.92);line-height:1.65;margin-bottom:22px;
-    }
-    .t-author{font-size:11px;font-weight:500;color:var(--gold);letter-spacing:0.2em;text-transform:uppercase;}
+/* ── CONTACT ── */
+.contact{padding:100px 32px;background:var(--cream);}
+.contact-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.contact-info-list{margin-top:36px;display:flex;flex-direction:column;gap:20px;}
+.ci-item{display:flex;align-items:flex-start;gap:16px;}
+.ci-icon{width:44px;height:44px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.ci-content strong{display:block;font-family:var(--serif);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.ci-content span,.ci-content a{font-size:14px;color:var(--muted);text-decoration:none;display:block;line-height:1.5;transition:color 0.2s;}
+.ci-content a:hover{color:var(--gold2);}
+.contact-form{background:var(--white);border:1px solid var(--gold-border);border-radius:4px;padding:48px;}
+.form-h3{font-family:var(--serif);font-size:26px;font-weight:700;color:var(--ink);margin-bottom:8px;}
+.form-lead{font-size:14px;color:var(--muted);margin-bottom:32px;line-height:1.5;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;background:var(--cream);border:1.5px solid var(--gold-border);border-radius:2px;padding:12px 16px;font-family:var(--sans);font-size:14px;color:var(--ink);outline:none;transition:border-color 0.2s,box-shadow 0.2s;}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,0.12);}
+.form-group textarea{height:120px;resize:vertical;}
+.form-group select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A6A4F' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
+.form-submit{width:100%;background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:15px 32px;border-radius:2px;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s;box-shadow:var(--shadow-gold);}
+.form-submit:hover{background:var(--gold2);transform:translateY(-1px);}
+.form-submit:active{transform:translateY(0);}
 
-    /* ─── LOCATION ──────────────────────────────────────────────── */
-    .location{padding:100px 80px;background:var(--black);}
-    .location-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:stretch;}
-    .location-h2{color:#fff;margin-bottom:32px;}
-    .info-lbl{font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-    .info-val{font-size:14px;font-weight:300;line-height:1.7;color:var(--text-lt);}
-    .info-val a{color:var(--gold);transition:opacity 180ms;}
-    .info-val a:hover{opacity:0.7;}
-    .info-block{margin-bottom:22px;}
-    .hours-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border-sub);font-size:13px;}
-    .hours-row:last-child{border-bottom:none;}
-    .hours-day{color:var(--text-lt);font-weight:300;}
-    .hours-time{color:#fff;font-weight:400;}
-    .hours-closed{color:rgba(255,255,255,0.3);}
-    .hours-today{padding-left:10px;margin:0 -10px;background:var(--gold-dim);border-radius:2px;}
-    .hours-today .hours-day{color:var(--gold);}
-    .hours-status{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:2px 8px;border-radius:20px;margin-left:8px;vertical-align:middle;}
-    .hours-status.open{background:rgba(212,175,55,0.15);color:var(--gold);}
-    .hours-status.closed{background:rgba(220,38,38,0.12);color:#ef4444;}
-    .loc-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
-    .loc-map{border-radius:2px;overflow:hidden;border:1px solid var(--border);min-height:380px;}
-    .loc-map iframe{width:100%;height:100%;display:block;border:0;filter:invert(0.9) hue-rotate(180deg);}
+/* ── FOOTER ── */
+.footer{background:var(--ink);padding:64px 32px 32px;}
+.footer-inner{max-width:1280px;margin:0 auto;}
+.footer-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.footer-diamond{width:32px;height:32px;mix-blend-mode:screen;opacity:0.9;}
+.footer-brand-name{font-family:var(--serif);font-size:18px;font-weight:700;color:var(--gold);letter-spacing:0.04em;}
+.footer-brand-name span{display:block;font-family:var(--sans);font-size:8px;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--muted2);margin-top:2px;}
+.footer-tagline{font-size:13px;color:var(--muted2);line-height:1.70;margin-bottom:24px;}
+.footer-social{display:flex;gap:10px;}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(212,175,55,0.25);border-radius:2px;display:flex;align-items:center;justify-content:center;color:var(--muted2);font-size:14px;text-decoration:none;transition:border-color 0.2s,color 0.2s,background 0.2s;}
+.footer-social a:hover{border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,0.08);}
+.footer-col h4{font-family:var(--serif);font-size:14px;font-weight:700;color:var(--white);margin-bottom:16px;letter-spacing:0.02em;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.footer-col ul a{font-size:13px;color:var(--muted2);text-decoration:none;transition:color 0.2s;}
+.footer-col ul a:hover{color:var(--gold);}
+.footer-divider{height:1px;background:rgba(212,175,55,0.15);margin-bottom:24px;}
+.footer-bottom{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.footer-copy{font-size:12px;color:var(--muted2);}
+.footer-legal{display:flex;gap:20px;}
+.footer-legal a{font-size:12px;color:var(--muted2);text-decoration:none;transition:color 0.2s;}
+.footer-legal a:hover{color:var(--gold);}
 
-    /* ─── FOOTER ────────────────────────────────────────────────── */
-    .footer{background:var(--black);border-top:1px solid var(--border);padding:72px 80px 32px;}
-    .footer-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:60px;padding-bottom:52px;border-bottom:1px solid var(--border-sub);}
-    .footer-logo img{height:52px;width:auto;mix-blend-mode:screen;margin-bottom:16px;}
-    .footer-desc{font-size:13px;font-weight:300;line-height:1.8;color:var(--text-lt);max-width:280px;}
-    .footer-col-title{font-size:9px;font-weight:600;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
-    .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
-    .footer-links a{font-size:13px;font-weight:300;color:var(--text-lt);transition:color 180ms;}
-    .footer-links a:hover{color:var(--gold);}
-    .footer-contact-item{font-size:13px;font-weight:300;color:var(--text-lt);margin-bottom:10px;line-height:1.6;}
-    .footer-contact-item a{color:var(--text-lt);transition:color 180ms;}
-    .footer-contact-item a:hover{color:var(--gold);}
-    .footer-bottom{max-width:1240px;margin:0 auto;padding-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(255,255,255,0.2);flex-wrap:wrap;gap:12px;}
-    .footer-bottom a{color:rgba(255,255,255,0.2);transition:color 180ms;}
-    .footer-bottom a:hover{color:var(--gold);}
+/* ── ANIMATIONS ── */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);}
+.fade-up.visible{opacity:1;transform:translateY(0);}
 
-    /* ─── MOBILE ────────────────────────────────────────────────── */
-    @media(max-width:900px){
-      .hero-content{grid-template-columns:1fr;padding:72px 32px 32px;justify-items:center;text-align:center;}
-      .hero-right{display:none;}
-      .hero-eyebrow{justify-content:center;}
-      .hero-actions{justify-content:center;}
-      .hero-desc{margin-left:auto;margin-right:auto;}
-    }
-    @media(max-width:768px){
-      .nav{padding:0 20px;height:64px;}
-      .nav-burger{display:flex;}
-      .nav-links{
-        display:none;flex-direction:column;gap:0;position:fixed;
-        top:64px;left:0;right:0;background:var(--black);
-        border-bottom:1px solid var(--border);padding:8px 20px 20px;z-index:490;
-      }
-      .nav-links.open{display:flex;}
-      .nav-links li{border-bottom:1px solid var(--border-sub);}
-      .nav-links li:last-child{border-bottom:none;padding-top:8px;}
-      .nav-links a{display:block;padding:14px 0;font-size:13px;}
-      .nav-links a.nav-cta{width:100%;text-align:center;padding:14px;border-radius:2px;}
-      .about,.services,.collection,.testimonial,.location,.footer{padding-left:20px;padding-right:20px;}
-      .about{padding-top:72px;padding-bottom:72px;}
-      .about-inner{grid-template-columns:1fr;gap:40px;}
-      .about-img-wrap{order:-1;}
-      .services{padding-top:72px;padding-bottom:72px;}
-      .srv-grid{grid-template-columns:1fr 1fr;}
-      .collection{padding-top:72px;padding-bottom:72px;}
-      .collection-caption{padding:24px;}
-      .collection-caption h3{font-size:22px;}
-      .testimonial{padding-top:72px;padding-bottom:72px;}
-      .location{padding-top:72px;padding-bottom:72px;}
-      .location-inner{grid-template-columns:1fr;gap:36px;}
-      .loc-map{height:260px;min-height:unset;}
-      .footer{padding-top:52px;padding-bottom:24px;}
-      .footer-inner{grid-template-columns:1fr;gap:32px;}
-      .footer-bottom{flex-direction:column;align-items:flex-start;}
-      /* hero mobile */
-      .hero-wrapper{height:180vh;}
-      .splash-icon{width:64px;}
-      .splash-brand-name{font-size:26px;letter-spacing:0.12em;margin-top:10px;}
-      .splash-tagline{font-size:10px;letter-spacing:0.22em;margin-top:10px;}
-      .splash-lines{margin-top:14px;}
-      .splash-line{width:56px;}
-      .hero-content{padding:64px 20px 20px;}
-      .hero-h1{font-size:clamp(28px,8vw,44px);}
-    }
-    @media(max-width:480px){
-      .srv-grid{grid-template-columns:1fr;}
-      .about-stats{flex-direction:column;gap:16px;}
-    }
-  </style>
+/* ── RESPONSIVE ── */
+@media(max-width:1100px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{padding:60px 40px;text-align:center;}
+  .hero-eyebrow{justify-content:center;}
+  .hero-btns{justify-content:center;}
+  .hero-chips{justify-content:center;}
+  .hero-badge{right:50%;transform:translateX(50%);bottom:24px;}
+  .about-inner{grid-template-columns:1fr;gap:48px;}
+  .about-img-wrap{max-width:480px;margin:0 auto;}
+  .goldankauf-inner{grid-template-columns:1fr;gap:48px;}
+  .contact-inner{grid-template-columns:1fr;gap:48px;}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px;}
+}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none;}
+  .nav-hamburger{display:flex;}
+  .hero-left{padding:48px 24px;}
+  .section{padding:72px 24px;}
+  .services-grid{grid-template-columns:1fr;}
+  .svc-card.featured{grid-column:auto;grid-row:auto;}
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .g-item:nth-child(3n+1){grid-row:span 1;}
+  .ga-right{grid-template-columns:1fr;}
+  .form-row{grid-template-columns:1fr;}
+  .footer-top{grid-template-columns:1fr;}
+  .stats-inner{gap:0;}
+  .stat-item{padding:8px 20px;border-right:none;border-bottom:1px solid rgba(26,18,8,0.20);}
+  .stat-item:last-child{border-bottom:none;}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr 1fr;}
+  .hero-h1{font-size:36px;}
+  .contact-form{padding:32px 24px;}
+  .hero-badge{width:72px;height:72px;}
+  .hero-badge-num{font-size:22px;}
+}
+</style>
 </head>
 <body>
 
-<!-- ═══ NAV ══════════════════════════════════════════════════════ -->
+<!-- NAVBAR -->
 <nav class="nav" id="nav">
-  <div class="nav-logo" onclick="window.scrollTo({top:0,behavior:'smooth'})" style="cursor:pointer;opacity:1;transition:opacity 200ms;" onmouseenter="this.style.opacity='0.75'" onmouseleave="this.style.opacity='1'">
-    <img id="nav-logo-icon" src="public/images/elit-logo.png" alt="Elit Juwelier">
-    <span id="nav-logo-text">Elit Juwelier</span>
-  </div>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="#about" onclick="closeMenu()">Über uns</a></li>
-    <li><a href="#services" onclick="closeMenu()">Kollektion</a></li>
-    <li><a href="#services" onclick="closeMenu()">Dienstleistungen</a></li>
-    <li><a href="#location" onclick="closeMenu()">Kontakt</a></li>
-    <li><a href="javascript:void(0)" class="nav-cta" onclick="closeMenu();if(window.ejCbOpen)window.ejCbOpen()">Termin anfragen</a></li>
-  </ul>
-  <button class="nav-burger" id="nav-burger" aria-label="Menü" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<script>
-  var nb=document.getElementById('nav-burger'),nl=document.getElementById('nav-links');
-  nb.addEventListener('click',function(){var o=nl.classList.toggle('open');nb.classList.toggle('open',o);nb.setAttribute('aria-expanded',o);});
-  function closeMenu(){nl.classList.remove('open');nb.classList.remove('open');nb.setAttribute('aria-expanded','false');}
-</script>
-
-<!-- ═══ HERO (ANIMATED) ════════════════════════════════════════ -->
-<div class="hero-wrapper" id="hero-wrapper">
-  <div class="hero-sticky" id="hero-sticky">
-    <div class="hero-grain"></div>
-
-    <!-- Splash -->
-    <div class="hero-splash" id="hero-splash">
-      <img src="public/images/elit-logo.png" class="splash-icon" alt="Elit Juwelier">
-      <div class="splash-brand-name">Elit Juwelier</div>
-      <div class="splash-lines">
-        <div class="splash-line"></div>
-        <div class="splash-diamond"></div>
-        <div class="splash-line" style="transform:scaleX(-1);"></div>
+  <div class="nav-inner">
+    <a class="nav-brand" href="#">
+      <img class="nav-diamond" src="public/images/elit-logo.png" alt="Elit Juwelier">
+      <div class="nav-name">
+        Elit Juwelier
+        <span>Hagen · Seit 1999</span>
       </div>
-      <div class="splash-tagline">Hagen · Schmuck · Gold · Uhren</div>
-      <div class="splash-scroll-hint">
-        <span class="splash-scroll-text">Scrollen</span>
-        <div class="scroll-arrow"></div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#kollekton">Kollektion</a></li>
+      <li><a href="#leistungen">Leistungen</a></li>
+      <li><a href="#goldankauf-section">Goldankauf</a></li>
+      <li><a href="#ueber-uns">Über Uns</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+    <a class="nav-cta" href="#kontakt">Termin anfragen</a>
+    <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()" role="button" aria-label="Menü">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="#kollekton" onclick="toggleMobileNav()">Kollektion</a>
+  <a href="#leistungen" onclick="toggleMobileNav()">Leistungen</a>
+  <a href="#goldankauf-section" onclick="toggleMobileNav()">Goldankauf</a>
+  <a href="#ueber-uns" onclick="toggleMobileNav()">Über Uns</a>
+  <a href="#kontakt" onclick="toggleMobileNav()">Kontakt</a>
+  <a href="#kontakt" class="nav-cta" onclick="toggleMobileNav()">Termin anfragen</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Seit 1999 · 25 Jahre Erfahrung</div>
+    <h1 class="hero-h1">Trauringe &amp;<br><em>Verlobungsringe</em></h1>
+    <p class="hero-subtitle">Wo Liebe Form annimmt.</p>
+    <p class="hero-desc">Handgefertigte Eheringe und Verlobungsringe in Gold, Weißgold und Platin — mit echten Diamanten, Labdiamanten und Zirkonia-Steinen. Persönliche Beratung in Hagen seit 25 Jahren.</p>
+    <div class="hero-chips">
+      <span class="hero-chip">585er &amp; 750er Gold</span>
+      <span class="hero-chip">Diamanten &amp; Labdiamanten</span>
+      <span class="hero-chip">Zirkonia-Steine</span>
+      <span class="hero-chip">Individuelle Gravur</span>
+    </div>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#kontakt">Termin anfragen →</a>
+      <a class="btn-secondary" href="#kollekton">Kollektion ansehen</a>
+    </div>
+    <div class="hero-badge">
+      <span class="hero-badge-num">25</span>
+      <span class="hero-badge-txt">Jahre<br>Erfahrung</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="public/images/elit-1.png" alt="Goldschmuck — Elit Juwelier" loading="eager">
+    </div>
+    <div class="hero-img-frame"></div>
+    <div class="hero-float-card">
+      <div class="card-label">Goldankauf</div>
+      <div class="card-val">Faire Preise</div>
+      <div class="card-sub">Sofortauszahlung</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <div>
+        <div class="stat-num">25+</div>
+        <div class="stat-label">Jahre Erfahrung</div>
       </div>
     </div>
-
-    <!-- Content -->
-    <div class="hero-content" id="hero-content">
-      <div class="hero-left">
-        <div class="hero-eyebrow">Exklusiver Schmuck in Hagen</div>
-        <h1 class="hero-h1">Schmuck, der<br>Ihre <em>Geschichte</em><br>erzählt</h1>
-        <p class="hero-desc">
-          Handverlesene Schmuckstücke, fairer Goldankauf und professioneller
-          Uhrenservice — Elit Juwelier steht für Qualität und Vertrauen.
-        </p>
-        <div class="hero-actions">
-          <a href="javascript:void(0)" class="btn-gold" onclick="if(window.ejCbOpen)window.ejCbOpen()">Termin anfragen</a>
-          <a href="#services" class="btn-outline-gold">Kollektion erkunden</a>
-        </div>
+    <div class="stat-item">
+      <div>
+        <div class="stat-num">5★</div>
+        <div class="stat-label">Google Bewertung</div>
       </div>
-      <div class="hero-right">
-        <div class="hero-img-wrap">
-          <img src="public/images/elit-foto-3.png" alt="Elit Juwelier – Exklusiver Schmuck">
-        </div>
-        <div class="hero-img-border"></div>
+    </div>
+    <div class="stat-item">
+      <div>
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Einzigartige Designs</div>
+      </div>
+    </div>
+    <div class="stat-item">
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Persönliche Beratung</div>
       </div>
     </div>
   </div>
 </div>
 
-<script>
-(function(){
-  var splash    = document.getElementById('hero-splash');
-  var content   = document.getElementById('hero-content');
-  var wrapper   = document.getElementById('hero-wrapper');
-  var navIcon   = document.getElementById('nav-logo-icon');
-  var navText   = document.getElementById('nav-logo-text');
+<!-- SERVICES -->
+<section class="section" id="leistungen">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-eyebrow">Unsere Leistungen</div>
+      <h2 class="section-h2">Alles für Ihren<br><em>besonderen Moment</em></h2>
+      <p class="section-lead">Von der Verlobung bis zur Goldene Hochzeit — wir begleiten Sie mit Leidenschaft und Fachkenntnis.</p>
+    </div>
+    <div class="services-grid fade-up">
+      <!-- FEATURED: Goldankauf -->
+      <div class="svc-card featured">
+        <span class="svc-icon">⚖️</span>
+        <h3 class="svc-title">Gold­ankauf</h3>
+        <p class="svc-desc">Wir kaufen Ihr Altgold, Schmuckstücke, Münzen und Zahngold zu fairen Tagespreisen. Sofortige Auszahlung, keine versteckten Gebühren. Bringen Sie Ihren Schmuck direkt zu uns — wir bewerten kostenlos und unverbindlich.</p>
+        <ul style="list-style:none;margin-bottom:28px;">
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Goldschmuck, Ketten, Ringe, Armbänder</li>
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Goldmünzen &amp; Barren</li>
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Zahngold &amp; Dentalschmuck</li>
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Sofortauszahlung in Bar</li>
+        </ul>
+        <a class="svc-cta" href="#kontakt">Jetzt bewerten lassen →</a>
+      </div>
+      <!-- Trauringe -->
+      <div class="svc-card">
+        <span class="svc-icon">💍</span>
+        <h3 class="svc-title">Trauringe &amp; Eheringe</h3>
+        <p class="svc-desc">Wählen Sie aus hunderten Designs oder lassen Sie Ihren Traumring individuell anfertigen. In Gelbgold, Weißgold, Rosegold oder Platin — mit oder ohne Steine.</p>
+        <a class="svc-link" href="#kollekton">Kollektion ansehen →</a>
+      </div>
+      <!-- Verlobungsringe -->
+      <div class="svc-card">
+        <span class="svc-icon">✨</span>
+        <h3 class="svc-title">Verlobungsringe</h3>
+        <p class="svc-desc">Der perfekte Ring für den größten Moment. Mit echten Diamanten, Labdiamanten oder Zirkonia-Steinen — jeder Ring wird mit Liebe ausgewählt oder gefertigt.</p>
+        <a class="svc-link" href="#kontakt">Beratungstermin →</a>
+      </div>
+      <!-- Schmuck -->
+      <div class="svc-card">
+        <span class="svc-icon">📿</span>
+        <h3 class="svc-title">Schmuck &amp; Accessoires</h3>
+        <p class="svc-desc">Halsketten, Armbänder, Ohrringe und mehr — eine kuratierte Auswahl hochwertiger Goldschmuckstücke für jeden Anlass und Stil.</p>
+        <a class="svc-link" href="#kollekton">Kollektion ansehen →</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-  // Entrance: JS-driven so no CSS animation fill-mode can block scroll updates
-  requestAnimationFrame(function(){
-    requestAnimationFrame(function(){
-      splash.style.transition='opacity 1.2s cubic-bezier(0.16,1,0.3,1),transform 1.2s cubic-bezier(0.16,1,0.3,1)';
-      splash.style.opacity='1';
-      splash.style.transform='scale(1) translateY(0)';
-      setTimeout(function(){splash.style.transition='none';},1300);
-    });
-  });
+<!-- GALLERY -->
+<section class="gallery" id="kollekton">
+  <div class="gallery-inner">
+    <div class="gallery-head fade-up">
+      <div>
+        <div class="section-eyebrow">Unsere Kollektion</div>
+        <h2 class="section-h2">Handverlesene<br><em>Schmuckstücke</em></h2>
+      </div>
+      <div class="gallery-filters">
+        <button class="gf-btn active" onclick="filterGallery('all',this)">Alle</button>
+        <button class="gf-btn" onclick="filterGallery('ring',this)">Ringe</button>
+        <button class="gf-btn" onclick="filterGallery('armband',this)">Armbänder</button>
+      </div>
+    </div>
+    <div class="gallery-grid" id="gallery-grid">
+      <div class="g-item" data-cat="ring" onclick="openLightbox(0)"><img src="public/images/elit-1.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(1)"><img src="public/images/elit-2.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(2)"><img src="public/images/elit-3.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(3)"><img src="public/images/elit-4.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(4)"><img src="public/images/elit-5.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Ring-Set</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(5)"><img src="public/images/elit-6.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(6)"><img src="public/images/elit-7.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(7)"><img src="public/images/elit-8.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(8)"><img src="public/images/elit-9.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(9)"><img src="public/images/elit-10.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Gold-Bandringe</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(10)"><img src="public/images/elit-11.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(11)"><img src="public/images/elit-12.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(12)"><img src="public/images/elit-13.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(13)"><img src="public/images/elit-14.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(14)"><img src="public/images/elit-15.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(15)"><img src="public/images/elit-16.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldkette Armbänder</span></div></div>
+    </div>
+  </div>
+</section>
 
-  function updateHero(){
-    var rect=wrapper.getBoundingClientRect();
-    var scrolled=Math.max(0,-rect.top);
-    var maxScroll=wrapper.offsetHeight-window.innerHeight;
-    if(maxScroll<=0)return;
-    var p=Math.max(0,Math.min(scrolled/maxScroll,1));
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-nav lb-prev" onclick="lbNav(-1)">&#8249;</button>
+  <img class="lightbox-img" id="lb-img" src="" alt="">
+  <button class="lb-nav lb-next" onclick="lbNav(1)">&#8250;</button>
+</div>
 
-    // Splash exits in first 50%: opacity 1→0, scale 1→0.7, translateY 0→-200px
-    var sp=Math.min(p/0.5,1);
-    splash.style.opacity=String(Math.max(0,1-sp));
-    splash.style.transform='scale('+(1-sp*0.3)+') translateY('+(-sp*200)+'px)';
-    splash.style.pointerEvents=sp>=1?'none':'auto';
-
-    // Navbar: icon stays, text fades in below it as hero logo exits
-    navText.style.opacity=String(sp);
-
-    // Content enters from 30%
-    var cp=Math.max(0,(p-0.30)/0.70);
-    content.style.opacity=String(cp);
-    content.style.transform='translateY('+((1-cp)*40)+'px)';
-    if(cp>0)content.classList.add('active');else content.classList.remove('active');
-  }
-
-  window.addEventListener('scroll',updateHero,{passive:true});
-  window.addEventListener('resize',updateHero);
-})();
-</script>
-
-<!-- ═══ ÜBER UNS ═══════════════════════════════════════════════ -->
-<section class="about" id="about">
+<!-- ABOUT -->
+<section class="about" id="ueber-uns">
   <div class="about-inner">
-    <div>
-      <div class="sec-eyebrow">Über uns</div>
-      <h2 class="sec-h2">Ihr vertrauensvoller<br>Juwelier in <em>Hagen</em></h2>
-      <p class="about-p">
-        Seit Jahren ist Elit Juwelier die erste Adresse für Schmuck, Gold und Uhren in Hagen.
-        Wir stehen für handverlesene Qualität, persönliche Beratung und einen Service,
-        der weit über den Kauf hinausgeht.
-      </p>
-      <p class="about-p">
-        Ob Sie auf der Suche nach dem perfekten Geschenk sind, Gold fair verkaufen möchten
-        oder Ihre Uhr in professionelle Hände geben wollen – bei Elit Juwelier sind Sie
-        in besten Händen.
-      </p>
-      <div class="about-gold-rule">
-        <span></span>
-        <em>Qualität &amp; Vertrauen</em>
-        <span style="transform:scaleX(-1);"></span>
-      </div>
-      <div class="about-stats">
-        <div>
-          <div class="about-stat-num">4943</div>
-          <div class="about-stat-lbl">Google Bewertungen</div>
-        </div>
-        <div>
-          <div class="about-stat-num">★ 4,8</div>
-          <div class="about-stat-lbl">Durchschnittsnote</div>
-        </div>
+    <div class="about-img-wrap fade-up">
+      <img class="about-img-main" src="public/images/elit-10.png" alt="Elit Juwelier — 25 Jahre Erfahrung">
+      <div class="about-deco"></div>
+      <div class="about-stamp">
+        <div class="about-stamp-num">25</div>
+        <div class="about-stamp-txt">Jahre<br>Tradition</div>
       </div>
     </div>
-    <div class="about-img-wrap">
-      <img src="public/images/elit-foto-2.png" alt="Elit Juwelier – Exklusiver Schmuck auf Händen">
-      <div class="about-img-overlay"></div>
-      <div class="about-img-frame"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ DIENSTLEISTUNGEN ════════════════════════════════════════ -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="services-head">
-      <div class="sec-eyebrow" style="justify-content:center;gap:12px;">
-        <span style="height:1px;width:28px;background:var(--gold);opacity:0.4;display:block;"></span>
-        Dienstleistungen
-        <span style="height:1px;width:28px;background:var(--gold);opacity:0.4;display:block;"></span>
-      </div>
-      <h2 class="sec-h2" style="text-align:center;">Was wir für Sie tun</h2>
-    </div>
-    <div class="srv-grid">
-
-      <div class="srv-card">
-        <div class="srv-num">01</div>
-        <div class="srv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2l2 7h7l-6 4 2 7-5-4-5 4 2-7-6-4h7z"/>
-          </svg>
+    <div class="about-text fade-up">
+      <div class="section-eyebrow">Über Elit Juwelier</div>
+      <h2 class="section-h2">25 Jahre Leidenschaft<br><em>für Goldschmuck</em></h2>
+      <p>Seit 1999 sind wir Ihr vertrauensvoller Juwelier in Hagen. Was als kleine Familienwerkstatt begann, ist heute ein etabliertes Fachgeschäft mit tiefer Leidenschaft für hochwertigen Goldschmuck.</p>
+      <p>Unser Anspruch ist einfach: Jeder Kunde verdient persönliche Aufmerksamkeit und ehrliche Beratung — ob beim Kauf Ihres Traumrings oder beim Verkauf von Altgold. Faire Preise, kein Druck, kein Stress.</p>
+      <div class="about-features">
+        <div class="about-feat">
+          <div class="about-feat-icon">💍</div>
+          <div class="about-feat-text"><strong>Individuelle Anfertigung</strong><span>Nach Ihren Wünschen gefertigt</span></div>
         </div>
-        <h3 class="srv-name">Schmuckverkauf</h3>
-        <p class="srv-desc">Premium-Schmuckstücke für jeden Anlass und jedes Budget – sorgfältig ausgewählt, fachkundig beraten.</p>
-      </div>
-
-      <div class="srv-card">
-        <div class="srv-num">02</div>
-        <div class="srv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-          </svg>
+        <div class="about-feat">
+          <div class="about-feat-icon">⚖️</div>
+          <div class="about-feat-text"><strong>Faire Goldpreise</strong><span>Tagesaktuelle Ankaufspreise</span></div>
         </div>
-        <h3 class="srv-name">Goldankauf</h3>
-        <p class="srv-desc">Faire Preise, transparente Bewertung und kompetente Einschätzung – wir kaufen Gold zu Bestkonditionen.</p>
-      </div>
-
-      <div class="srv-card">
-        <div class="srv-num">03</div>
-        <div class="srv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
-          </svg>
+        <div class="about-feat">
+          <div class="about-feat-icon">🏅</div>
+          <div class="about-feat-text"><strong>Zertifizierte Qualität</strong><span>Geprüfte Goldlegierungen</span></div>
         </div>
-        <h3 class="srv-name">Uhrenservice</h3>
-        <p class="srv-desc">Professionelle Uhrenreparatur und Wartung – für alle Marken, präzise und zuverlässig.</p>
-      </div>
-
-      <div class="srv-card">
-        <div class="srv-num">04</div>
-        <div class="srv-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
+        <div class="about-feat">
+          <div class="about-feat-icon">🤝</div>
+          <div class="about-feat-text"><strong>Persönliche Beratung</strong><span>Kein Online-Shop, echte Menschen</span></div>
         </div>
-        <h3 class="srv-name">Ohrenlöcher Stechen</h3>
-        <p class="srv-desc">Professionelles Ohrlochstechen mit hygienischen Methoden und fachkundiger Betreuung.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ KOLLEKTION ══════════════════════════════════════════════ -->
-<section class="collection" id="kollektion">
-  <div class="collection-inner">
-    <div class="collection-head">
-      <div class="sec-eyebrow" style="justify-content:center;gap:12px;">
-        <span style="height:1px;width:28px;background:var(--gold);opacity:0.4;display:block;"></span>
-        Kollektion
-        <span style="height:1px;width:28px;background:var(--gold);opacity:0.4;display:block;"></span>
-      </div>
-      <h2 class="sec-h2" style="text-align:center;">Goldene <em>Kostbarkeiten</em></h2>
-    </div>
-    <div class="collection-img-wrap">
-      <img src="public/images/elit-foto-1.png" alt="Elit Juwelier – Goldschmuck Kollektion">
-      <div class="collection-caption">
-        <div class="collection-caption-text">
-          <h3>Exklusive Schmuckstücke</h3>
-          <p>Elberfelder Str. 22 · Hagen</p>
-        </div>
-        <a href="javascript:void(0)" class="btn-gold" onclick="if(window.ejCbOpen)window.ejCbOpen()" style="flex-shrink:0;">Beratung anfragen</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══ TESTIMONIALS ════════════════════════════════════════════ -->
-<section class="testimonial">
-  <div class="testimonial-inner">
-    <div class="t-eyebrow">Kundenbewertungen · Google</div>
-    <h2 class="t-title">Was unsere Kunden sagen</h2>
-    <div class="t-stars">★★★★★</div>
-    <div class="tc-outer">
-      <button class="tc-arr" id="tc-prev" aria-label="Vorherige">&#8249;</button>
-      <div class="t-carousel" id="tc-wrap">
-        <div class="t-slide tc-on">
-          <p class="t-quote">„Ich bin sehr zufrieden mit meinem Besuch. Der Ankauf verlief fair, transparent und zu einem guten Preis."</p>
-          <div class="t-author">— GmK Yoktur · Google ★★★★★</div>
-        </div>
-        <div class="t-slide">
-          <p class="t-quote">„Super nette Beratung und eine angenehme Atmosphäre. Ich wurde freundlich empfangen und bei der Auswahl gut unterstützt."</p>
-          <div class="t-author">— Saranda Hax · Google ★★★★★</div>
-        </div>
-        <div class="t-slide">
-          <p class="t-quote">„Sehr nett, macht sehr gute Preise und sehr freundlich."</p>
-          <div class="t-author">— Vivian Vogelgesang · Google ★★★★★</div>
-        </div>
-        <div class="t-slide">
-          <p class="t-quote">„Sehr nett und kompetent und dazu ein sehr guter und fachlicher Mitarbeiter."</p>
-          <div class="t-author">— Cetric Schmidt · Google ★★★★★</div>
-        </div>
-        <div class="t-slide">
-          <p class="t-quote">„Sehr nettes und freundliches Personal. Für mich war es eine sehr angenehme Erfahrung."</p>
-          <div class="t-author">— Emily Schurna · Google ★★★★★</div>
-        </div>
-        <div class="t-slide">
-          <p class="t-quote">„Ich war inzwischen schon mehrfach bei Elit Juwelier und bin jedes Mal absolut zufrieden."</p>
-          <div class="t-author">— Amin El Hankouri · Google ★★★★★</div>
-        </div>
-      </div>
-      <button class="tc-arr" id="tc-next" aria-label="Nächste">&#8250;</button>
+<!-- GOLDANKAUF -->
+<section class="goldankauf" id="goldankauf-section">
+  <div class="goldankauf-inner">
+    <div class="ga-left fade-up">
+      <div class="section-eyebrow">Goldankauf</div>
+      <h2 class="section-h2">Ihr Altgold ist<br><em>mehr wert</em></h2>
+      <p>Haben Sie alten Schmuck, Goldmünzen oder Zahngold? Wir bezahlen faire, tagesaktuelle Preise — sofort in Bar, ohne Wartezeit. Bringen Sie Ihr Gold einfach vorbei, wir bewerten kostenlos und ohne Verpflichtung.</p>
+      <p>Als langjähriger Familienbetrieb wissen wir: Vertrauen ist alles. Deshalb sind unsere Ankaufspreise stets transparent und nachvollziehbar.</p>
+      <a class="ga-cta" href="#kontakt">Gold bewerten lassen →</a>
     </div>
-    <div class="t-dots" id="tc-dots">
-      <button class="t-dot tc-dot-on"></button>
-      <button class="t-dot"></button>
-      <button class="t-dot"></button>
-      <button class="t-dot"></button>
-      <button class="t-dot"></button>
-      <button class="t-dot"></button>
-    </div>
-  </div>
-  <script>
-  (function(){
-    var slides=document.querySelectorAll('#tc-wrap .t-slide');
-    var dots=document.querySelectorAll('#tc-dots .t-dot');
-    var cur=0;
-    function go(n){slides[cur].classList.remove('tc-on');dots[cur].classList.remove('tc-dot-on');cur=(n+slides.length)%slides.length;slides[cur].classList.add('tc-on');dots[cur].classList.add('tc-dot-on');}
-    function reset(){clearInterval(timer);timer=setInterval(function(){go(cur+1);},5500);}
-    var timer=setInterval(function(){go(cur+1);},5500);
-    document.getElementById('tc-prev').addEventListener('click',function(){go(cur-1);reset();});
-    document.getElementById('tc-next').addEventListener('click',function(){go(cur+1);reset();});
-    dots.forEach(function(d,i){d.addEventListener('click',function(){go(i);reset();});});
-    var dragX=null,wrap=document.getElementById('tc-wrap');
-    wrap.addEventListener('touchstart',function(e){dragX=e.touches[0].clientX;},{passive:true});
-    wrap.addEventListener('touchend',function(e){if(dragX===null)return;var dx=e.changedTouches[0].clientX-dragX;dragX=null;if(Math.abs(dx)>40){go(cur+(dx<0?1:-1));reset();}});
-  })();
-  </script>
-</section>
-
-<!-- ═══ INSTAGRAM CTA ════════════════════════════════════════════ -->
-<section style="background:#0A0A0A;padding:72px 40px;text-align:center;border-top:1px solid rgba(212,175,55,0.12);border-bottom:1px solid rgba(212,175,55,0.12);position:relative;overflow:hidden;">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(212,175,55,0.06),transparent);pointer-events:none;"></div>
-  <div style="position:relative;z-index:1;max-width:560px;margin:0 auto;">
-    <a href="https://www.instagram.com/elitjuwelier/?hl=es" target="_blank" rel="noopener" style="display:inline-block;margin-bottom:24px;opacity:1;transition:opacity 200ms;" onmouseenter="this.style.opacity='0.7'" onmouseleave="this.style.opacity='1'">
-      <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-    </a>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,40px);font-weight:400;color:#fff;letter-spacing:-0.01em;margin-bottom:12px;">Folgen Sie uns auf <em style="color:#D4AF37;font-style:italic;">Instagram</em></h2>
-    <p style="font-size:14px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.7;margin-bottom:32px;letter-spacing:0.01em;">Entdecken Sie unsere neuesten Schmuckstücke, Goldankäufe und exklusiven Kreationen.</p>
-    <a href="https://www.instagram.com/elitjuwelier/?hl=es" target="_blank" rel="noopener"
-      style="display:inline-flex;align-items:center;gap:10px;padding:13px 30px;background:#D4AF37;color:#0A0A0A;font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;border-radius:2px;text-decoration:none;transition:background 200ms,transform 160ms,box-shadow 200ms;box-shadow:0 4px 20px rgba(212,175,55,0.3);"
-      onmouseenter="this.style.background='#B8960C';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 28px rgba(212,175,55,0.45)'"
-      onmouseleave="this.style.background='#D4AF37';this.style.transform='translateY(0)';this.style.boxShadow='0 4px 20px rgba(212,175,55,0.3)'">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0A0A0A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      Auf Instagram folgen
-    </a>
-    <div style="margin-top:20px;font-size:12px;color:rgba(212,175,55,0.5);letter-spacing:0.08em;">@elitjuwelier</div>
-  </div>
-</section>
-
-<!-- ═══ STANDORT & KONTAKT ══════════════════════════════════════ -->
-<section class="location" id="location">
-  <div class="location-inner">
-    <div>
-      <div class="sec-eyebrow">Standort &amp; Öffnungszeiten</div>
-      <h2 class="sec-h2 location-h2">Besuchen Sie uns<br>in <em>Hagen</em></h2>
-
-      <div class="info-block" style="margin-top:28px;">
-        <div class="info-lbl">Adresse</div>
-        <div class="info-val">Elberfelder Str. 22<br>58095 Hagen</div>
+    <div class="ga-right fade-up">
+      <div class="ga-card">
+        <span class="ga-card-icon">💛</span>
+        <div class="ga-card-title">Goldschmuck</div>
+        <div class="ga-card-desc">Ringe, Ketten, Armbänder, Ohrringe — alle Legierungen von 333er bis 999er Gold.</div>
       </div>
-      <div class="info-block">
-        <div class="info-lbl">Telefon</div>
-        <div class="info-val"><a href="tel:+4923315936841">+49 2331 5936841</a></div>
+      <div class="ga-card">
+        <span class="ga-card-icon">🪙</span>
+        <div class="ga-card-title">Goldmünzen &amp; Barren</div>
+        <div class="ga-card-desc">Krugerrand, Maple Leaf, Wiener Philharmoniker und andere Anlagemünzen.</div>
       </div>
-      <div class="info-block">
-        <div class="info-lbl">Öffnungszeiten</div>
-        <div id="ej-hours-grid"></div>
-        <script>
-        (function(){
-          var SCHED=[
-            {de:'Montag',    open:true,  t:'10:00–19:00'},
-            {de:'Dienstag',  open:true,  t:'10:00–19:00'},
-            {de:'Mittwoch',  open:true,  t:'10:00–19:00'},
-            {de:'Donnerstag',open:true,  t:'10:00–19:00'},
-            {de:'Freitag',   open:true,  t:'10:00–19:00'},
-            {de:'Samstag',   open:true,  t:'10:00–19:00'},
-            {de:'Sonntag',   open:false, t:'Geschlossen'}
-          ];
-          var jsDay=new Date().getDay();
-          var todayIdx=jsDay===0?6:jsDay-1;
-          var now=new Date();
-          var nowMin=now.getHours()*60+now.getMinutes();
-          var isOpen=SCHED[todayIdx].open && nowMin>=600 && nowMin<1140; // 10:00-19:00
-          var grid=document.getElementById('ej-hours-grid');
-          SCHED.forEach(function(h,i){
-            var isToday=i===todayIdx;
-            var row=document.createElement('div');
-            row.className='hours-row'+(isToday?' hours-today':'');
-            var badge=isToday?'<span class="hours-status '+(isOpen?'open':'closed')+'">'+(isOpen?'Geöffnet':'Geschlossen')+'</span>':'';
-            row.innerHTML='<span class="hours-day">'+h.de+badge+'</span><span class="'+(h.open?'hours-time':'hours-closed')+'">'+h.t+'</span>';
-            grid.appendChild(row);
-          });
-        })();
-        </script>
+      <div class="ga-card">
+        <span class="ga-card-icon">🦷</span>
+        <div class="ga-card-title">Zahngold</div>
+        <div class="ga-card-desc">Zahnkronen, Brücken und andere zahntechnische Goldlegierungen.</div>
       </div>
-
-      <div class="loc-ctas">
-        <a href="tel:+4923315936841" class="btn-gold">Jetzt anrufen →</a>
-        <a href="https://www.google.com/maps?q=Elberfelder+Str+22+58095+Hagen" target="_blank" rel="noopener" class="btn-outline-gold">Route planen</a>
+      <div class="ga-card">
+        <span class="ga-card-icon">💵</span>
+        <div class="ga-card-title">Sofortauszahlung</div>
+        <div class="ga-card-desc">Kein Warten, keine Überweisungen — Barzahlung direkt bei der Bewertung.</div>
       </div>
-    </div>
-
-    <div class="loc-map">
-      <iframe
-        src="https://www.google.com/maps?q=Elberfelder+Str+22,+58095+Hagen,+Germany&output=embed"
-        width="100%" height="100%" style="border:0;" allowfullscreen loading="lazy"
-        title="Elit Juwelier – Elberfelder Str. 22, Hagen">
-      </iframe>
     </div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ══════════════════════════════════════════════════ -->
+<!-- CONTACT -->
+<section class="contact" id="kontakt">
+  <div class="contact-inner">
+    <div class="fade-up">
+      <div class="section-eyebrow">Kontakt</div>
+      <h2 class="section-h2">Wir freuen uns<br><em>auf Sie</em></h2>
+      <p class="section-lead">Besuchen Sie uns in unserem Geschäft in Hagen oder kontaktieren Sie uns direkt.</p>
+      <div class="contact-info-list">
+        <div class="ci-item">
+          <div class="ci-icon">📍</div>
+          <div class="ci-content">
+            <strong>Adresse</strong>
+            <span>Elberfelder Straße 1<br>58095 Hagen, NRW</span>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">📞</div>
+          <div class="ci-content">
+            <strong>Telefon</strong>
+            <a href="tel:+4923319876543">+49 (0)2331 987 654</a>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">💬</div>
+          <div class="ci-content">
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/4915123456789">+49 (0)151 234 567 89</a>
+          </div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon">🕐</div>
+          <div class="ci-content">
+            <strong>Öffnungszeiten</strong>
+            <span>Mo–Fr: 10:00–18:30 Uhr</span>
+            <span>Sa: 10:00–14:00 Uhr</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form fade-up">
+      <div class="form-h3">Termin anfragen</div>
+      <p class="form-lead">Schreiben Sie uns — wir antworten innerhalb von 24 Stunden.</p>
+      <form onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group"><label>Vorname</label><input type="text" placeholder="Max"></div>
+          <div class="form-group"><label>Nachname</label><input type="text" placeholder="Mustermann"></div>
+        </div>
+        <div class="form-group"><label>E-Mail</label><input type="email" placeholder="max@beispiel.de"></div>
+        <div class="form-group"><label>Telefon</label><input type="tel" placeholder="+49 ..."></div>
+        <div class="form-group">
+          <label>Anliegen</label>
+          <select>
+            <option value="">— Bitte auswählen —</option>
+            <option>Trauring / Ehering Beratung</option>
+            <option>Verlobungsring Beratung</option>
+            <option>Goldankauf Bewertung</option>
+            <option>Schmuck Reparatur / Umarbeitung</option>
+            <option>Sonstiges</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Nachricht</label><textarea placeholder="Ihre Nachricht an uns..."></textarea></div>
+        <button class="form-submit" type="submit">Nachricht senden →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
-    <div>
-      <div class="footer-logo">
-        <img src="public/images/elit-logo-full.png" alt="Elit Juwelier">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">
+          <img class="footer-diamond" src="public/images/elit-logo.png" alt="Elit Juwelier">
+          <div class="footer-brand-name">
+            Elit Juwelier
+            <span>Hagen · Seit 1999</span>
+          </div>
+        </div>
+        <p class="footer-tagline">Ihr Juwelier für Trauringe, Verlobungsringe und Goldankauf in Hagen. 25 Jahre Erfahrung, persönliche Beratung, faire Preise.</p>
+        <div class="footer-social">
+          <a href="#" title="Instagram">📷</a>
+          <a href="#" title="Facebook">📘</a>
+          <a href="#" title="WhatsApp">💬</a>
+        </div>
       </div>
-      <p class="footer-desc">
-        Ihr Juwelier in Hagen für Schmuck, Goldankauf, Uhrenservice
-        und Ohrenlöcher stechen – persönlich, kompetent und vertrauenswürdig.
-      </p>
-    </div>
-    <div>
-      <div class="footer-col-title">Navigation</div>
-      <ul class="footer-links">
-        <li><a href="#about">Über uns</a></li>
-        <li><a href="#kollektion">Kollektion</a></li>
-        <li><a href="#services">Dienstleistungen</a></li>
-        <li><a href="#location">Kontakt</a></li>
-        <li><a href="#">Impressum</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Kontakt</div>
-      <div class="footer-contact-item">Elberfelder Str. 22<br>58095 Hagen</div>
-      <div class="footer-contact-item"><a href="tel:+4923315936841">+49 2331 5936841</a></div>
-      <div class="footer-contact-item">Mo–Sa: 10:00–19:00 Uhr<br>So: Geschlossen</div>
-      <div class="footer-contact-item" style="margin-top:16px;">
-        <a href="https://www.instagram.com/elitjuwelier/?hl=es" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;color:#D4AF37;transition:opacity 180ms;" onmouseenter="this.style.opacity='0.75'" onmouseleave="this.style.opacity='1'">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          Instagram
-        </a>
+      <div class="footer-col">
+        <h4>Leistungen</h4>
+        <ul>
+          <li><a href="#goldankauf-section">Goldankauf</a></li>
+          <li><a href="#leistungen">Trauringe</a></li>
+          <li><a href="#leistungen">Verlobungsringe</a></li>
+          <li><a href="#leistungen">Schmuck &amp; Accessoires</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kollektion</h4>
+        <ul>
+          <li><a href="#kollekton">Ringe</a></li>
+          <li><a href="#kollekton">Armbänder</a></li>
+          <li><a href="#kollekton">Alle Stücke</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="#ueber-uns">Über Uns</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#">Impressum</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom">
-    <div>© 2026 Elit Juwelier · Hagen · Alle Rechte vorbehalten</div>
-    <div><a href="#">Datenschutz</a> · <a href="#">Impressum</a></div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2024 Elit Juwelier Hagen. Alle Rechte vorbehalten.</span>
+      <div class="footer-legal">
+        <a href="#">Impressum</a>
+        <a href="#">Datenschutz</a>
+        <a href="#">AGB</a>
+      </div>
+    </div>
   </div>
 </footer>
 
-<script src="chatbot/chatbot.js" defer></script>
+<script>
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+});
 
+// Mobile nav
+function toggleMobileNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+
+// Fade-up observer
+const fadeEls = document.querySelectorAll('.fade-up');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+fadeEls.forEach(el => obs.observe(el));
+
+// Gallery filter
+function filterGallery(cat, btn) {
+  document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#gallery-grid .g-item').forEach(item => {
+    if (cat === 'all' || item.dataset.cat === cat) {
+      item.style.display = '';
+    } else {
+      item.style.display = 'none';
+    }
+  });
+}
+
+// Lightbox
+const lbImgs = [
+  'public/images/elit-1.png','public/images/elit-2.png','public/images/elit-3.png',
+  'public/images/elit-4.png','public/images/elit-5.png','public/images/elit-6.png',
+  'public/images/elit-7.png','public/images/elit-8.png','public/images/elit-9.png',
+  'public/images/elit-10.png','public/images/elit-11.png','public/images/elit-12.png',
+  'public/images/elit-13.png','public/images/elit-14.png','public/images/elit-15.png',
+  'public/images/elit-16.png'
+];
+let lbIdx = 0;
+function openLightbox(idx) {
+  lbIdx = idx;
+  document.getElementById('lb-img').src = lbImgs[lbIdx];
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeLightboxOutside(e) {
+  if (e.target === document.getElementById('lightbox')) closeLightbox();
+}
+function lbNav(dir) {
+  lbIdx = (lbIdx + dir + lbImgs.length) % lbImgs.length;
+  document.getElementById('lb-img').src = lbImgs[lbIdx];
+}
+document.addEventListener('keydown', e => {
+  if (document.getElementById('lightbox').classList.contains('open')) {
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') lbNav(-1);
+    if (e.key === 'ArrowRight') lbNav(1);
+  }
+});
+</script>
 </body>
 </html>
