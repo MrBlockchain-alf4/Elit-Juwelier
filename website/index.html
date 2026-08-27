@@ -111,7 +111,8 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .svc-card.featured .svc-desc{color:var(--muted2);}
 .svc-card.featured .svc-link{color:var(--gold);}
 .svc-card.featured::before{content:'GOLDANKAUF';position:absolute;top:24px;right:24px;font-size:9px;font-weight:700;letter-spacing:0.20em;color:var(--gold);background:rgba(212,175,55,0.15);padding:4px 10px;border-radius:2px;border:1px solid rgba(212,175,55,0.30);}
-.svc-icon{font-size:36px;margin-bottom:20px;display:block;}
+.svc-icon{display:block;margin-bottom:20px;color:var(--gold);}
+.svc-icon svg{width:36px;height:36px;}
 .svc-title{font-family:var(--serif);font-size:24px;font-weight:700;color:var(--ink);margin-bottom:12px;line-height:1.2;}
 .svc-desc{font-size:14px;color:var(--muted);line-height:1.70;margin-bottom:24px;}
 .svc-link{font-size:12px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--gold2);text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:gap 0.2s;}
@@ -178,7 +179,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .ga-cta:hover{background:var(--gold3);transform:translateY(-2px);}
 .ga-right{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 .ga-card{background:rgba(255,255,255,0.04);border:1px solid rgba(212,175,55,0.20);border-radius:4px;padding:28px 24px;}
-.ga-card-icon{font-size:28px;margin-bottom:12px;display:block;}
+.ga-card-icon{display:block;margin-bottom:12px;color:var(--gold);}
+.ga-card-icon svg{width:28px;height:28px;}
+.contact-map{margin-top:32px;border-radius:4px;overflow:hidden;border:1px solid var(--gold-border);}
 .ga-card-title{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--white);margin-bottom:6px;}
 .ga-card-desc{font-size:13px;color:var(--muted2);line-height:1.60;}
 
@@ -187,7 +190,8 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .contact-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .contact-info-list{margin-top:36px;display:flex;flex-direction:column;gap:20px;}
 .ci-item{display:flex;align-items:flex-start;gap:16px;}
-.ci-icon{width:44px;height:44px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.ci-icon{width:44px;height:44px;background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold2);}
+.ci-icon svg{width:20px;height:20px;}
 .ci-content strong{display:block;font-family:var(--serif);font-size:15px;font-weight:700;color:var(--ink);margin-bottom:2px;}
 .ci-content span,.ci-content a{font-size:14px;color:var(--muted);text-decoration:none;display:block;line-height:1.5;transition:color 0.2s;}
 .ci-content a:hover{color:var(--gold2);}
@@ -372,7 +376,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
     <div class="services-grid fade-up">
       <!-- FEATURED: Goldankauf -->
       <div class="svc-card featured">
-        <span class="svc-icon">⚖️</span>
+        <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M4 5h16"/><path d="M6 5 4 12c0 1.7 1.8 3 4 3s4-1.3 4-3L6 5z"/><path d="M18 5l-2 7c0 1.7 1.8 3 4 3s4-1.3 4-3l-2-7z"/><path d="M9 21h6"/></svg></span>
         <h3 class="svc-title">Gold­ankauf</h3>
         <p class="svc-desc">Wir kaufen Ihr Altgold, Schmuckstücke, Münzen und Zahngold zu fairen Tagespreisen. Sofortige Auszahlung, keine versteckten Gebühren. Bringen Sie Ihren Schmuck direkt zu uns — wir bewerten kostenlos und unverbindlich.</p>
         <ul style="list-style:none;margin-bottom:28px;">
@@ -385,21 +389,21 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
       </div>
       <!-- Trauringe -->
       <div class="svc-card">
-        <span class="svc-icon">💍</span>
+        <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg></span>
         <h3 class="svc-title">Trauringe &amp; Eheringe</h3>
         <p class="svc-desc">Wählen Sie aus hunderten Designs oder lassen Sie Ihren Traumring individuell anfertigen. In Gelbgold, Weißgold, Rosegold oder Platin — mit oder ohne Steine.</p>
         <a class="svc-link" href="#kollekton">Kollektion ansehen →</a>
       </div>
       <!-- Verlobungsringe -->
       <div class="svc-card">
-        <span class="svc-icon">✨</span>
+        <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>
         <h3 class="svc-title">Verlobungsringe</h3>
         <p class="svc-desc">Der perfekte Ring für den größten Moment. Mit echten Diamanten, Labdiamanten oder Zirkonia-Steinen — jeder Ring wird mit Liebe ausgewählt oder gefertigt.</p>
         <a class="svc-link" href="#kontakt">Beratungstermin →</a>
       </div>
       <!-- Schmuck -->
       <div class="svc-card">
-        <span class="svc-icon">📿</span>
+        <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></span>
         <h3 class="svc-title">Schmuck &amp; Accessoires</h3>
         <p class="svc-desc">Halsketten, Armbänder, Ohrringe und mehr — eine kuratierte Auswahl hochwertiger Goldschmuckstücke für jeden Anlass und Stil.</p>
         <a class="svc-link" href="#kollekton">Kollektion ansehen →</a>
@@ -501,22 +505,22 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
     </div>
     <div class="ga-right fade-up">
       <div class="ga-card">
-        <span class="ga-card-icon">💛</span>
+        <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
         <div class="ga-card-title">Goldschmuck</div>
         <div class="ga-card-desc">Ringe, Ketten, Armbänder, Ohrringe — alle Legierungen von 333er bis 999er Gold.</div>
       </div>
       <div class="ga-card">
-        <span class="ga-card-icon">🪙</span>
+        <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span>
         <div class="ga-card-title">Goldmünzen &amp; Barren</div>
         <div class="ga-card-desc">Krugerrand, Maple Leaf, Wiener Philharmoniker und andere Anlagemünzen.</div>
       </div>
       <div class="ga-card">
-        <span class="ga-card-icon">🦷</span>
+        <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
         <div class="ga-card-title">Zahngold</div>
         <div class="ga-card-desc">Zahnkronen, Brücken und andere zahntechnische Goldlegierungen.</div>
       </div>
       <div class="ga-card">
-        <span class="ga-card-icon">💵</span>
+        <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
         <div class="ga-card-title">Sofortauszahlung</div>
         <div class="ga-card-desc">Kein Warten, keine Überweisungen — Barzahlung direkt bei der Bewertung.</div>
       </div>
@@ -533,34 +537,37 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
       <p class="section-lead">Besuchen Sie uns in unserem Geschäft in Hagen oder kontaktieren Sie uns direkt.</p>
       <div class="contact-info-list">
         <div class="ci-item">
-          <div class="ci-icon">📍</div>
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="ci-content">
             <strong>Adresse</strong>
             <span>Elberfelder Straße 1<br>58095 Hagen, NRW</span>
           </div>
         </div>
         <div class="ci-item">
-          <div class="ci-icon">📞</div>
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.77 9.13a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 15a16 16 0 006.29 6.29l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
           <div class="ci-content">
             <strong>Telefon</strong>
             <a href="tel:+4923319876543">+49 (0)2331 987 654</a>
           </div>
         </div>
         <div class="ci-item">
-          <div class="ci-icon">💬</div>
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
           <div class="ci-content">
             <strong>WhatsApp</strong>
             <a href="https://wa.me/4915123456789">+49 (0)151 234 567 89</a>
           </div>
         </div>
         <div class="ci-item">
-          <div class="ci-icon">🕐</div>
+          <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
           <div class="ci-content">
             <strong>Öffnungszeiten</strong>
             <span>Mo–Fr: 10:00–18:30 Uhr</span>
             <span>Sa: 10:00–14:00 Uhr</span>
           </div>
         </div>
+      </div>
+      <div class="contact-map">
+        <iframe src="https://maps.google.com/maps?q=Elberfelder+Stra%C3%9Fe+1%2C+58095+Hagen%2C+Germany&output=embed&hl=de&z=15" width="100%" height="260" style="border:0;display:block;" loading="lazy" title="Elit Juwelier Standort"></iframe>
       </div>
     </div>
     <div class="contact-form fade-up">
