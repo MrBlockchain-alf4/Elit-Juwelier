@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="crown-c" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D960"/>
+      <stop offset="100%" stop-color="#C9A227"/>
+    </linearGradient>
+    <linearGradient id="crown-l" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#9A7510"/>
+    </linearGradient>
+    <linearGradient id="crown-r" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EDD045"/>
+      <stop offset="100%" stop-color="#B8960C"/>
+    </linearGradient>
+    <linearGradient id="pav-l" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#7A5C08"/>
+    </linearGradient>
+    <linearGradient id="pav-r" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#9A7510"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Crown centre (brightest — catches the light) -->
+  <polygon points="10,4 22,4 17,13 15,13" fill="url(#crown-c)"/>
+  <!-- Crown left -->
+  <polygon points="10,4 15,13 2,14" fill="url(#crown-l)"/>
+  <!-- Crown right -->
+  <polygon points="22,4 30,14 17,13" fill="url(#crown-r)"/>
+
+  <!-- Pavilion left -->
+  <polygon points="2,14 15,13 16,28" fill="url(#pav-l)"/>
+  <!-- Pavilion right -->
+  <polygon points="30,14 17,13 16,28" fill="url(#pav-r)"/>
+  <!-- Pavilion centre crease (slightly lighter) -->
+  <polygon points="15,13 17,13 16,28" fill="#C9A227" opacity="0.9"/>
+
+  <!-- Outer edge — thin dark gold border for crispness at small size -->
+  <polygon points="10,4 22,4 30,14 16,28 2,14"
+           fill="none" stroke="#8B6A08" stroke-width="0.75" stroke-linejoin="round"/>
+  <!-- Girdle line (separates crown from pavilion) -->
+  <line x1="2" y1="14" x2="30" y2="14" stroke="#8B6A08" stroke-width="0.6" opacity="0.6"/>
+  <!-- Crown ridge lines -->
+  <line x1="10" y1="4" x2="15" y2="13" stroke="#8B6A08" stroke-width="0.5" opacity="0.45"/>
+  <line x1="22" y1="4" x2="17" y2="13" stroke="#8B6A08" stroke-width="0.5" opacity="0.45"/>
+</svg>
