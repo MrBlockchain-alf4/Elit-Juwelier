@@ -86,13 +86,35 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .hero-float-card .card-val{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--gold2);line-height:1;}
 .hero-float-card .card-sub{font-size:11px;color:var(--muted2);margin-top:2px;}
 
-/* ── STATS BAR ── */
-.stats{background:var(--gold);padding:20px 32px;}
-.stats-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;}
-.stat-item{display:flex;align-items:center;gap:12px;padding:8px 40px;border-right:1px solid rgba(26,18,8,0.20);}
+/* ── SCHWERPUNKT BANNER ── */
+.ga-banner{background:var(--ink);position:relative;overflow:hidden;}
+.ga-banner::before{content:'';position:absolute;inset:0;background:
+  radial-gradient(ellipse 50% 80% at 0% 50%,rgba(212,175,55,0.09) 0%,transparent 65%),
+  radial-gradient(ellipse 30% 50% at 100% 20%,rgba(212,175,55,0.05) 0%,transparent 60%);pointer-events:none;}
+.ga-banner-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;min-height:340px;position:relative;z-index:1;}
+.ga-banner-left{padding:64px 56px 64px 32px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(212,175,55,0.15);}
+.ga-banner-eyebrow{font-size:10px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.ga-banner-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+.ga-banner-h{font-family:var(--serif);font-size:clamp(52px,5.5vw,84px);font-weight:800;color:var(--gold);line-height:0.95;letter-spacing:-0.025em;margin-bottom:20px;}
+.ga-banner-sub{font-size:15px;color:rgba(255,255,255,0.68);line-height:1.70;margin-bottom:32px;max-width:400px;}
+.ga-banner-cta{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:15px 32px;border-radius:2px;text-decoration:none;box-shadow:0 4px 24px rgba(212,175,55,0.30);transition:background 0.2s,transform 0.15s,box-shadow 0.2s;width:fit-content;}
+.ga-banner-cta:hover{background:var(--gold3);transform:translateY(-2px);box-shadow:0 8px 32px rgba(212,175,55,0.42);}
+.ga-banner-right{padding:56px 48px;display:flex;align-items:center;}
+.ga-banner-items{display:grid;grid-template-columns:1fr 1fr;gap:24px 36px;width:100%;}
+.ga-bi{display:flex;align-items:flex-start;gap:12px;}
+.ga-bi-check{width:26px;height:26px;border-radius:50%;background:rgba(212,175,55,0.12);border:1px solid rgba(212,175,55,0.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.ga-bi-check svg{width:13px;height:13px;color:var(--gold);}
+.ga-bi strong{display:block;font-family:var(--serif);font-size:15px;font-weight:700;color:var(--white);margin-bottom:3px;}
+.ga-bi span{font-size:12.5px;color:var(--muted2);line-height:1.5;}
+
+/* ── STATS GRID ── */
+.stats{background:var(--cream2);padding:0;}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
+.stat-item{background:var(--gold);padding:32px 20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;border-right:1px solid rgba(26,18,8,0.12);transition:background 0.2s;}
 .stat-item:last-child{border-right:none;}
-.stat-num{font-family:var(--serif);font-size:28px;font-weight:800;color:var(--ink);line-height:1;}
-.stat-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink2);line-height:1.3;}
+.stat-item:nth-child(even){background:var(--gold2);}
+.stat-num{font-family:var(--serif);font-size:38px;font-weight:800;color:var(--ink);line-height:1;margin-bottom:6px;}
+.stat-label{font-size:10.5px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;color:var(--ink2);line-height:1.3;}
 
 /* ── SECTION GENERIC ── */
 .section{padding:100px 32px;}
@@ -262,9 +284,15 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .hero-chips{justify-content:center;}
   .hero-desc{margin-left:auto;margin-right:auto;}
   .hero-badge{right:50%;transform:translateX(50%);bottom:24px;}
+  .ga-banner-inner{grid-template-columns:1fr;}
+  .ga-banner-left{padding:56px 40px;border-right:none;border-bottom:1px solid rgba(212,175,55,0.15);}
+  .ga-banner-right{padding:48px 40px;}
   .about-inner{grid-template-columns:1fr;gap:48px;}
   .about-img-wrap{max-width:480px;margin:0 auto;}
   .about-deco{display:none;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .stat-item:nth-child(2),.stat-item:nth-child(4){border-right:none;}
+  .stat-item:nth-child(3),.stat-item:nth-child(4){border-bottom:none;}
   .goldankauf-inner{grid-template-columns:1fr;gap:48px;}
   .contact-grid{grid-template-columns:1fr;}
   .contact-map-panel iframe{min-height:380px;}
@@ -275,55 +303,39 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 
 /* ─ 768px: tablets ─ */
 @media(max-width:768px){
-  /* Nav */
   .nav-links,.nav-cta{display:none;}
   .nav-hamburger{display:flex;}
   .nav-inner{padding:0 20px;height:64px;}
   .nav-mobile{top:64px;}
   .nav-logo-full{height:44px;}
-
-  /* Sections */
   .section{padding:64px 20px;}
   .gallery{padding:64px 20px;}
   .about{padding:64px 20px;}
   .goldankauf{padding:64px 20px;}
   .insta{padding:64px 20px;}
-
-  /* Hero */
   .hero{padding-top:64px;}
   .hero-left{padding:48px 20px;}
-
-  /* Stats */
-  .stats{padding:0 20px;}
-  .stats-inner{gap:0;flex-direction:column;}
-  .stat-item{padding:16px 24px;border-right:none;border-bottom:1px solid rgba(26,18,8,0.15);width:100%;justify-content:center;}
-  .stat-item:last-child{border-bottom:none;}
-
-  /* Services */
+  .ga-banner-left{padding:48px 20px;}
+  .ga-banner-right{padding:36px 20px;}
+  .ga-banner-h{font-size:clamp(44px,12vw,64px);}
+  .ga-banner-items{grid-template-columns:1fr 1fr;}
+  .stats-inner{grid-template-columns:repeat(2,1fr);}
+  .stat-item{padding:28px 16px;border-bottom:1px solid rgba(26,18,8,0.10);}
+  .stat-item:nth-child(2),.stat-item:nth-child(4){border-right:none;}
+  .stat-item:nth-child(3),.stat-item:nth-child(4){border-bottom:none;}
+  .stat-num{font-size:32px;}
   .services-grid{grid-template-columns:1fr;margin-top:40px;}
   .svc-card{padding:28px 24px;}
-
-  /* Gallery */
   .gallery-grid{grid-template-columns:repeat(2,1fr);}
   .g-item:nth-child(3n+1){grid-row:span 1;}
-
-  /* About */
   .about-features{grid-template-columns:1fr;}
-  .about-stamp{right:-8px;}
-
-  /* Goldankauf */
+  .about-stamp{right:16px;top:auto;bottom:20px;}
   .ga-right{grid-template-columns:1fr 1fr;}
   .ga-card{padding:20px 16px;}
-
-  /* Contact */
   .contact-info-panel{padding:48px 24px;}
   .hours-block{padding:20px;}
   .map-gate{min-height:300px;}
-
-  /* Instagram */
   .insta-pending{padding:32px 24px;}
-
-  /* Footer */
   .footer{padding:48px 20px 24px;}
   .footer-top{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px;}
@@ -333,14 +345,11 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 
 /* ─ 480px: phones ─ */
 @media(max-width:480px){
-  /* Sections */
   .section{padding:56px 16px;}
   .gallery{padding:56px 16px;}
   .about{padding:56px 16px;}
   .goldankauf{padding:56px 16px;}
   .insta{padding:56px 16px;}
-
-  /* Hero */
   .hero-left{padding:40px 16px;}
   .hero-h1{font-size:clamp(32px,8vw,40px);}
   .hero-btns{flex-direction:column;width:100%;max-width:320px;margin-left:auto;margin-right:auto;}
@@ -348,26 +357,30 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .hero-badge{width:72px;height:72px;bottom:16px;}
   .hero-badge-num{font-size:22px;}
   .hero-badge-txt{font-size:6.5px;}
-
-  /* Services */
+  .ga-banner-left{padding:40px 16px;}
+  .ga-banner-right{padding:32px 16px;}
+  .ga-banner-h{font-size:clamp(40px,10vw,52px);}
+  .ga-banner-sub{font-size:14px;}
+  .ga-banner-cta{width:100%;justify-content:center;}
+  .ga-banner-items{grid-template-columns:1fr;gap:20px;}
+  .stats-inner{grid-template-columns:1fr;gap:0;}
+  .stat-item{padding:36px 32px;flex-direction:row;align-items:center;justify-content:flex-start;gap:20px;border-right:none;border-bottom:1px solid rgba(26,18,8,0.10);}
+  .stat-item:last-child{border-bottom:none;}
+  .stat-item:nth-child(even){background:var(--ink);border-bottom-color:rgba(212,175,55,0.15);}
+  .stat-item:nth-child(even) .stat-num{color:var(--gold);}
+  .stat-item:nth-child(even) .stat-label{color:rgba(212,175,55,0.65);}
+  .stat-num{font-size:44px;margin-bottom:0;line-height:1;}
+  .stat-label{font-size:11px;letter-spacing:0.08em;text-align:left;}
   .svc-card{padding:24px 16px;}
   .svc-card.featured .svc-cta{width:100%;justify-content:center;text-align:center;}
-
-  /* Gallery */
   .gallery-grid{grid-template-columns:1fr 1fr;gap:8px;}
   .gallery-head{flex-direction:column;align-items:flex-start;gap:16px;}
-  .gallery-filters{width:100%;justify-content:flex-start;}
+  .gallery-filters{width:100%;}
   .gf-btn{padding:8px 14px;font-size:10px;}
-
-  /* About */
-  .about-stamp{right:-4px;width:80px;height:80px;}
-  .about-stamp-num{font-size:22px;}
-  .about-stamp-txt{font-size:6.5px;}
-
-  /* Goldankauf */
+  .about-stamp{right:12px;top:auto;bottom:16px;width:84px;height:84px;}
+  .about-stamp-num{font-size:24px;}
+  .about-stamp-txt{font-size:7px;}
   .ga-right{grid-template-columns:1fr;}
-
-  /* Contact */
   .contact-info-panel{padding:36px 16px;}
   .hours-block{padding:16px;}
   .hours-row{font-size:13px;}
@@ -375,21 +388,17 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .ci-icon{width:40px;height:40px;}
   .map-gate{min-height:260px;}
   .map-gate-inner{padding:28px 16px;}
-
-  /* Instagram */
   .insta-pending{padding:24px 16px;}
   .insta-pending-title{font-size:17px;}
   .insta-cta-btn{width:100%;justify-content:center;padding:16px 20px;}
   .insta-cta-text{font-size:14px;}
-
-  /* Footer */
   .footer{padding:40px 16px 20px;}
   .footer-logo-full{height:60px;}
   .footer-tagline{font-size:12px;}
   .footer-top{gap:28px;}
 }
 
-/* ─ 375px: small phones (iPhone SE etc.) ─ */
+/* ─ 375px: small phones (iPhone SE / Galaxy S) ─ */
 @media(max-width:375px){
   .section,.gallery,.about,.goldankauf,.insta{padding:48px 14px;}
   .hero-left{padding:36px 14px;}
@@ -401,8 +410,14 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .hours-block{padding:14px;}
   .footer{padding:36px 14px 20px;}
   .ga-card{padding:16px 12px;}
-  .stat-num{font-size:24px;}
+  .stat-num{font-size:40px;}
+  .stat-item{padding:30px 24px;gap:16px;}
   .hero-btns{max-width:100%;}
+  .ga-banner-left{padding:36px 14px;}
+  .ga-banner-right{padding:28px 14px;}
+  .ga-banner-h{font-size:36px;}
+  .about-stamp{right:8px;top:auto;bottom:12px;width:76px;height:76px;}
+  .about-stamp-num{font-size:21px;}
 }
 
 /* ── MAP CONSENT GATE ── */
@@ -506,6 +521,38 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
       <div class="card-label">Goldankauf</div>
       <div class="card-val">Faire Preise</div>
       <div class="card-sub">Sofortauszahlung</div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHWERPUNKT GOLDANKAUF BANNER -->
+<section class="ga-banner">
+  <div class="ga-banner-inner">
+    <div class="ga-banner-left">
+      <div class="ga-banner-eyebrow">Unser Schwerpunkt</div>
+      <h2 class="ga-banner-h">Gold&shy;ankauf</h2>
+      <p class="ga-banner-sub">Wir kaufen Ihr Gold zu fairen Tagespreisen — sofort, sicher und transparent.</p>
+      <a class="ga-banner-cta" href="#goldankauf">Gold verkaufen →</a>
+    </div>
+    <div class="ga-banner-right">
+      <div class="ga-banner-items">
+        <div class="ga-bi">
+          <span class="ga-bi-check">✓</span>
+          <div><strong>Faire Tagespreise</strong><span>Ankauf nach aktuellem Marktpreis — keine Abzüge</span></div>
+        </div>
+        <div class="ga-bi">
+          <span class="ga-bi-check">✓</span>
+          <div><strong>Sofortauszahlung</strong><span>Cash in Hand — sofort und sicher, kein Warten</span></div>
+        </div>
+        <div class="ga-bi">
+          <span class="ga-bi-check">✓</span>
+          <div><strong>Kein Termin nötig</strong><span>Einfach mit Ihrem Gold vorbeikommen</span></div>
+        </div>
+        <div class="ga-bi">
+          <span class="ga-bi-check">✓</span>
+          <div><strong>25 Jahre Erfahrung</strong><span>Vertrauen und Expertise seit 1999</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
