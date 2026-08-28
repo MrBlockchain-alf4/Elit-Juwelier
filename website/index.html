@@ -247,26 +247,6 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .footer-legal a{font-size:12px;color:var(--muted2);text-decoration:none;transition:color 0.2s;}
 .footer-legal a:hover{color:var(--gold);}
 
-/* ── INSTAGRAM ── */
-.insta{padding:100px 32px;background:var(--white);}
-.insta-inner{max-width:1280px;margin:0 auto;}
-.insta-head{text-align:center;margin-bottom:56px;}
-.insta-head .section-eyebrow{justify-content:center;}
-.insta-widget-wrap{position:relative;overflow:hidden;margin-bottom:48px;border-radius:3px;}
-.insta-widget-wrap .elfsight-app,.insta-widget-wrap [class^="elfsight-app"]{display:block;}
-.insta-feed-fade{position:absolute;left:0;right:0;bottom:0;height:48%;background:linear-gradient(to bottom,transparent 0%,rgba(254,252,248,0.85) 55%,#FEFCF8 100%);pointer-events:none;z-index:20;}
-.insta-pending{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:360px;background:var(--cream);border:2px dashed var(--gold-border);border-radius:4px;padding:48px;text-align:center;gap:16px;}
-.insta-pending-icon{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);display:flex;align-items:center;justify-content:center;}
-.insta-pending-title{font-family:var(--serif);font-size:20px;font-weight:700;color:var(--ink);}
-.insta-pending-sub{font-size:14px;color:var(--muted);line-height:1.65;max-width:440px;}
-.insta-pending-steps{list-style:none;text-align:left;display:flex;flex-direction:column;gap:10px;margin-top:4px;}
-.insta-pending-steps li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--ink2);line-height:1.5;}
-.insta-step-n{width:22px;height:22px;border-radius:50%;background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
-.insta-pending a{color:var(--gold2);font-weight:700;text-decoration:underline;}
-.insta-cta{text-align:center;}
-.insta-cta-text{font-size:15px;color:var(--ink2);line-height:1.80;max-width:540px;margin:0 auto 28px;}
-.insta-cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;padding:15px 36px;border-radius:2px;text-decoration:none;transition:background 0.2s,transform 0.15s;box-shadow:0 4px 24px rgba(212,175,55,0.28);}
-.insta-cta-btn:hover{background:var(--gold3);transform:translateY(-2px);}
 
 /* ── ANIMATIONS ── */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease-out),transform 0.7s var(--ease-out);}
@@ -312,7 +292,6 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .gallery{padding:64px 20px;}
   .about{padding:64px 20px;}
   .goldankauf{padding:64px 20px;}
-  .insta{padding:64px 20px;}
   .hero{padding-top:64px;}
   .hero-left{padding:48px 20px;}
   .ga-banner-left{padding:48px 20px;}
@@ -335,7 +314,6 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .contact-info-panel{padding:48px 24px;}
   .hours-block{padding:20px;}
   .map-gate{min-height:300px;}
-  .insta-pending{padding:32px 24px;}
   .footer{padding:48px 20px 24px;}
   .footer-top{grid-template-columns:1fr;}
   .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px;}
@@ -349,7 +327,6 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .gallery{padding:56px 16px;}
   .about{padding:56px 16px;}
   .goldankauf{padding:56px 16px;}
-  .insta{padding:56px 16px;}
   .hero-left{padding:40px 16px;}
   .hero-h1{font-size:clamp(32px,8vw,40px);}
   .hero-btns{flex-direction:column;width:100%;max-width:320px;margin-left:auto;margin-right:auto;}
@@ -382,10 +359,6 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   .ci-icon{width:40px;height:40px;}
   .map-gate{min-height:260px;}
   .map-gate-inner{padding:28px 16px;}
-  .insta-pending{padding:24px 16px;}
-  .insta-pending-title{font-size:17px;}
-  .insta-cta-btn{width:100%;justify-content:center;padding:16px 20px;}
-  .insta-cta-text{font-size:14px;}
   .footer{padding:40px 16px 20px;}
   .footer-logo-full{height:60px;}
   .footer-tagline{font-size:12px;}
@@ -394,7 +367,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 
 /* ─ 375px: small phones (iPhone SE / Galaxy S) ─ */
 @media(max-width:375px){
-  .section,.gallery,.about,.goldankauf,.insta{padding:48px 14px;}
+  .section,.gallery,.about,.goldankauf{padding:48px 14px;}
   .hero-left{padding:36px 14px;}
   .hero-h1{font-size:30px;}
   .section-h2{font-size:30px;}
@@ -482,12 +455,13 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 /* ── INSTAGRAM SIMPLE ── */
 .insta-simple{padding:80px 32px;background:var(--white);text-align:center;}
 .insta-simple-inner{max-width:560px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:28px;}
-.insta-simple-icon{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(188,24,136,0.28);}
-.insta-simple-icon svg{width:40px;height:40px;color:#fff;}
+.insta-simple-icon{width:84px;height:84px;display:flex;align-items:center;justify-content:center;filter:drop-shadow(0 8px 20px rgba(212,175,55,0.35));}
+.insta-simple-icon img{width:100%;height:100%;object-fit:contain;}
 .insta-simple-text{font-family:var(--serif);font-size:clamp(20px,2.5vw,28px);font-weight:600;color:var(--ink);line-height:1.45;letter-spacing:-0.01em;}
 .insta-simple-sub{font-size:15px;color:var(--muted);line-height:1.70;max-width:420px;margin-top:-10px;}
-.insta-simple-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,#f09433,#dc2743,#bc1888);color:#fff;font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;padding:15px 36px;border-radius:2px;text-decoration:none;box-shadow:0 4px 24px rgba(188,24,136,0.25);transition:opacity 0.2s,transform 0.15s;}
+.insta-simple-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--gold3),var(--gold),var(--gold2));color:var(--ink);font-family:var(--sans);font-size:13px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;padding:15px 36px;border-radius:2px;text-decoration:none;box-shadow:var(--shadow-gold);transition:opacity 0.2s,transform 0.15s;}
 .insta-simple-btn:hover{opacity:0.90;transform:translateY(-2px);}
+.insta-simple-btn:focus-visible{outline:2px solid var(--gold2);outline-offset:3px;}
 .insta-simple-btn:active{transform:translateY(0);}
 @media(max-width:600px){.insta-simple{padding:56px 16px;}.insta-simple-btn{width:100%;justify-content:center;}}
 </style>
@@ -940,13 +914,13 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 <section class="insta-simple" id="instagram">
   <div class="insta-simple-inner fade-up">
     <div class="insta-simple-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      <img src="public/images/elit-diamond.png" alt="Elit Juwelier">
     </div>
-    <h2 class="insta-simple-text">Wenn du mehr über unser Sortiment<br>erfahren möchtest — <em style="font-style:italic;color:var(--gold2);">folge uns</em></h2>
+    <h2 class="insta-simple-text">Verpassen Sie keine neuen Produkte mehr —<br>besuchen Sie uns auf <em style="font-style:italic;color:var(--gold2);">Instagram!</em></h2>
     <p class="insta-simple-sub">Neue Kollektionen, exklusive Stücke und besondere Momente — täglich auf Instagram.</p>
     <a class="insta-simple-btn" href="https://www.instagram.com/elitjuwelier/" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-      @elitjuwelier — Folge uns
+      Besuchen Sie unser Instagram →
     </a>
   </div>
 </section>
