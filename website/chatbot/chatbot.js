@@ -19,11 +19,11 @@
     {keys:['verlobung','verlobungsring','antrag','diamant','solitär','heiratsantrag'],
      text:'Der perfekte Verlobungsring für den schönsten Moment:\n\n• Ringe mit echten Diamanten\n• Lab-Diamanten (faire Alternative)\n• Zirkonia-Besatz\n• Individuelle Anfertigung\n\nGerne beraten wir Sie diskret und ohne Zeitdruck.'},
     {keys:['öffnungszeit','geöffnet','öffnen','uhrzeit','wann haben','stunden','zeiten','heute offen','offen'],
-     text:'Unsere Öffnungszeiten:\n\nMontag – Freitag: 10:00 – 18:30 Uhr\nSamstag: 10:00 – 14:00 Uhr\nSonntag: Geschlossen\n\nKein Termin nötig — kommen Sie einfach vorbei!'},
+     text:'Unsere Öffnungszeiten:\n\nMontag – Samstag: 10:00 – 19:00 Uhr\nSonntag: Geschlossen\n\nKein Termin nötig — kommen Sie einfach vorbei!'},
     {keys:['adresse','standort','wo sind','hagen','elberfelder','finden sie','anfahrt','lage','ort'],
-     text:'Sie finden uns hier:\n\nElberfelder Straße 1\n58095 Hagen, NRW\n\nGut erreichbar mit Bus & Bahn.\nParkplätze in der Nähe vorhanden.'},
+     text:'Sie finden uns hier:\n\nElberfelder Str. 22\n58095 Hagen, NRW\n\nGut erreichbar mit Bus & Bahn.\nParkplätze in der Nähe vorhanden.'},
     {keys:['telefon','anrufen','tel','telefonnummer','telefonisch','rufen'],
-     text:'Rufen Sie uns gerne an:\n\n☎️ 02331 / 5936841\n\nErreichbar:\nMontag – Freitag: 10:00 – 18:30 Uhr\nSamstag: 10:00 – 14:00 Uhr'},
+     text:'Rufen Sie uns gerne an:\n\n☎️ 02331 / 5936841\n\nErreichbar:\nMontag – Samstag: 10:00 – 19:00 Uhr'},
     {keys:['whatsapp','nachricht schreiben','chat','messenger','sms'],
      text:'Schreiben Sie uns auf WhatsApp:\n\n📲 0174 / 9155488\n\nWir antworten schnell während der Öffnungszeiten — gerne auch mit Fotos Ihres Schmucks!'},
     {keys:['preis','kosten','wieviel','wie viel','budget','günstig','teuer','wert','bezahlen'],
@@ -37,7 +37,7 @@
   ];
 
   var GREET='Herzlich willkommen bei Elit Juwelier!\n\nIch beantworte gerne Ihre Fragen zu unseren Leistungen, Öffnungszeiten, Produkten und unserem Gold-Ankauf. Wie kann ich Ihnen helfen?';
-  var FALLBACK='Das beantworte ich Ihnen gerne persönlich!\n\n📍 Elberfelder Straße 1, 58095 Hagen\n☎️ 02331 / 5936841\n\nÖffnungszeiten:\nMo–Fr 10:00–18:30 Uhr | Sa 10:00–14:00 Uhr\nKein Termin nötig!';
+  var FALLBACK='Das beantworte ich Ihnen gerne persönlich!\n\n📍 Elberfelder Str. 22, 58095 Hagen\n☎️ 02331 / 5936841\n\nÖffnungszeiten:\nMo–Sa 10:00–19:00 Uhr\nKein Termin nötig!';
 
   // ── Chip sets ─────────────────────────────────────────────────────────────
   var CHIPS_DEFAULT=[
@@ -94,7 +94,7 @@
       var label={'999':'999er Gold','750':'750er Gold','585':'585er Gold','333':'333er Gold'}[calcType];
       calcStep=null;calcType=null;
       later(function(){renderChips(CHIPS_DEFAULT);});
-      return 'Schätzwert für '+display+' g '+label+':\n\n💰 ca. '+lo+' – '+hi+' €\n\nHinweis: Dies ist ein Richtwert nach aktuellem Marktpreis. Den verbindlichen Ankaufpreis bestimmen wir kostenlos und transparent in unserem Geschäft.\n\n📍 Elberfelder Straße 1, Hagen\nKein Termin nötig!';
+      return 'Schätzwert für '+display+' g '+label+':\n\n💰 ca. '+lo+' – '+hi+' €\n\nHinweis: Dies ist ein Richtwert nach aktuellem Marktpreis. Den verbindlichen Ankaufpreis bestimmen wir kostenlos und transparent in unserem Geschäft.\n\n📍 Elberfelder Str. 22, Hagen\nKein Termin nötig!';
     }
 
     // Normal Q&A knowledge base
