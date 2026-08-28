@@ -15,7 +15,7 @@
     {keys:['goldankauf','altgold','ankauf','gold verkauf','gold verkaufen','altschmuck','gold einschmelzen'],
      text:'Gerne kaufen wir Ihr Gold zu fairen Tagespreisen!\n\nWir kaufen:\n• Goldschmuck (333er – 999er)\n• Goldmünzen & Barren\n• Zahngold & Zahnkronen\n\n✓ Kostenlose Bewertung\n✓ Sofortauszahlung in Bar\n✓ Faire, transparente Preise\n\nKein Termin nötig — einfach vorbeikommen!'},
     {keys:['trauring','ehering','hochzeitsring','heiraten','hochzeit','ehe'],
-     text:'Handgefertigte Eheringe & Trauringe in Gold, Weißgold, Rosegold oder Platin — mit echten Diamanten, Labdiamanten oder Zirkonia-Steinen:\n\n• Wählen Sie aus hunderten Designs\n• Oder lassen Sie Ihren Traumring individuell anfertigen\n\nPersönliche Beratung in Hagen seit 25 Jahren!'},
+     text:'Handgefertigte Eheringe & Trauringe in Gold, Weißgold oder Rosegold — mit echten Diamanten, Labdiamanten oder Zirkonia-Steinen:\n\n• Wählen Sie aus hunderten Designs\n• Oder lassen Sie Ihren Traumring individuell anfertigen\n\nPersönliche Beratung in Hagen seit 25 Jahren!'},
     {keys:['verlobung','verlobungsring','antrag','diamant','solitär','heiratsantrag'],
      text:'Der perfekte Verlobungsring für den schönsten Moment:\n\n• Ringe mit echten Diamanten\n• Lab-Diamanten (faire Alternative)\n• Zirkonia-Besatz\n• Individuelle Anfertigung\n\nGerne beraten wir Sie diskret und ohne Zeitdruck.'},
     {keys:['öffnungszeit','geöffnet','öffnen','uhrzeit','wann haben','stunden','zeiten','heute offen','offen'],
