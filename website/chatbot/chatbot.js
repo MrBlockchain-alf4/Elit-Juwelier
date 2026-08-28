@@ -15,7 +15,7 @@
     {keys:['goldankauf','altgold','ankauf','gold verkauf','gold verkaufen','altschmuck','gold einschmelzen'],
      text:'Gerne kaufen wir Ihr Gold zu fairen Tagespreisen!\n\nWir kaufen:\n• Goldschmuck (333er – 999er)\n• Goldmünzen & Barren\n• Zahngold & Zahnkronen\n\n✓ Kostenlose Bewertung\n✓ Sofortauszahlung in Bar\n✓ Faire, transparente Preise\n\nKein Termin nötig — einfach vorbeikommen!'},
     {keys:['trauring','ehering','hochzeitsring','heiraten','hochzeit','ehe'],
-     text:'Unsere Trauringe & Eheringe in Gelbgold, Weißgold, Rosegold oder Platin:\n\n• Hunderte Designs zur Auswahl\n• Individuelle Anfertigung nach Maß\n• Gravur & Personalisierung\n• Für jedes Budget\n\nWir begleiten Sie gerne auf dem Weg zum perfekten Ring!'},
+     text:'Handgefertigte Eheringe & Trauringe in Gold, Weißgold, Rosegold oder Platin — mit echten Diamanten, Labdiamanten oder Zirkonia-Steinen:\n\n• Wählen Sie aus hunderten Designs\n• Oder lassen Sie Ihren Traumring individuell anfertigen\n\nPersönliche Beratung in Hagen seit 25 Jahren!'},
     {keys:['verlobung','verlobungsring','antrag','diamant','solitär','heiratsantrag'],
      text:'Der perfekte Verlobungsring für den schönsten Moment:\n\n• Ringe mit echten Diamanten\n• Lab-Diamanten (faire Alternative)\n• Zirkonia-Besatz\n• Individuelle Anfertigung\n\nGerne beraten wir Sie diskret und ohne Zeitdruck.'},
     {keys:['öffnungszeit','geöffnet','öffnen','uhrzeit','wann haben','stunden','zeiten','heute offen','offen'],
@@ -30,13 +30,11 @@
      text:'Unsere Preise sind transparent und fair:\n\n• Trauringe in verschiedenen Preisklassen\n• Goldankauf nach aktuellem Tagespreis\n• Kostenlose, unverbindliche Bewertung\n\nKommen Sie vorbei — wir beraten Sie ehrlich und ohne Druck.'},
     {keys:['schmuck','kette','halskette','armband','ohrring','anhänger','accessoire'],
      text:'Unser Schmucksortiment:\n\n• Goldketten & Halsketten\n• Armbänder & Armreifen\n• Ohrringe & Ohrstecker\n• Anhänger & Charms\n\nAlles in hochwertiger Goldqualität — schauen Sie gerne bei uns rein!'},
-    {keys:['reparatur','reparieren','umarbeit','gravur','größe ändern','resize'],
-     text:'Wir reparieren und bearbeiten auch Ihren Schmuck:\n\n• Ringgröße anpassen\n• Schmuckreparaturen aller Art\n• Gravuren & Personalisierung\n• Umarbeitung von altem Schmuck\n\nBringen Sie Ihr Stück einfach vorbei!'},
     {keys:['erfahrung','jahre','geschichte','familie','tradition','über euch','über sie'],
-     text:'Elit Juwelier steht für Qualität und Vertrauen in Hagen.\n\nUnsere Stärken:\n• Tiefes Fachwissen in Gold & Schmuck\n• Langjährige Kundenbeziehungen\n• Persönliche, familiäre Atmosphäre\n• Ehrliche und faire Beratung'}
+     text:'Elit Juwelier steht seit 2001 für Qualität und Vertrauen in Hagen — 25 Jahre Erfahrung in Gold & Schmuck.\n\nUnsere Stärken:\n• Langjährige Kundenbeziehungen\n• Persönliche, familiäre Atmosphäre\n• Ehrliche und faire Beratung'}
   ];
 
-  var GREET='Herzlich willkommen bei Elit Juwelier!\n\nIch beantworte gerne Ihre Fragen zu unseren Leistungen, Öffnungszeiten, Produkten und unserem Gold-Ankauf. Wie kann ich Ihnen helfen?';
+  var GREET='Herzlich willkommen bei Elit Juwelier!\n\nIch beantworte gerne Ihre Fragen zu unserem Gold-Ankauf, Trauringen & Verlobungsringen sowie unserem Schmucksortiment. Wie kann ich Ihnen helfen?';
   var FALLBACK='Das beantworte ich Ihnen gerne persönlich!\n\n📍 Elberfelder Str. 22, 58095 Hagen\n☎️ 02331 / 5936841\n\nÖffnungszeiten:\nMo–Sa 10:00–19:00 Uhr\nKein Termin nötig!';
 
   // ── Chip sets ─────────────────────────────────────────────────────────────
