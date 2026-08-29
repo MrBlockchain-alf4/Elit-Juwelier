@@ -151,14 +151,14 @@
     '@keyframes ej-up{from{transform:translateY(7px);opacity:0;}to{transform:translateY(0);opacity:1;}}',
     '@media(max-width:480px){#ej-panel{width:calc(100vw - 20px);right:10px;bottom:90px;}#ej-panel.ej-open{height:520px;}}',
     '#ej-notify{position:fixed;bottom:100px;right:20px;z-index:8999;max-width:248px;background:'+WHITE+';border:1.5px solid rgba(212,175,55,0.40);border-radius:14px 14px 2px 14px;box-shadow:0 12px 40px rgba(26,18,8,0.22),0 2px 8px rgba(212,175,55,0.15);padding:14px 30px 14px 14px;cursor:pointer;opacity:0;transform:translateY(12px) scale(0.94);pointer-events:none;transition:transform 0.32s cubic-bezier(0.34,1.56,0.64,1),opacity 0.25s;}',
-    '#ej-notify.ej-notify-visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all;animation:ej-notify-pulse 2.4s ease-in-out 1s 2;}',
+    '#ej-notify.ej-notify-visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all;}',
     '#ej-notify::after{content:"";position:absolute;bottom:-7px;right:26px;width:13px;height:13px;background:'+WHITE+';border-right:1.5px solid rgba(212,175,55,0.40);border-bottom:1.5px solid rgba(212,175,55,0.40);transform:rotate(45deg);}',
     '#ej-notify-close{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:none;border:none;color:'+MUTED+';font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.18s,color 0.18s;font-family:sans-serif;}',
     '#ej-notify-close:hover{background:rgba(212,175,55,0.15);color:'+INK+';}',
     '#ej-notify-body{display:flex;align-items:flex-start;gap:10px;}',
-    '#ej-notify-icon{font-size:19px;line-height:1;flex-shrink:0;margin-top:1px;}',
+    '#ej-notify-icon{flex-shrink:0;margin-top:1px;display:block;animation:ej-coin-pulse 2.4s ease-in-out infinite;}',
     '#ej-notify-text{font-family:"Inter","Helvetica Neue",sans-serif;font-size:12.5px;line-height:1.5;color:'+INK2+';font-weight:600;}',
-    '@keyframes ej-notify-pulse{0%,100%{box-shadow:0 12px 40px rgba(26,18,8,0.22),0 0 0 0 rgba(212,175,55,0.25);}50%{box-shadow:0 12px 40px rgba(26,18,8,0.22),0 0 0 6px rgba(212,175,55,0);}}',
+    '@keyframes ej-coin-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.14);}}',
     '@media(max-width:480px){#ej-notify{right:10px;bottom:96px;max-width:calc(100vw - 90px);}}'
   ].join('');
 
@@ -179,7 +179,18 @@
   wrap.innerHTML=
     '<div id="ej-notify" role="button" tabindex="0" aria-label="Gold-Rechner öffnen">'+
       '<button id="ej-notify-close" aria-label="Hinweis schließen">&#x2715;</button>'+
-      '<div id="ej-notify-body"><span id="ej-notify-icon">💰</span><span id="ej-notify-text">Wenn du dein Gold berechnen möchtest, kannst du es hier tun.</span></div>'+
+      '<div id="ej-notify-body">'+
+        '<svg id="ej-notify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">'+
+          '<defs><linearGradient id="ejCoinGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">'+
+            '<stop offset="0%" stop-color="#F5D960"/><stop offset="55%" stop-color="'+GOLD+'"/><stop offset="100%" stop-color="'+GOLD2+'"/>'+
+          '</linearGradient></defs>'+
+          '<circle cx="12" cy="12" r="10" fill="url(#ejCoinGrad)" stroke="rgba(26,18,8,0.30)" stroke-width="0.8"/>'+
+          '<circle cx="12" cy="12" r="7.2" fill="none" stroke="rgba(26,18,8,0.20)" stroke-width="0.7"/>'+
+          '<path d="M9 10h6l-3 6.5z" fill="rgba(26,18,8,0.20)" stroke="rgba(26,18,8,0.40)" stroke-width="0.6" stroke-linejoin="round"/>'+
+          '<path d="M9 10l1.6-2.3h2.8L15 10" fill="none" stroke="rgba(26,18,8,0.40)" stroke-width="0.6" stroke-linejoin="round"/>'+
+        '</svg>'+
+        '<span id="ej-notify-text">Wenn du dein Gold berechnen möchtest, kannst du es hier tun.</span>'+
+      '</div>'+
     '</div>'+
     '<div id="ej-fab" role="button" aria-label="Chat öffnen" title="Chat mit Elit Juwelier">'+fabImg+'</div>'+
     '<div id="ej-panel" role="dialog" aria-modal="true" aria-label="Elit Juwelier Chat">'+
@@ -214,10 +225,19 @@
   var greeted=false;
 
   // ── Proactive Gold-Rechner notification bubble ──────────────────────────
-  function hideNotify(){notify.classList.remove('ej-notify-visible');}
-  function showNotify(){if(!isOpen)notify.classList.add('ej-notify-visible');}
+  // Pulses into view and back out on a loop until the visitor interacts with it,
+  // opens the chat some other way, or dismisses it — then it stops for good.
+  var notifyLoop=null;
+  var notifyStopped=false;
+  function notifyOff(){notify.classList.remove('ej-notify-visible');}
+  function notifyOn(){if(!isOpen&&!notifyStopped)notify.classList.add('ej-notify-visible');}
+  function notifyStop(){
+    notifyStopped=true;
+    notifyOff();
+    clearInterval(notifyLoop);
+  }
   notify.addEventListener('click',function(){
-    hideNotify();
+    notifyStop();
     if(!isOpen)open();
     setTimeout(function(){send('__CALC__','Gold Rechner');},isOpen?0:380);
   });
@@ -226,9 +246,15 @@
   });
   notifyClose.addEventListener('click',function(e){
     e.stopPropagation();
-    hideNotify();
+    notifyStop();
   });
-  setTimeout(showNotify,2500);
+  setTimeout(function(){
+    notifyOn();
+    notifyLoop=setInterval(function(){
+      if(isOpen||notifyStopped){clearInterval(notifyLoop);return;}
+      notify.classList.contains('ej-notify-visible')?notifyOff():notifyOn();
+    },4200);
+  },2200);
 
   // ── Chips renderer ────────────────────────────────────────────────────────
   function renderChips(arr){
@@ -284,7 +310,7 @@
   }
 
   // ── Event listeners ───────────────────────────────────────────────────────
-  fab.addEventListener('click',function(){hideNotify();isOpen?close():open();});
+  fab.addEventListener('click',function(){notifyStop();isOpen?close():open();});
   closeBtn.addEventListener('click',close);
   sendBtn.addEventListener('click',function(){send(input.value);});
   input.addEventListener('keydown',function(e){if(e.key==='Enter')send(input.value);});
