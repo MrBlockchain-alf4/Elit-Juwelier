@@ -156,9 +156,8 @@
     '#ej-notify-close{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:none;border:none;color:'+MUTED+';font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.18s,color 0.18s;font-family:sans-serif;}',
     '#ej-notify-close:hover{background:rgba(212,175,55,0.15);color:'+INK+';}',
     '#ej-notify-body{display:flex;align-items:flex-start;gap:10px;}',
-    '#ej-notify-icon{flex-shrink:0;margin-top:1px;display:block;animation:ej-coin-pulse 2.4s ease-in-out infinite;}',
+    '#ej-notify-icon{flex-shrink:0;margin-top:1px;display:block;}',
     '#ej-notify-text{font-family:"Inter","Helvetica Neue",sans-serif;font-size:12.5px;line-height:1.5;color:'+INK2+';font-weight:600;}',
-    '@keyframes ej-coin-pulse{0%,100%{transform:scale(1);}50%{transform:scale(1.14);}}',
     '@media(max-width:480px){#ej-notify{right:10px;bottom:96px;max-width:calc(100vw - 90px);}}'
   ].join('');
 
@@ -180,14 +179,13 @@
     '<div id="ej-notify" role="button" tabindex="0" aria-label="Gold-Rechner öffnen">'+
       '<button id="ej-notify-close" aria-label="Hinweis schließen">&#x2715;</button>'+
       '<div id="ej-notify-body">'+
-        '<svg id="ej-notify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">'+
-          '<defs><linearGradient id="ejCoinGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">'+
-            '<stop offset="0%" stop-color="#F5D960"/><stop offset="55%" stop-color="'+GOLD+'"/><stop offset="100%" stop-color="'+GOLD2+'"/>'+
+        '<svg id="ej-notify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">'+
+          '<defs><linearGradient id="ejGemGrad" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">'+
+            '<stop offset="0%" stop-color="#FBE79A"/><stop offset="45%" stop-color="'+GOLD+'"/><stop offset="100%" stop-color="#8A6D1F"/>'+
           '</linearGradient></defs>'+
-          '<circle cx="12" cy="12" r="10" fill="url(#ejCoinGrad)" stroke="rgba(26,18,8,0.30)" stroke-width="0.8"/>'+
-          '<circle cx="12" cy="12" r="7.2" fill="none" stroke="rgba(26,18,8,0.20)" stroke-width="0.7"/>'+
-          '<path d="M9 10h6l-3 6.5z" fill="rgba(26,18,8,0.20)" stroke="rgba(26,18,8,0.40)" stroke-width="0.6" stroke-linejoin="round"/>'+
-          '<path d="M9 10l1.6-2.3h2.8L15 10" fill="none" stroke="rgba(26,18,8,0.40)" stroke-width="0.6" stroke-linejoin="round"/>'+
+          '<path d="M6 3h12l4 6-10 13L2 9z" fill="url(#ejGemGrad)" stroke="#7A5F18" stroke-width="0.6" stroke-linejoin="round"/>'+
+          '<path d="M2 9h20M9 3l3 6 3-6" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" stroke-linejoin="round" stroke-linecap="round"/>'+
+          '<path d="M6.3 5.4l.8 1.6 1.6.3-1.2 1.2.3 1.7-1.5-.8-1.5.8.3-1.7-1.2-1.2 1.6-.3z" fill="#FFFFFF" opacity="0.9"/>'+
         '</svg>'+
         '<span id="ej-notify-text">Wenn du dein Gold berechnen möchtest, kannst du es hier tun.</span>'+
       '</div>'+
@@ -225,19 +223,16 @@
   var greeted=false;
 
   // ── Proactive Gold-Rechner notification bubble ──────────────────────────
-  // Pulses into view and back out on a loop until the visitor interacts with it,
-  // opens the chat some other way, or dismisses it — then it stops for good.
-  var notifyLoop=null;
-  var notifyStopped=false;
-  function notifyOff(){notify.classList.remove('ej-notify-visible');}
-  function notifyOn(){if(!isOpen&&!notifyStopped)notify.classList.add('ej-notify-visible');}
-  function notifyStop(){
-    notifyStopped=true;
-    notifyOff();
-    clearInterval(notifyLoop);
+  // Appears once per page load and stays put — no pulsing, no auto-hide.
+  // Dismissed only by the visitor (close button, clicking it, or opening chat);
+  // a fresh page load always shows it again.
+  var notifyDismissed=false;
+  function notifyDismiss(){
+    notifyDismissed=true;
+    notify.classList.remove('ej-notify-visible');
   }
   notify.addEventListener('click',function(){
-    notifyStop();
+    notifyDismiss();
     if(!isOpen)open();
     setTimeout(function(){send('__CALC__','Gold Rechner');},isOpen?0:380);
   });
@@ -246,15 +241,11 @@
   });
   notifyClose.addEventListener('click',function(e){
     e.stopPropagation();
-    notifyStop();
+    notifyDismiss();
   });
   setTimeout(function(){
-    notifyOn();
-    notifyLoop=setInterval(function(){
-      if(isOpen||notifyStopped){clearInterval(notifyLoop);return;}
-      notify.classList.contains('ej-notify-visible')?notifyOff():notifyOn();
-    },4200);
-  },2200);
+    if(!isOpen&&!notifyDismissed)notify.classList.add('ej-notify-visible');
+  },1800);
 
   // ── Chips renderer ────────────────────────────────────────────────────────
   function renderChips(arr){
@@ -310,7 +301,7 @@
   }
 
   // ── Event listeners ───────────────────────────────────────────────────────
-  fab.addEventListener('click',function(){notifyStop();isOpen?close():open();});
+  fab.addEventListener('click',function(){notifyDismiss();isOpen?close():open();});
   closeBtn.addEventListener('click',close);
   sendBtn.addEventListener('click',function(){send(input.value);});
   input.addEventListener('keydown',function(e){if(e.key==='Enter')send(input.value);});
