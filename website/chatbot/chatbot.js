@@ -156,7 +156,7 @@
     '#ej-notify-close{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:none;border:none;color:'+MUTED+';font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.18s,color 0.18s;font-family:sans-serif;}',
     '#ej-notify-close:hover{background:rgba(212,175,55,0.15);color:'+INK+';}',
     '#ej-notify-body{display:flex;align-items:flex-start;gap:10px;}',
-    '#ej-notify-icon{flex-shrink:0;margin-top:-2px;display:block;filter:drop-shadow(0 1px 2px rgba(26,18,8,0.35));}',
+    '#ej-notify-icon{flex-shrink:0;margin-top:1px;display:block;filter:drop-shadow(0 1px 1.5px rgba(26,18,8,0.30));}',
     '#ej-notify-text{font-family:"Inter","Helvetica Neue",sans-serif;font-size:12.5px;line-height:1.5;color:'+INK2+';font-weight:600;}',
     '@media(max-width:480px){#ej-notify{right:10px;bottom:96px;max-width:calc(100vw - 90px);}}'
   ].join('');
@@ -179,7 +179,7 @@
     '<div id="ej-notify" role="button" tabindex="0" aria-label="Gold-Rechner öffnen">'+
       '<button id="ej-notify-close" aria-label="Hinweis schließen">&#x2715;</button>'+
       '<div id="ej-notify-body">'+
-        '<svg id="ej-notify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">'+
+        '<svg id="ej-notify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="18" height="18" aria-hidden="true" focusable="false">'+
           '<defs>'+
             '<linearGradient id="ejGemGrad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">'+
               '<stop offset="0%" stop-color="#FCEBA8"/><stop offset="45%" stop-color="'+GOLD+'"/><stop offset="100%" stop-color="#8A6D1F"/>'+
