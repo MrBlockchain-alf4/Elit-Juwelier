@@ -7,8 +7,12 @@
   var calcStep=null; // null | 'type' | 'grams'
   var calcType=null; // '999'|'750'|'585'|'333'
 
-  // Approximate ankauf price per gram (market-based, slightly below spot)
+  // Reference gold value per gram — the "real" market baseline our -15% buy-back offer is calculated from
   var GOLD_PER_G={'999':72,'750':52,'585':40,'333':23};
+
+  function fmtEUR(n){
+    try{return Math.round(n).toLocaleString('de-DE');}catch(e){return String(Math.round(n));}
+  }
 
   // ── Knowledge Base ────────────────────────────────────────────────────────
   var KB=[
@@ -86,13 +90,13 @@
       var g=parseFloat(raw[0]);
       if(g<=0||g>9999){return 'Bitte ein realistisches Gewicht eingeben (z.B.: 15).';}
       var pricePg=GOLD_PER_G[calcType]||50;
-      var lo=Math.round(g*pricePg*0.88);
-      var hi=Math.round(g*pricePg);
+      var realPrice=g*pricePg;
+      var offerPrice=Math.round(realPrice*0.85);
       var display=g.toString().replace('.',',');
       var label={'999':'999er Gold','750':'750er Gold','585':'585er Gold','333':'333er Gold'}[calcType];
       calcStep=null;calcType=null;
       later(function(){renderChips(CHIPS_DEFAULT);});
-      return 'Schätzwert für '+display+' g '+label+':\n\n💰 ca. '+lo+' – '+hi+' €\n\nHinweis: Dies ist ein Richtwert nach aktuellem Marktpreis. Den verbindlichen Ankaufpreis bestimmen wir kostenlos und transparent in unserem Geschäft.\n\n📍 Elberfelder Str. 22, Hagen\nKein Termin nötig!';
+      return 'Schätzwert für '+display+' g '+label+':\n\n📊 Aktueller Goldwert: ca. '+fmtEUR(realPrice)+' €\n💰 Unser Ankaufspreis: ca. '+fmtEUR(offerPrice)+' €\n\nHinweis: Dies ist ein Richtwert nach aktuellem Marktpreis (inkl. Bewertungs- und Bearbeitungsabzug von 15%). Den verbindlichen Ankaufpreis bestimmen wir kostenlos und transparent in unserem Geschäft.\n\n📍 Elberfelder Str. 22, Hagen\nKein Termin nötig!';
     }
 
     // Normal Q&A knowledge base
@@ -145,7 +149,17 @@
     '#ej-send{background:'+GOLD+';border:none;color:'+INK+';padding:9px 16px;border-radius:3px;cursor:pointer;font-family:"Inter","Helvetica Neue",sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;transition:background 0.18s;}',
     '#ej-send:hover{background:'+GOLD2+';}',
     '@keyframes ej-up{from{transform:translateY(7px);opacity:0;}to{transform:translateY(0);opacity:1;}}',
-    '@media(max-width:480px){#ej-panel{width:calc(100vw - 20px);right:10px;bottom:90px;}#ej-panel.ej-open{height:520px;}}'
+    '@media(max-width:480px){#ej-panel{width:calc(100vw - 20px);right:10px;bottom:90px;}#ej-panel.ej-open{height:520px;}}',
+    '#ej-notify{position:fixed;bottom:100px;right:20px;z-index:8999;max-width:248px;background:'+WHITE+';border:1.5px solid rgba(212,175,55,0.40);border-radius:14px 14px 2px 14px;box-shadow:0 12px 40px rgba(26,18,8,0.22),0 2px 8px rgba(212,175,55,0.15);padding:14px 30px 14px 14px;cursor:pointer;opacity:0;transform:translateY(12px) scale(0.94);pointer-events:none;transition:transform 0.32s cubic-bezier(0.34,1.56,0.64,1),opacity 0.25s;}',
+    '#ej-notify.ej-notify-visible{opacity:1;transform:translateY(0) scale(1);pointer-events:all;animation:ej-notify-pulse 2.4s ease-in-out 1s 2;}',
+    '#ej-notify::after{content:"";position:absolute;bottom:-7px;right:26px;width:13px;height:13px;background:'+WHITE+';border-right:1.5px solid rgba(212,175,55,0.40);border-bottom:1.5px solid rgba(212,175,55,0.40);transform:rotate(45deg);}',
+    '#ej-notify-close{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:none;border:none;color:'+MUTED+';font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.18s,color 0.18s;font-family:sans-serif;}',
+    '#ej-notify-close:hover{background:rgba(212,175,55,0.15);color:'+INK+';}',
+    '#ej-notify-body{display:flex;align-items:flex-start;gap:10px;}',
+    '#ej-notify-icon{font-size:19px;line-height:1;flex-shrink:0;margin-top:1px;}',
+    '#ej-notify-text{font-family:"Inter","Helvetica Neue",sans-serif;font-size:12.5px;line-height:1.5;color:'+INK2+';font-weight:600;}',
+    '@keyframes ej-notify-pulse{0%,100%{box-shadow:0 12px 40px rgba(26,18,8,0.22),0 0 0 0 rgba(212,175,55,0.25);}50%{box-shadow:0 12px 40px rgba(26,18,8,0.22),0 0 0 6px rgba(212,175,55,0);}}',
+    '@media(max-width:480px){#ej-notify{right:10px;bottom:96px;max-width:calc(100vw - 90px);}}'
   ].join('');
 
   var st=document.createElement('style');
@@ -163,6 +177,10 @@
   // ── DOM ───────────────────────────────────────────────────────────────────
   var wrap=document.createElement('div');
   wrap.innerHTML=
+    '<div id="ej-notify" role="button" tabindex="0" aria-label="Gold-Rechner öffnen">'+
+      '<button id="ej-notify-close" aria-label="Hinweis schließen">&#x2715;</button>'+
+      '<div id="ej-notify-body"><span id="ej-notify-icon">💰</span><span id="ej-notify-text">Wenn du dein Gold berechnen möchtest, kannst du es hier tun.</span></div>'+
+    '</div>'+
     '<div id="ej-fab" role="button" aria-label="Chat öffnen" title="Chat mit Elit Juwelier">'+fabImg+'</div>'+
     '<div id="ej-panel" role="dialog" aria-modal="true" aria-label="Elit Juwelier Chat">'+
       '<div id="ej-head">'+
@@ -190,8 +208,27 @@
   var input=document.getElementById('ej-input');
   var sendBtn=document.getElementById('ej-send');
   var closeBtn=document.getElementById('ej-close');
+  var notify=document.getElementById('ej-notify');
+  var notifyClose=document.getElementById('ej-notify-close');
   var isOpen=false;
   var greeted=false;
+
+  // ── Proactive Gold-Rechner notification bubble ──────────────────────────
+  function hideNotify(){notify.classList.remove('ej-notify-visible');}
+  function showNotify(){if(!isOpen)notify.classList.add('ej-notify-visible');}
+  notify.addEventListener('click',function(){
+    hideNotify();
+    if(!isOpen)open();
+    setTimeout(function(){send('__CALC__','Gold Rechner');},isOpen?0:380);
+  });
+  notify.addEventListener('keydown',function(e){
+    if(e.key==='Enter'||e.key===' '){e.preventDefault();notify.click();}
+  });
+  notifyClose.addEventListener('click',function(e){
+    e.stopPropagation();
+    hideNotify();
+  });
+  setTimeout(showNotify,2500);
 
   // ── Chips renderer ────────────────────────────────────────────────────────
   function renderChips(arr){
@@ -247,7 +284,7 @@
   }
 
   // ── Event listeners ───────────────────────────────────────────────────────
-  fab.addEventListener('click',function(){isOpen?close():open();});
+  fab.addEventListener('click',function(){hideNotify();isOpen?close():open();});
   closeBtn.addEventListener('click',close);
   sendBtn.addEventListener('click',function(){send(input.value);});
   input.addEventListener('keydown',function(e){if(e.key==='Enter')send(input.value);});

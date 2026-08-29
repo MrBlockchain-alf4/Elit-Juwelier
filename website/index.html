@@ -62,7 +62,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .hero-eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
 .hero-h1{font-family:var(--serif);font-size:clamp(42px,4.5vw,68px);font-weight:800;line-height:1.08;letter-spacing:-0.02em;color:var(--ink);margin-bottom:8px;}
 .hero-h1 em{font-style:italic;color:var(--gold);}
-.hero-subtitle{font-family:var(--serif);font-size:clamp(16px,1.5vw,22px);font-weight:400;font-style:italic;color:var(--muted);margin-bottom:32px;line-height:1.4;}
+.hero-subtitle{font-family:var(--serif);font-size:clamp(16px,1.5vw,22px);font-weight:400;font-style:italic;color:var(--muted);margin-bottom:18px;line-height:1.4;}
+.hero-gold-line{display:flex;align-items:center;gap:9px;font-family:var(--sans);font-size:15px;font-weight:700;color:var(--gold2);letter-spacing:0.01em;margin-bottom:28px;}
+.hero-gold-line svg{width:19px;height:19px;flex-shrink:0;color:var(--gold);}
 .hero-desc{font-size:15px;color:var(--ink2);line-height:1.75;margin-bottom:40px;max-width:440px;}
 .hero-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
 .hero-chip{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold2);background:var(--gold-pale);border:1px solid var(--gold-border);border-radius:2px;padding:6px 12px;}
@@ -77,9 +79,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .hero-badge-txt{font-family:var(--sans);font-size:7px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--ink2);text-align:center;line-height:1.2;}
 @keyframes badge-pulse{0%,100%{transform:scale(1);box-shadow:0 4px 24px rgba(212,175,55,0.18),0 0 0 0 rgba(212,175,55,0.30);}50%{transform:scale(1.04);box-shadow:0 4px 24px rgba(212,175,55,0.25),0 0 0 8px rgba(212,175,55,0.08);}}
 .hero-right{position:relative;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;}
-.hero-img-wrap{position:relative;width:580px;height:680px;border-radius:4px 120px 4px 120px;overflow:hidden;box-shadow:0 24px 80px rgba(26,18,8,0.20),0 4px 16px rgba(26,18,8,0.10);}
-.hero-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 6s var(--ease-out);}
-.hero-img-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(212,175,55,0.08) 0%,rgba(0,0,0,0.18) 100%);pointer-events:none;}
+.hero-img-wrap{position:relative;width:580px;height:680px;border-radius:4px 120px 4px 120px;overflow:hidden;box-shadow:0 24px 80px rgba(26,18,8,0.20),0 4px 16px rgba(26,18,8,0.10);display:flex;align-items:center;justify-content:center;padding:56px;background:radial-gradient(ellipse 80% 65% at 50% 42%,rgba(212,175,55,0.12) 0%,transparent 62%),linear-gradient(160deg,var(--cream) 0%,var(--cream3) 100%);}
+.hero-img-wrap img{width:100%;height:100%;object-fit:contain;display:block;transition:transform 6s var(--ease-out);}
+.hero-img-wrap::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 45%,transparent 55%,rgba(212,175,55,0.07) 100%);pointer-events:none;}
 .hero-img-frame{display:none;}
 .hero-float-card{position:absolute;bottom:80px;left:24px;background:var(--white);border:1px solid var(--gold-border);border-radius:4px;padding:16px 20px;box-shadow:var(--shadow-md);min-width:160px;}
 .hero-float-card .card-label{font-size:10px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
@@ -151,15 +153,31 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 .gallery-filters{display:flex;gap:8px;flex-wrap:wrap;}
 .gf-btn{background:transparent;border:1.5px solid var(--gold-border);color:var(--muted);font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:0.10em;text-transform:uppercase;padding:8px 18px;border-radius:2px;cursor:pointer;transition:all 0.2s;}
 .gf-btn.active,.gf-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
-.gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-.g-item{position:relative;overflow:hidden;border-radius:2px;cursor:pointer;background:var(--cream3);}
-.g-item:nth-child(3n+1){grid-row:span 2;}
+.gl-carousel{position:relative;padding:0 60px;}
+.gl-track{display:flex;gap:12px;overflow-x:auto;scroll-behavior:smooth;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.gl-track::-webkit-scrollbar{display:none;}
+.g-item{scroll-snap-align:start;flex:0 0 calc((100% - 36px)/4);aspect-ratio:4/5;position:relative;overflow:hidden;border-radius:2px;cursor:pointer;background:var(--cream3);}
 .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.6s var(--ease-out);}
 .g-item:hover img{transform:scale(1.06);}
 .g-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(26,18,8,0.70) 0%,rgba(212,175,55,0.10) 100%);opacity:0;transition:opacity 0.3s;display:flex;align-items:flex-end;padding:20px;}
 .g-item:hover .g-overlay{opacity:1;}
 .g-overlay-text{color:#fff;font-family:var(--serif);font-size:16px;font-weight:600;transform:translateY(8px);transition:transform 0.3s;}
 .g-item:hover .g-overlay-text{transform:translateY(0);}
+.gl-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;background:var(--white);border:1px solid var(--gold-border);color:var(--ink2);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:var(--shadow-sm);transition:background 0.2s,border-color 0.2s,transform 0.15s;z-index:2;}
+.gl-arrow svg{width:18px;height:18px;}
+.gl-arrow:hover{background:var(--gold-pale);border-color:var(--gold);color:var(--gold2);}
+.gl-arrow:active{transform:translateY(-50%) scale(0.94);}
+.gl-arrow:focus-visible{outline:2px solid var(--gold2);outline-offset:2px;}
+.gl-arrow-prev{left:0;}
+.gl-arrow-next{right:0;}
+.gl-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:28px;}
+.gl-dot{width:8px;height:8px;border-radius:50%;border:none;background:var(--gold-border);cursor:pointer;padding:0;transition:background 0.2s,transform 0.15s;}
+.gl-dot:hover{background:var(--gold);}
+.gl-dot.active{background:var(--gold2);transform:scale(1.25);}
+.gl-dot:focus-visible{outline:2px solid var(--gold2);outline-offset:2px;}
+@media(max-width:1100px){.g-item{flex:0 0 calc((100% - 24px)/3);}}
+@media(max-width:900px){.gl-carousel{padding:0 48px;}.g-item{flex:0 0 calc((100% - 12px)/2);}}
+@media(max-width:480px){.gl-carousel{padding:0 40px;}.gl-arrow{width:36px;height:36px;}.gl-arrow svg{width:15px;height:15px;}}
 
 /* ── LIGHTBOX ── */
 .lightbox{display:none;position:fixed;inset:0;z-index:200;background:rgba(26,18,8,0.90);align-items:center;justify-content:center;}
@@ -514,8 +532,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Seit 2001 · 25 Jahre Erfahrung</div>
-    <h1 class="hero-h1">Trauringe &amp;<br><em>Verlobungsringe</em></h1>
-    <p class="hero-subtitle">Wo Liebe Form annimmt.</p>
+    <h1 class="hero-h1">Gold<em>kauf</em></h1>
+    <p class="hero-subtitle">Trauringe und Verlobungsringe</p>
+    <p class="hero-gold-line"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 9.5c0-1.5 1.5-2.5 3-2.5s3 1 3 2.5c0 3-6 2-6 5 0 1.5 1.5 2.5 3 2.5s3-1 3-2.5"/></svg>Wir kaufen Ihr Gold zu fairen Tagespreisen.</p>
     <p class="hero-desc">Handgefertigte Eheringe und Verlobungsringe in Gold, Weißgold und Rosegold — mit echten Diamanten, Labdiamanten und Zirkonia-Steinen. Persönliche Beratung in Hagen seit 25 Jahren.</p>
     <div class="hero-chips">
       <span class="hero-chip">585er &amp; 750er Gold</span>
@@ -534,7 +553,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   </div>
   <div class="hero-right">
     <div class="hero-img-wrap">
-      <img src="public/images/elit-1.png" alt="Goldschmuck — Elit Juwelier" loading="eager">
+      <img src="public/images/elit-hero-goldkauf.png" alt="Goldankauf — Trauringe und Verlobungsringe, Elit Juwelier" loading="eager">
     </div>
     <div class="hero-img-frame"></div>
   </div>
@@ -663,24 +682,33 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
         <button class="gf-btn" onclick="filterGallery('armband',this)">Armbänder</button>
       </div>
     </div>
-    <div class="gallery-grid" id="gallery-grid">
-      <div class="g-item" data-cat="ring" onclick="openLightbox(0)"><img src="public/images/elit-1.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(1)"><img src="public/images/elit-2.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(2)"><img src="public/images/elit-3.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(3)"><img src="public/images/elit-4.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(4)"><img src="public/images/elit-5.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Ring-Set</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(5)"><img src="public/images/elit-6.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(6)"><img src="public/images/elit-7.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(7)"><img src="public/images/elit-8.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(8)"><img src="public/images/elit-9.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(9)"><img src="public/images/elit-10.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Gold-Bandringe</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(10)"><img src="public/images/elit-11.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(11)"><img src="public/images/elit-12.png" alt="Ring"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(12)"><img src="public/images/elit-13.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(13)"><img src="public/images/elit-14.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(14)"><img src="public/images/elit-15.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(15)"><img src="public/images/elit-16.png" alt="Armband"><div class="g-overlay"><span class="g-overlay-text">Goldkette Armbänder</span></div></div>
+    <div class="gl-carousel fade-up">
+      <button class="gl-arrow gl-arrow-prev" id="glPrev" aria-label="Vorherige Schmuckstücke">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="gl-arrow gl-arrow-next" id="glNext" aria-label="Nächste Schmuckstücke">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+      <div class="gl-track" id="gl-track">
+      <div class="g-item" data-cat="ring" onclick="openLightbox(0)"><img src="public/images/elit-1.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(1)"><img src="public/images/elit-2.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(2)"><img src="public/images/elit-3.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(3)"><img src="public/images/elit-4.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(4)"><img src="public/images/elit-5.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Ring-Set</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(5)"><img src="public/images/elit-6.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(6)"><img src="public/images/elit-7.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(7)"><img src="public/images/elit-8.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(8)"><img src="public/images/elit-9.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(9)"><img src="public/images/elit-10.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Gold-Bandringe</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(10)"><img src="public/images/elit-11.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(11)"><img src="public/images/elit-12.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(12)"><img src="public/images/elit-13.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(13)"><img src="public/images/elit-14.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(14)"><img src="public/images/elit-15.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(15)"><img src="public/images/elit-16.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldkette Armbänder</span></div></div>
+      </div>
     </div>
+    <div class="gl-dots" id="glDots"></div>
   </div>
 </section>
 
@@ -1167,17 +1195,113 @@ fadeEls.forEach(el => obs.observe(el));
   startAuto();
 })();
 
+// Gallery carousel — auto-advances like testimonials; filter-aware
+const galleryCarousel = (function () {
+  const track = document.getElementById('gl-track');
+  const dotsWrap = document.getElementById('glDots');
+  const prevBtn = document.getElementById('glPrev');
+  const nextBtn = document.getElementById('glNext');
+  if (!track) return { refresh() {} };
+  const AUTO_MS = 3800;
+  const RESUME_DELAY = 6000;
+  let perView = 4, totalPages = 1, current = 0;
+  let autoTimer = null, resumeTimer = null, programmatic = false, programmaticTimeout = null;
+
+  function computePerView() {
+    const w = window.innerWidth;
+    if (w <= 900) return 2;
+    if (w <= 1100) return 3;
+    return 4;
+  }
+
+  function visibleItems() {
+    return Array.from(track.children).filter(el => el.style.display !== 'none');
+  }
+
+  function updateDots() {
+    Array.from(dotsWrap.children).forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  function buildDots() {
+    dotsWrap.innerHTML = '';
+    for (let i = 0; i < totalPages; i++) {
+      const d = document.createElement('button');
+      d.className = 'gl-dot';
+      d.setAttribute('aria-label', `Kollektion Seite ${i + 1}`);
+      d.addEventListener('click', () => { goTo(i); pauseThenResume(); });
+      dotsWrap.appendChild(d);
+    }
+    updateDots();
+  }
+
+  function goTo(page) {
+    if (totalPages <= 1) return;
+    current = ((page % totalPages) + totalPages) % totalPages;
+    programmatic = true;
+    clearTimeout(programmaticTimeout);
+    track.scrollTo({ left: current * track.clientWidth, behavior: 'smooth' });
+    programmaticTimeout = setTimeout(() => { programmatic = false; }, 700);
+    updateDots();
+  }
+
+  function startAuto() {
+    clearInterval(autoTimer);
+    if (totalPages <= 1) return;
+    autoTimer = setInterval(() => goTo(current + 1), AUTO_MS);
+  }
+
+  function stopAuto() { clearInterval(autoTimer); }
+
+  function pauseThenResume() {
+    stopAuto();
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(startAuto, RESUME_DELAY);
+  }
+
+  function setup() {
+    perView = computePerView();
+    const count = visibleItems().length;
+    totalPages = Math.max(1, Math.ceil(count / perView));
+    current = Math.min(current, totalPages - 1);
+    buildDots();
+  }
+
+  function refresh() {
+    current = 0;
+    track.scrollTo({ left: 0 });
+    setup();
+    startAuto();
+  }
+
+  prevBtn.addEventListener('click', () => { goTo(current - 1); pauseThenResume(); });
+  nextBtn.addEventListener('click', () => { goTo(current + 1); pauseThenResume(); });
+  track.addEventListener('pointerdown', pauseThenResume);
+  track.addEventListener('scroll', () => {
+    if (programmatic) return;
+    current = Math.round(track.scrollLeft / track.clientWidth);
+    updateDots();
+    pauseThenResume();
+  }, { passive: true });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { setup(); goTo(current); }, 200);
+  });
+
+  setup();
+  startAuto();
+  return { refresh };
+})();
+
 // Gallery filter
 function filterGallery(cat, btn) {
   document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  document.querySelectorAll('#gallery-grid .g-item').forEach(item => {
-    if (cat === 'all' || item.dataset.cat === cat) {
-      item.style.display = '';
-    } else {
-      item.style.display = 'none';
-    }
+  document.querySelectorAll('#gl-track .g-item').forEach(item => {
+    item.style.display = (cat === 'all' || item.dataset.cat === cat) ? '' : 'none';
   });
+  galleryCarousel.refresh();
 }
 
 // Lightbox
