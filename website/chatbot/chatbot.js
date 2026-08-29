@@ -156,7 +156,7 @@
     '#ej-notify-close{position:absolute;top:6px;right:6px;width:20px;height:20px;border-radius:50%;background:none;border:none;color:'+MUTED+';font-size:11px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.18s,color 0.18s;font-family:sans-serif;}',
     '#ej-notify-close:hover{background:rgba(212,175,55,0.15);color:'+INK+';}',
     '#ej-notify-body{display:flex;align-items:flex-start;gap:10px;}',
-    '#ej-notify-icon{flex-shrink:0;margin-top:1px;display:block;}',
+    '#ej-notify-icon{flex-shrink:0;margin-top:-2px;display:block;filter:drop-shadow(0 1px 2px rgba(26,18,8,0.35));}',
     '#ej-notify-text{font-family:"Inter","Helvetica Neue",sans-serif;font-size:12.5px;line-height:1.5;color:'+INK2+';font-weight:600;}',
     '@media(max-width:480px){#ej-notify{right:10px;bottom:96px;max-width:calc(100vw - 90px);}}'
   ].join('');
@@ -179,13 +179,19 @@
     '<div id="ej-notify" role="button" tabindex="0" aria-label="Gold-Rechner öffnen">'+
       '<button id="ej-notify-close" aria-label="Hinweis schließen">&#x2715;</button>'+
       '<div id="ej-notify-body">'+
-        '<svg id="ej-notify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false">'+
-          '<defs><linearGradient id="ejGemGrad" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">'+
-            '<stop offset="0%" stop-color="#FBE79A"/><stop offset="45%" stop-color="'+GOLD+'"/><stop offset="100%" stop-color="#8A6D1F"/>'+
-          '</linearGradient></defs>'+
-          '<path d="M6 3h12l4 6-10 13L2 9z" fill="url(#ejGemGrad)" stroke="#7A5F18" stroke-width="0.6" stroke-linejoin="round"/>'+
-          '<path d="M2 9h20M9 3l3 6 3-6" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="0.6" stroke-linejoin="round" stroke-linecap="round"/>'+
-          '<path d="M6.3 5.4l.8 1.6 1.6.3-1.2 1.2.3 1.7-1.5-.8-1.5.8.3-1.7-1.2-1.2 1.6-.3z" fill="#FFFFFF" opacity="0.9"/>'+
+        '<svg id="ej-notify-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true" focusable="false">'+
+          '<defs>'+
+            '<linearGradient id="ejGemGrad" x1="4" y1="4" x2="28" y2="28" gradientUnits="userSpaceOnUse">'+
+              '<stop offset="0%" stop-color="#FCEBA8"/><stop offset="45%" stop-color="'+GOLD+'"/><stop offset="100%" stop-color="#8A6D1F"/>'+
+            '</linearGradient>'+
+            '<linearGradient id="ejGemFacet" x1="16" y1="4" x2="16" y2="28" gradientUnits="userSpaceOnUse">'+
+              '<stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.6"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>'+
+            '</linearGradient>'+
+          '</defs>'+
+          '<path d="M8 4h16l5.5 8L16 29 2.5 12z" fill="url(#ejGemGrad)" stroke="#6B5416" stroke-width="1.1" stroke-linejoin="round"/>'+
+          '<path d="M16 12l-4-8h8z" fill="rgba(255,255,255,0.24)"/>'+
+          '<path d="M2.5 12h27M12 4l4 8 4-8" fill="none" stroke="url(#ejGemFacet)" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>'+
+          '<path d="M9 6.4l1.1 2.2 2.2.4-1.6 1.6.4 2.3-2.1-1.1-2.1 1.1.4-2.3-1.6-1.6 2.2-.4z" fill="#FFFFFF"/>'+
         '</svg>'+
         '<span id="ej-notify-text">Wenn du dein Gold berechnen möchtest, kannst du es hier tun.</span>'+
       '</div>'+
