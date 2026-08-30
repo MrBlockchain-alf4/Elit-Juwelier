@@ -7,8 +7,9 @@
   var calcStep=null; // null | 'type' | 'grams'
   var calcType=null; // '999'|'750'|'585'|'333'
 
-  // Reference gold value per gram — the "real" market baseline our -15% buy-back offer is calculated from
-  var GOLD_PER_G={'999':72,'750':52,'585':40,'333':23};
+  // Reference gold value per gram — the "real" market baseline our -15% buy-back offer is calculated from.
+  // Updated 2026-08-30 from current spot (~122 €/g for 999 fine gold); 750/585/333 scaled by karat purity.
+  var GOLD_PER_G={'999':122,'750':91,'585':71,'333':41};
 
   function fmtEUR(n){
     try{return Math.round(n).toLocaleString('de-DE');}catch(e){return String(Math.round(n));}
