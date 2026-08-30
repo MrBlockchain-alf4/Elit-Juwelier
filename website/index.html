@@ -504,26 +504,26 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
     <a class="nav-brand" href="#" data-fw-section="elit.logo">
       <img class="nav-logo-full" data-fw="elit.site.logo" src="public/images/elit-logo-transparent.png" alt="Elit Juwelier">
     </a>
-    <ul class="nav-links">
-      <li><a href="#kollekton">Kollektion</a></li>
-      <li><a href="#leistungen">Leistungen</a></li>
-      <li><a href="#goldankauf-section">Goldankauf</a></li>
-      <li><a href="#ueber-uns">Über Uns</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+    <ul class="nav-links" data-fw-section="elit.nav">
+      <li><a href="#kollekton" data-fw="elit.nav.links.0">Kollektion</a></li>
+      <li><a href="#leistungen" data-fw="elit.nav.links.1">Leistungen</a></li>
+      <li><a href="#goldankauf-section" data-fw="elit.nav.links.2">Goldankauf</a></li>
+      <li><a href="#ueber-uns" data-fw="elit.nav.links.3">Über Uns</a></li>
+      <li><a href="#kontakt" data-fw="elit.nav.links.4">Kontakt</a></li>
     </ul>
-    <a class="nav-cta" href="#kontakt">Termin anfragen</a>
+    <a class="nav-cta" href="#kontakt" data-fw="elit.nav.cta_text">Termin anfragen</a>
     <div class="nav-hamburger" id="hamburger" onclick="toggleMobileNav()" role="button" aria-label="Menü">
       <span></span><span></span><span></span>
     </div>
   </div>
 </nav>
-<div class="nav-mobile" id="mobileNav">
-  <a href="#kollekton" onclick="toggleMobileNav()">Kollektion</a>
-  <a href="#leistungen" onclick="toggleMobileNav()">Leistungen</a>
-  <a href="#goldankauf-section" onclick="toggleMobileNav()">Goldankauf</a>
-  <a href="#ueber-uns" onclick="toggleMobileNav()">Über Uns</a>
-  <a href="#kontakt" onclick="toggleMobileNav()">Kontakt</a>
-  <a href="#kontakt" class="nav-cta" onclick="toggleMobileNav()">Termin anfragen</a>
+<div class="nav-mobile" id="mobileNav" data-fw-section="elit.nav">
+  <a href="#kollekton" onclick="toggleMobileNav()" data-fw="elit.nav.links.0">Kollektion</a>
+  <a href="#leistungen" onclick="toggleMobileNav()" data-fw="elit.nav.links.1">Leistungen</a>
+  <a href="#goldankauf-section" onclick="toggleMobileNav()" data-fw="elit.nav.links.2">Goldankauf</a>
+  <a href="#ueber-uns" onclick="toggleMobileNav()" data-fw="elit.nav.links.3">Über Uns</a>
+  <a href="#kontakt" onclick="toggleMobileNav()" data-fw="elit.nav.links.4">Kontakt</a>
+  <a href="#kontakt" class="nav-cta" onclick="toggleMobileNav()" data-fw="elit.nav.cta_text">Termin anfragen</a>
 </div>
 
 <!-- HERO -->
@@ -557,31 +557,31 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 </section>
 
 <!-- SCHWERPUNKT GOLDANKAUF BANNER -->
-<section class="ga-banner">
+<section class="ga-banner" data-fw-section="elit.banner">
   <div class="ga-banner-inner">
     <div class="ga-banner-left">
-      <div class="ga-banner-eyebrow">Für Ihren großen Moment</div>
-      <h2 class="ga-banner-h">Trauringe &amp;<br>Verlobungsringe</h2>
-      <p class="ga-banner-sub">Handgefertigte Eheringe und Verlobungsringe in Gold, Weißgold und Rosegold.</p>
-      <a class="ga-banner-cta" href="#kollekton">Kollektion ansehen →</a>
+      <div class="ga-banner-eyebrow" data-fw="elit.banner.eyebrow">Für Ihren großen Moment</div>
+      <h2 class="ga-banner-h"><span data-fw="elit.banner.headline_1">Trauringe &amp;</span><br><span data-fw="elit.banner.headline_2">Verlobungsringe</span></h2>
+      <p class="ga-banner-sub" data-fw="elit.banner.sub">Handgefertigte Eheringe und Verlobungsringe in Gold, Weißgold und Rosegold.</p>
+      <a class="ga-banner-cta" href="#kollekton" data-fw="elit.banner.cta_text">Kollektion ansehen →</a>
     </div>
     <div class="ga-banner-right">
       <div class="ga-banner-items">
         <div class="ga-bi">
           <span class="ga-bi-check">✓</span>
-          <div><strong>Individuelle Anfertigung</strong><span>Nach Ihren Wünschen gefertigt</span></div>
+          <div><strong data-fw="elit.banner.items.0.title">Individuelle Anfertigung</strong><span data-fw="elit.banner.items.0.desc">Nach Ihren Wünschen gefertigt</span></div>
         </div>
         <div class="ga-bi">
           <span class="ga-bi-check">✓</span>
-          <div><strong>585er &amp; 750er Gold</strong><span>Gelbgold, Weißgold oder Rosegold</span></div>
+          <div><strong data-fw="elit.banner.items.1.title">585er &amp; 750er Gold</strong><span data-fw="elit.banner.items.1.desc">Gelbgold, Weißgold oder Rosegold</span></div>
         </div>
         <div class="ga-bi">
           <span class="ga-bi-check">✓</span>
-          <div><strong>Echte Diamanten</strong><span>Diamanten, Labdiamanten oder Zirkonia</span></div>
+          <div><strong data-fw="elit.banner.items.2.title">Echte Diamanten</strong><span data-fw="elit.banner.items.2.desc">Diamanten, Labdiamanten oder Zirkonia</span></div>
         </div>
         <div class="ga-bi">
           <span class="ga-bi-check">✓</span>
-          <div><strong>25 Jahre Erfahrung</strong><span>Persönliche Beratung seit 2001</span></div>
+          <div><strong data-fw="elit.banner.items.3.title">25 Jahre Erfahrung</strong><span data-fw="elit.banner.items.3.desc">Persönliche Beratung seit 2001</span></div>
         </div>
       </div>
     </div>
@@ -589,77 +589,77 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 </section>
 
 <!-- STATS -->
-<div class="stats">
+<div class="stats" data-fw-section="elit.stats">
   <div class="stats-inner">
     <div class="stat-item">
       <div>
-        <div class="stat-num">27+</div>
-        <div class="stat-label">Jahre Erfahrung</div>
+        <div class="stat-num" data-fw="elit.stats.0.value">27+</div>
+        <div class="stat-label" data-fw="elit.stats.0.label">Jahre Erfahrung</div>
       </div>
     </div>
     <div class="stat-item">
       <div>
-        <div class="stat-num">5★</div>
-        <div class="stat-label">Google Bewertung</div>
+        <div class="stat-num" data-fw="elit.stats.1.value">5★</div>
+        <div class="stat-label" data-fw="elit.stats.1.label">Google Bewertung</div>
       </div>
     </div>
     <div class="stat-item">
       <div>
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Einzigartige Designs</div>
+        <div class="stat-num" data-fw="elit.stats.2.value">∞</div>
+        <div class="stat-label" data-fw="elit.stats.2.label">Einzigartige Designs</div>
       </div>
     </div>
     <div class="stat-item">
       <div>
-        <div class="stat-num">100%</div>
-        <div class="stat-label">Persönliche Beratung</div>
+        <div class="stat-num" data-fw="elit.stats.3.value">100%</div>
+        <div class="stat-label" data-fw="elit.stats.3.label">Persönliche Beratung</div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- SERVICES -->
-<section class="section" id="leistungen">
+<section class="section" id="leistungen" data-fw-section="elit.services">
   <div class="section-inner">
     <div class="fade-up">
-      <div class="section-eyebrow">Unsere Leistungen</div>
-      <h2 class="section-h2">Alles für Ihren<br><em>besonderen Moment</em></h2>
-      <p class="section-lead">Von der Verlobung bis zur Goldene Hochzeit — wir begleiten Sie mit Leidenschaft und Fachkenntnis.</p>
+      <div class="section-eyebrow" data-fw="elit.services.eyebrow">Unsere Leistungen</div>
+      <h2 class="section-h2"><span data-fw="elit.services.heading">Alles für Ihren</span><br><em data-fw="elit.services.heading_em">besonderen Moment</em></h2>
+      <p class="section-lead" data-fw="elit.services.lead">Von der Verlobung bis zur Goldene Hochzeit — wir begleiten Sie mit Leidenschaft und Fachkenntnis.</p>
     </div>
     <div class="services-grid fade-up">
       <!-- FEATURED: Goldankauf -->
       <div class="svc-card featured">
         <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><ellipse cx="12" cy="6" rx="8" ry="2.5"/><path d="M4 6v4c0 1.38 3.58 2.5 8 2.5S20 11.38 20 10V6"/><path d="M4 10v4c0 1.38 3.58 2.5 8 2.5S20 15.38 20 14v-4"/><path d="M4 14v3c0 1.38 3.58 2.5 8 2.5S20 18.38 20 17v-3"/></svg></span>
-        <h3 class="svc-title">Gold­ankauf</h3>
-        <p class="svc-desc">Wir kaufen Ihr Altgold, Schmuckstücke, Münzen und Zahngold zu fairen Tagespreisen. Sofortige Auszahlung, keine versteckten Gebühren. Bringen Sie Ihren Schmuck direkt zu uns — wir bewerten kostenlos und unverbindlich.</p>
+        <h3 class="svc-title" data-fw="elit.services.featured_title">Gold­ankauf</h3>
+        <p class="svc-desc" data-fw="elit.services.featured_desc">Wir kaufen Ihr Altgold, Schmuckstücke, Münzen und Zahngold zu fairen Tagespreisen. Sofortige Auszahlung, keine versteckten Gebühren. Bringen Sie Ihren Schmuck direkt zu uns — wir bewerten kostenlos und unverbindlich.</p>
         <ul style="list-style:none;margin-bottom:28px;">
-          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Goldschmuck, Ketten, Ringe, Armbänder</li>
-          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Goldmünzen &amp; Barren</li>
-          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Zahngold &amp; Dentalschmuck</li>
-          <li style="font-size:13px;color:var(--muted2);padding:6px 0;display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> Sofortauszahlung in Bar</li>
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> <span data-fw="elit.services.featured_list.0">Goldschmuck, Ketten, Ringe, Armbänder</span></li>
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> <span data-fw="elit.services.featured_list.1">Goldmünzen &amp; Barren</span></li>
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;border-bottom:1px solid rgba(212,175,55,0.15);display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> <span data-fw="elit.services.featured_list.2">Zahngold &amp; Dentalschmuck</span></li>
+          <li style="font-size:13px;color:var(--muted2);padding:6px 0;display:flex;align-items:center;gap:8px;"><span style="color:var(--gold);">✓</span> <span data-fw="elit.services.featured_list.3">Sofortauszahlung in Bar</span></li>
         </ul>
-        <a class="svc-cta" href="#kontakt">Jetzt bewerten lassen →</a>
+        <a class="svc-cta" href="#kontakt" data-fw="elit.services.featured_cta_text">Jetzt bewerten lassen →</a>
       </div>
       <!-- Trauringe -->
       <div class="svc-card">
         <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/></svg></span>
-        <h3 class="svc-title">Trauringe &amp; Eheringe</h3>
-        <p class="svc-desc">Wählen Sie aus hunderten Designs oder lassen Sie Ihren Traumring individuell anfertigen. In Gelbgold, Weißgold oder Rosegold — mit oder ohne Steine.</p>
-        <a class="svc-link" href="#kollekton">Kollektion ansehen →</a>
+        <h3 class="svc-title" data-fw="elit.services.cards.0.title">Trauringe &amp; Eheringe</h3>
+        <p class="svc-desc" data-fw="elit.services.cards.0.desc">Wählen Sie aus hunderten Designs oder lassen Sie Ihren Traumring individuell anfertigen. In Gelbgold, Weißgold oder Rosegold — mit oder ohne Steine.</p>
+        <a class="svc-link" href="#kollekton" data-fw="elit.services.cards.0.link_text">Kollektion ansehen →</a>
       </div>
       <!-- Verlobungsringe -->
       <div class="svc-card">
         <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg></span>
-        <h3 class="svc-title">Verlobungsringe</h3>
-        <p class="svc-desc">Der perfekte Ring für den größten Moment. Mit echten Diamanten, Labdiamanten oder Zirkonia-Steinen — jeder Ring wird mit Liebe ausgewählt oder gefertigt.</p>
-        <a class="svc-link" href="#kontakt">Beratungstermin →</a>
+        <h3 class="svc-title" data-fw="elit.services.cards.1.title">Verlobungsringe</h3>
+        <p class="svc-desc" data-fw="elit.services.cards.1.desc">Der perfekte Ring für den größten Moment. Mit echten Diamanten, Labdiamanten oder Zirkonia-Steinen — jeder Ring wird mit Liebe ausgewählt oder gefertigt.</p>
+        <a class="svc-link" href="#kontakt" data-fw="elit.services.cards.1.link_text">Beratungstermin →</a>
       </div>
       <!-- Schmuck -->
       <div class="svc-card">
         <span class="svc-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></span>
-        <h3 class="svc-title">Schmuck &amp; Accessoires</h3>
-        <p class="svc-desc">Halsketten, Armbänder, Ohrringe und mehr — eine kuratierte Auswahl hochwertiger Goldschmuckstücke für jeden Anlass und Stil.</p>
-        <a class="svc-link" href="#kollekton">Kollektion ansehen →</a>
+        <h3 class="svc-title" data-fw="elit.services.cards.2.title">Schmuck &amp; Accessoires</h3>
+        <p class="svc-desc" data-fw="elit.services.cards.2.desc">Halsketten, Armbänder, Ohrringe und mehr — eine kuratierte Auswahl hochwertiger Goldschmuckstücke für jeden Anlass und Stil.</p>
+        <a class="svc-link" href="#kollekton" data-fw="elit.services.cards.2.link_text">Kollektion ansehen →</a>
       </div>
     </div>
   </div>
@@ -756,52 +756,52 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 </section>
 
 <!-- GOLDANKAUF -->
-<section class="goldankauf" id="goldankauf-section">
+<section class="goldankauf" id="goldankauf-section" data-fw-section="elit.goldankaufInfo">
   <div class="goldankauf-inner">
     <div class="ga-left fade-up">
-      <div class="section-eyebrow">Goldankauf</div>
-      <h2 class="section-h2">Ihr Altgold ist<br><em>mehr wert</em></h2>
-      <p>Haben Sie alten Schmuck, Goldmünzen oder Zahngold? Wir bezahlen faire, tagesaktuelle Preise — sofort in Bar, ohne Wartezeit. Bringen Sie Ihr Gold einfach vorbei, wir bewerten kostenlos und ohne Verpflichtung.</p>
-      <p>Als langjähriger Familienbetrieb wissen wir: Vertrauen ist alles. Deshalb sind unsere Ankaufspreise stets transparent und nachvollziehbar.</p>
-      <a class="ga-cta" href="#kontakt">Gold bewerten lassen →</a>
+      <div class="section-eyebrow" data-fw="elit.goldankauf_info.eyebrow">Goldankauf</div>
+      <h2 class="section-h2"><span data-fw="elit.goldankauf_info.heading">Ihr Altgold ist</span><br><em data-fw="elit.goldankauf_info.heading_em">mehr wert</em></h2>
+      <p data-fw="elit.goldankauf_info.body_1">Haben Sie alten Schmuck, Goldmünzen oder Zahngold? Wir bezahlen faire, tagesaktuelle Preise — sofort in Bar, ohne Wartezeit. Bringen Sie Ihr Gold einfach vorbei, wir bewerten kostenlos und ohne Verpflichtung.</p>
+      <p data-fw="elit.goldankauf_info.body_2">Als langjähriger Familienbetrieb wissen wir: Vertrauen ist alles. Deshalb sind unsere Ankaufspreise stets transparent und nachvollziehbar.</p>
+      <a class="ga-cta" href="#kontakt" data-fw="elit.goldankauf_info.cta_text">Gold bewerten lassen →</a>
     </div>
     <div class="ga-right fade-up">
       <div class="ga-card">
         <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
-        <div class="ga-card-title">Goldschmuck</div>
-        <div class="ga-card-desc">Ringe, Ketten, Armbänder, Ohrringe — alle Legierungen von 333er bis 999er Gold.</div>
+        <div class="ga-card-title" data-fw="elit.goldankauf_info.cards.0.title">Goldschmuck</div>
+        <div class="ga-card-desc" data-fw="elit.goldankauf_info.cards.0.desc">Ringe, Ketten, Armbänder, Ohrringe — alle Legierungen von 333er bis 999er Gold.</div>
       </div>
       <div class="ga-card">
         <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></span>
-        <div class="ga-card-title">Goldmünzen &amp; Barren</div>
-        <div class="ga-card-desc">Krugerrand, Maple Leaf, Wiener Philharmoniker und andere Anlagemünzen.</div>
+        <div class="ga-card-title" data-fw="elit.goldankauf_info.cards.1.title">Goldmünzen &amp; Barren</div>
+        <div class="ga-card-desc" data-fw="elit.goldankauf_info.cards.1.desc">Krugerrand, Maple Leaf, Wiener Philharmoniker und andere Anlagemünzen.</div>
       </div>
       <div class="ga-card">
         <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></span>
-        <div class="ga-card-title">Zahngold</div>
-        <div class="ga-card-desc">Zahnkronen, Brücken und andere zahntechnische Goldlegierungen.</div>
+        <div class="ga-card-title" data-fw="elit.goldankauf_info.cards.2.title">Zahngold</div>
+        <div class="ga-card-desc" data-fw="elit.goldankauf_info.cards.2.desc">Zahnkronen, Brücken und andere zahntechnische Goldlegierungen.</div>
       </div>
       <div class="ga-card">
         <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
-        <div class="ga-card-title">Sofortauszahlung</div>
-        <div class="ga-card-desc">Kein Warten, keine Überweisungen — Barzahlung direkt bei der Bewertung.</div>
+        <div class="ga-card-title" data-fw="elit.goldankauf_info.cards.3.title">Sofortauszahlung</div>
+        <div class="ga-card-desc" data-fw="elit.goldankauf_info.cards.3.desc">Kein Warten, keine Überweisungen — Barzahlung direkt bei der Bewertung.</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- BEWERTUNGEN -->
-<section class="reviews" id="bewertungen">
+<section class="reviews" id="bewertungen" data-fw-section="elit.reviews">
   <div class="reviews-inner">
     <div class="reviews-head fade-up">
-      <div class="section-eyebrow" style="justify-content:center;">Kundenstimmen</div>
-      <h2 class="section-h2">Was unsere Kunden<br><em>über uns sagen</em></h2>
+      <div class="section-eyebrow" style="justify-content:center;" data-fw="elit.reviews.eyebrow">Kundenstimmen</div>
+      <h2 class="section-h2"><span data-fw="elit.reviews.heading">Was unsere Kunden</span><br><em data-fw="elit.reviews.heading_em">über uns sagen</em></h2>
       <div class="reviews-summary">
-        <div class="reviews-score">5,0</div>
+        <div class="reviews-score" data-fw="elit.reviews.score">5,0</div>
         <div class="reviews-stars-big"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
         <div class="reviews-meta">
-          <div class="reviews-meta-label">Google Bewertung</div>
-          <div class="reviews-meta-count">Basierend auf echten Kundenbewertungen</div>
+          <div class="reviews-meta-label" data-fw="elit.reviews.score_label">Google Bewertung</div>
+          <div class="reviews-meta-count" data-fw="elit.reviews.score_sub_label">Basierend auf echten Kundenbewertungen</div>
         </div>
       </div>
     </div>
@@ -816,141 +816,141 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Ich bin sehr zufrieden mit meinem Besuch. Der Ankauf verlief fair, transparent und professionell. Absolut empfehlenswert!"</p>
-        <div class="rv-author"><div class="rv-avatar">G</div><div><div class="rv-name">GmK Yoktur</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.0.text">„Ich bin sehr zufrieden mit meinem Besuch. Der Ankauf verlief fair, transparent und professionell. Absolut empfehlenswert!"</p>
+        <div class="rv-author"><div class="rv-avatar">G</div><div><div class="rv-name" data-fw="elit.reviews.items.0.name">GmK Yoktur</div><div class="rv-source" data-fw="elit.reviews.items.0.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Super nette Beratung und eine angenehme Atmosphäre. Ich fühle mich immer sehr wohl und gut beraten."</p>
-        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name">Saranda Hax</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.1.text">„Super nette Beratung und eine angenehme Atmosphäre. Ich fühle mich immer sehr wohl und gut beraten."</p>
+        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name" data-fw="elit.reviews.items.1.name">Saranda Hax</div><div class="rv-source" data-fw="elit.reviews.items.1.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Sehr nett, macht sehr gute Preise und ist sehr freundlich. Ich würde es definitiv weiterempfehlen."</p>
-        <div class="rv-author"><div class="rv-avatar">V</div><div><div class="rv-name">Vivian Vogelgesang</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.2.text">„Sehr nett, macht sehr gute Preise und ist sehr freundlich. Ich würde es definitiv weiterempfehlen."</p>
+        <div class="rv-author"><div class="rv-avatar">V</div><div><div class="rv-name" data-fw="elit.reviews.items.2.name">Vivian Vogelgesang</div><div class="rv-source" data-fw="elit.reviews.items.2.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Sehr nett und kompetent. Rundum zufrieden mit dem Service und den Preisen."</p>
-        <div class="rv-author"><div class="rv-avatar">C</div><div><div class="rv-name">Cetric Schmidt</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.3.text">„Sehr nett und kompetent. Rundum zufrieden mit dem Service und den Preisen."</p>
+        <div class="rv-author"><div class="rv-avatar">C</div><div><div class="rv-name" data-fw="elit.reviews.items.3.name">Cetric Schmidt</div><div class="rv-source" data-fw="elit.reviews.items.3.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Sehr nettes und freundliches Personal. Für mich war es eine sehr angenehme Erfahrung. Gerne wieder!"</p>
-        <div class="rv-author"><div class="rv-avatar">E</div><div><div class="rv-name">Emily Schurna</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.4.text">„Sehr nettes und freundliches Personal. Für mich war es eine sehr angenehme Erfahrung. Gerne wieder!"</p>
+        <div class="rv-author"><div class="rv-avatar">E</div><div><div class="rv-name" data-fw="elit.reviews.items.4.name">Emily Schurna</div><div class="rv-source" data-fw="elit.reviews.items.4.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Ich war inzwischen schon mehrfach bei Elit Juwelier und bin jedes Mal aufs Neue begeistert. Top Qualität, faire Preise!"</p>
-        <div class="rv-author"><div class="rv-avatar">A</div><div><div class="rv-name">Amin El Hankouri</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.5.text">„Ich war inzwischen schon mehrfach bei Elit Juwelier und bin jedes Mal aufs Neue begeistert. Top Qualität, faire Preise!"</p>
+        <div class="rv-author"><div class="rv-avatar">A</div><div><div class="rv-name" data-fw="elit.reviews.items.5.name">Amin El Hankouri</div><div class="rv-source" data-fw="elit.reviews.items.5.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Absolut empfehlenswert! Der Service ist erstklassig und die Auswahl wirklich beeindruckend. Ich komme gerne wieder."</p>
-        <div class="rv-author"><div class="rv-avatar">V</div><div><div class="rv-name">Vanessa Drysch</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.6.text">„Absolut empfehlenswert! Der Service ist erstklassig und die Auswahl wirklich beeindruckend. Ich komme gerne wieder."</p>
+        <div class="rv-author"><div class="rv-avatar">V</div><div><div class="rv-name" data-fw="elit.reviews.items.6.name">Vanessa Drysch</div><div class="rv-source" data-fw="elit.reviews.items.6.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Super Laden und sehr nette Beratung! Genau das richtige Stück gefunden."</p>
-        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name">Max</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.7.text">„Super Laden und sehr nette Beratung! Genau das richtige Stück gefunden."</p>
+        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name" data-fw="elit.reviews.items.7.name">Max</div><div class="rv-source" data-fw="elit.reviews.items.7.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Genialer Service – Super Eigentümer. Man merkt, dass hier mit Herzblut gearbeitet wird."</p>
-        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name">Salvatore Cofone</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.8.text">„Genialer Service – Super Eigentümer. Man merkt, dass hier mit Herzblut gearbeitet wird."</p>
+        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name" data-fw="elit.reviews.items.8.name">Salvatore Cofone</div><div class="rv-source" data-fw="elit.reviews.items.8.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Gerne! Sehr empfehlenswerter Juwelier mit ausgezeichnetem Kundenservice und toller Auswahl."</p>
-        <div class="rv-author"><div class="rv-avatar">J</div><div><div class="rv-name">Jose da Silva</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.9.text">„Gerne! Sehr empfehlenswerter Juwelier mit ausgezeichnetem Kundenservice und toller Auswahl."</p>
+        <div class="rv-author"><div class="rv-avatar">J</div><div><div class="rv-name" data-fw="elit.reviews.items.9.name">Jose da Silva</div><div class="rv-source" data-fw="elit.reviews.items.9.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Top Beratung, Top Kundenservice. Man fühlt sich von Anfang an gut aufgehoben."</p>
-        <div class="rv-author"><div class="rv-avatar">E</div><div><div class="rv-name">Elias Damerow</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.10.text">„Top Beratung, Top Kundenservice. Man fühlt sich von Anfang an gut aufgehoben."</p>
+        <div class="rv-author"><div class="rv-avatar">E</div><div><div class="rv-name" data-fw="elit.reviews.items.10.name">Elias Damerow</div><div class="rv-source" data-fw="elit.reviews.items.10.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Super Laden, Super Service, Super Preise – mehr muss man nicht sagen!"</p>
-        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name">Sinan</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.11.text">„Super Laden, Super Service, Super Preise – mehr muss man nicht sagen!"</p>
+        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name" data-fw="elit.reviews.items.11.name">Sinan</div><div class="rv-source" data-fw="elit.reviews.items.11.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Ganz herzlichen Dank für den netten Service ❤️❤️ – wirklich sehr empfehlenswert!"</p>
-        <div class="rv-author"><div class="rv-avatar">B</div><div><div class="rv-name">Basilika Mehlich</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.12.text">„Ganz herzlichen Dank für den netten Service ❤️❤️ – wirklich sehr empfehlenswert!"</p>
+        <div class="rv-author"><div class="rv-avatar">B</div><div><div class="rv-name" data-fw="elit.reviews.items.12.name">Basilika Mehlich</div><div class="rv-source" data-fw="elit.reviews.items.12.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Sehr gute Beratung, sehr nette Menschen. Man fühlt sich herzlich willkommen."</p>
-        <div class="rv-author"><div class="rv-avatar">E</div><div><div class="rv-name">Erduan Huseni</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.13.text">„Sehr gute Beratung, sehr nette Menschen. Man fühlt sich herzlich willkommen."</p>
+        <div class="rv-author"><div class="rv-avatar">E</div><div><div class="rv-name" data-fw="elit.reviews.items.13.name">Erduan Huseni</div><div class="rv-source" data-fw="elit.reviews.items.13.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Sehr schöner Laden mit einer großen Auswahl. Die Beratung war sehr kompetent und freundlich."</p>
-        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name">Marilene da Silva</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.14.text">„Sehr schöner Laden mit einer großen Auswahl. Die Beratung war sehr kompetent und freundlich."</p>
+        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name" data-fw="elit.reviews.items.14.name">Marilene da Silva</div><div class="rv-source" data-fw="elit.reviews.items.14.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Sehr nettes und zuvorkommendes Personal. Wir kommen gerne wieder und empfehlen den Laden weiter."</p>
-        <div class="rv-author"><div class="rv-avatar">B</div><div><div class="rv-name">Bubi</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.15.text">„Sehr nettes und zuvorkommendes Personal. Wir kommen gerne wieder und empfehlen den Laden weiter."</p>
+        <div class="rv-author"><div class="rv-avatar">B</div><div><div class="rv-name" data-fw="elit.reviews.items.15.name">Bubi</div><div class="rv-source" data-fw="elit.reviews.items.15.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Super Service, vor allem eine sehr ausführliche Erklärung zu jedem Stück. Sehr professionell!"</p>
-        <div class="rv-author"><div class="rv-avatar">A</div><div><div class="rv-name">Ali Erdogan</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.16.text">„Super Service, vor allem eine sehr ausführliche Erklärung zu jedem Stück. Sehr professionell!"</p>
+        <div class="rv-author"><div class="rv-avatar">A</div><div><div class="rv-name" data-fw="elit.reviews.items.16.name">Ali Erdogan</div><div class="rv-source" data-fw="elit.reviews.items.16.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Top Beratung, Top Auswahl – immer zuvorkommend und sehr angenehm."</p>
-        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name">Mike Da Silva</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.17.text">„Top Beratung, Top Auswahl – immer zuvorkommend und sehr angenehm."</p>
+        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name" data-fw="elit.reviews.items.17.name">Mike Da Silva</div><div class="rv-source" data-fw="elit.reviews.items.17.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Sehr gute Beratung, sehr nette Menschen. Wenn Gold kaufen dann bei Elit ❤️"</p>
-        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name">Sherry Bherry</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.18.text">„Sehr gute Beratung, sehr nette Menschen. Wenn Gold kaufen dann bei Elit ❤️"</p>
+        <div class="rv-author"><div class="rv-avatar">S</div><div><div class="rv-name" data-fw="elit.reviews.items.18.name">Sherry Bherry</div><div class="rv-source" data-fw="elit.reviews.items.18.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Waren heute mit unserer Tochter da und haben ihr Ohrlöcher stechen lassen. Sehr professionell und einfühlsam – danke!"</p>
-        <div class="rv-author"><div class="rv-avatar">A</div><div><div class="rv-name">Ahmet Schulze</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.19.text">„Waren heute mit unserer Tochter da und haben ihr Ohrlöcher stechen lassen. Sehr professionell und einfühlsam – danke!"</p>
+        <div class="rv-author"><div class="rv-avatar">A</div><div><div class="rv-name" data-fw="elit.reviews.items.19.name">Ahmet Schulze</div><div class="rv-source" data-fw="elit.reviews.items.19.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Top – Beratung super, nett und kompetent. Genau so stellt man sich einen Juwelier vor."</p>
-        <div class="rv-author"><div class="rv-avatar">C</div><div><div class="rv-name">Christian H</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.20.text">„Top – Beratung super, nett und kompetent. Genau so stellt man sich einen Juwelier vor."</p>
+        <div class="rv-author"><div class="rv-avatar">C</div><div><div class="rv-name" data-fw="elit.reviews.items.20.name">Christian H</div><div class="rv-source" data-fw="elit.reviews.items.20.source">Google Rezension</div></div></div>
       </div>
 
       <div class="rv-card">
         <div class="rv-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-        <p class="rv-text">„Super freundliches Personal, faire Preise und top Beratung – alles was man sich wünscht!"</p>
-        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name">M E</div><div class="rv-source">Google Rezension</div></div></div>
+        <p class="rv-text" data-fw="elit.reviews.items.21.text">„Super freundliches Personal, faire Preise und top Beratung – alles was man sich wünscht!"</p>
+        <div class="rv-author"><div class="rv-avatar">M</div><div><div class="rv-name" data-fw="elit.reviews.items.21.name">M E</div><div class="rv-source" data-fw="elit.reviews.items.21.source">Google Rezension</div></div></div>
       </div>
 
       </div>
     </div>
     <div class="rv-dots" id="rvDots"></div>
     <div class="reviews-footer fade-up">
-      <a class="reviews-google-btn" href="https://www.google.com/maps/search/?api=1&query=Elit+Juwelier+Elberfelder+Stra%C3%9Fe+22+58095+Hagen" target="_blank" rel="noopener">
+      <a class="reviews-google-btn" href="https://www.google.com/maps/search/?api=1&query=Elit+Juwelier+Elberfelder+Stra%C3%9Fe+22+58095+Hagen" target="_blank" rel="noopener" data-fw="elit.reviews.google_btn_text">
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
         Alle Bewertungen auf Google ansehen
       </a>
@@ -959,7 +959,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 </section>
 
 <!-- INSTAGRAM -->
-<section class="insta-simple" id="instagram">
+<section class="insta-simple" id="instagram" data-fw-section="elit.instagram">
   <div class="insta-simple-inner fade-up">
     <div class="insta-simple-icon">
       <svg viewBox="0 0 24 24" fill="none" stroke="url(#instaGoldGrad)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-label="Instagram">
@@ -975,9 +975,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
         <circle cx="17.6" cy="6.4" r="0.9" fill="var(--gold)" stroke="none"/>
       </svg>
     </div>
-    <h2 class="insta-simple-text">Verpassen Sie keine neuen Produkte mehr —<br>besuchen Sie uns auf <em style="font-style:italic;color:var(--gold2);">Instagram!</em></h2>
-    <p class="insta-simple-sub">Neue Kollektionen, exklusive Stücke und besondere Momente — täglich auf Instagram.</p>
-    <a class="insta-simple-btn" href="https://www.instagram.com/elitjuwelier/" target="_blank" rel="noopener">
+    <h2 class="insta-simple-text" data-fw="elit.instagram.heading">Verpassen Sie keine neuen Produkte mehr — besuchen Sie uns auf Instagram!</h2>
+    <p class="insta-simple-sub" data-fw="elit.instagram.sub">Neue Kollektionen, exklusive Stücke und besondere Momente — täglich auf Instagram.</p>
+    <a class="insta-simple-btn" href="https://www.instagram.com/elitjuwelier/" target="_blank" rel="noopener" data-fw="elit.instagram.btn_text">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       Besuchen Sie unser Instagram →
     </a>
@@ -1051,29 +1051,29 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
         <p class="footer-tagline" data-fw="elit.footer.tagline">Ihr Juwelier für Trauringe, Verlobungsringe und Goldankauf in Hagen. 25 Jahre Erfahrung, persönliche Beratung, faire Preise.</p>
       </div>
       <div class="footer-col">
-        <h4>Leistungen</h4>
+        <h4 data-fw="elit.footer.col1_title">Leistungen</h4>
         <ul>
-          <li><a href="#goldankauf-section">Goldankauf</a></li>
-          <li><a href="#leistungen">Trauringe</a></li>
-          <li><a href="#leistungen">Verlobungsringe</a></li>
-          <li><a href="#leistungen">Schmuck &amp; Accessoires</a></li>
+          <li><a href="#goldankauf-section" data-fw="elit.footer.col1_links.0">Goldankauf</a></li>
+          <li><a href="#leistungen" data-fw="elit.footer.col1_links.1">Trauringe</a></li>
+          <li><a href="#leistungen" data-fw="elit.footer.col1_links.2">Verlobungsringe</a></li>
+          <li><a href="#leistungen" data-fw="elit.footer.col1_links.3">Schmuck &amp; Accessoires</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Kollektion</h4>
+        <h4 data-fw="elit.footer.col2_title">Kollektion</h4>
         <ul>
-          <li><a href="#kollekton">Ringe</a></li>
-          <li><a href="#kollekton">Armbänder</a></li>
-          <li><a href="#kollekton">Alle Stücke</a></li>
+          <li><a href="#kollekton" data-fw="elit.footer.col2_links.0">Ringe</a></li>
+          <li><a href="#kollekton" data-fw="elit.footer.col2_links.1">Armbänder</a></li>
+          <li><a href="#kollekton" data-fw="elit.footer.col2_links.2">Alle Stücke</a></li>
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Info</h4>
+        <h4 data-fw="elit.footer.col3_title">Info</h4>
         <ul>
-          <li><a href="#ueber-uns">Über Uns</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
-          <li><a href="#" onclick="openModal('impressum');return false;">Impressum</a></li>
-          <li><a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a></li>
+          <li><a href="#ueber-uns" data-fw="elit.footer.col3_links.0">Über Uns</a></li>
+          <li><a href="#kontakt" data-fw="elit.footer.col3_links.1">Kontakt</a></li>
+          <li><a href="#" onclick="openModal('impressum');return false;" data-fw="elit.footer.col3_links.2">Impressum</a></li>
+          <li><a href="#" onclick="openModal('datenschutz');return false;" data-fw="elit.footer.col3_links.3">Datenschutz</a></li>
         </ul>
       </div>
     </div>
@@ -1081,9 +1081,9 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
     <div class="footer-bottom">
       <span class="footer-copy" data-fw="elit.footer.copyright">© 2026 Elit Juwelier Hagen. Alle Rechte vorbehalten.</span>
       <div class="footer-legal">
-        <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
-        <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
-        <a href="#" onclick="openModal('datenschutz');return false;">Cookie-Einstellungen</a>
+        <a href="#" onclick="openModal('impressum');return false;" data-fw="elit.footer.legal_links.0">Impressum</a>
+        <a href="#" onclick="openModal('datenschutz');return false;" data-fw="elit.footer.legal_links.1">Datenschutz</a>
+        <a href="#" onclick="openModal('datenschutz');return false;" data-fw="elit.footer.legal_links.2">Cookie-Einstellungen</a>
       </div>
     </div>
   </div>
@@ -1349,7 +1349,7 @@ document.addEventListener('keydown', e => {
       <h3 id="impressum-title">Impressum</h3>
       <button class="ej-modal-close" onclick="closeModal('impressum')" aria-label="Schließen">&#x2715;</button>
     </div>
-    <div class="ej-modal-body">
+    <div class="ej-modal-body" data-fw="elit.legal.impressum_html">
       <h4>Angaben gemäß § 5 TMG</h4>
       <p><strong>Elit Juwelier</strong><br>
       Elberfelder Str. 22<br>
@@ -1382,7 +1382,7 @@ document.addEventListener('keydown', e => {
       <h3 id="datenschutz-title">Datenschutzerklärung</h3>
       <button class="ej-modal-close" onclick="closeModal('datenschutz')" aria-label="Schließen">&#x2715;</button>
     </div>
-    <div class="ej-modal-body">
+    <div class="ej-modal-body" data-fw="elit.legal.datenschutz_html">
       <h4>1. Verantwortlicher</h4>
       <p>Elit Juwelier, Elberfelder Str. 22, 58095 Hagen. Telefon: 02331 / 5936841.</p>
 
@@ -1414,14 +1414,14 @@ document.addEventListener('keydown', e => {
 <!-- ═══════════════════════════════════════════════════════════════════════
      COOKIE CONSENT BANNER
      ═══════════════════════════════════════════════════════════════════════ -->
-<div id="ej-cb" role="dialog" aria-label="Cookie-Einstellungen" aria-live="polite">
+<div id="ej-cb" role="dialog" aria-label="Cookie-Einstellungen" aria-live="polite" data-fw-section="elit.cookie">
   <div class="ej-cb-text">
     <strong>Datenschutzeinstellungen</strong>
-    Wir nutzen externe Dienste (Google Maps & Google Fonts). Diese übertragen Daten an Google. Mit „Alle akzeptieren" stimmen Sie zu. Details: <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.
+    <span data-fw="elit.cookie.text">Wir nutzen externe Dienste (Google Maps &amp; Google Fonts). Diese übertragen Daten an Google. Mit „Alle akzeptieren" stimmen Sie zu.</span> Details: <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.
   </div>
   <div class="ej-cb-btns">
-    <button class="ej-cb-btn ej-cb-essential" id="ej-cb-essential">Nur Notwendige</button>
-    <button class="ej-cb-btn ej-cb-accept" id="ej-cb-accept">Alle akzeptieren</button>
+    <button class="ej-cb-btn ej-cb-essential" id="ej-cb-essential" data-fw="elit.cookie.essential_text">Nur Notwendige</button>
+    <button class="ej-cb-btn ej-cb-accept" id="ej-cb-accept" data-fw="elit.cookie.accept_text">Alle akzeptieren</button>
   </div>
 </div>
 
