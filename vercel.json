@@ -1,1 +1,1 @@
-{"outputDirectory":"website","framework":null,"buildCommand":null}
+{"outputDirectory":"website","framework":null,"buildCommand":null,"rewrites":[{"source":"/admin/api/data","destination":"/api/admin/data"}]}

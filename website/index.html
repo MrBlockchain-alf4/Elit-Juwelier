@@ -502,7 +502,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a class="nav-brand" href="#">
-      <img class="nav-logo-full" src="public/images/elit-logo-transparent.png" alt="Elit Juwelier">
+      <img class="nav-logo-full" data-fw="elit.site.logo" src="public/images/elit-logo-transparent.png" alt="Elit Juwelier">
     </a>
     <ul class="nav-links">
       <li><a href="#kollekton">Kollektion</a></li>
@@ -529,28 +529,28 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Seit 2001 · 25 Jahre Erfahrung</div>
-    <h1 class="hero-h1">Gold<em>kauf</em></h1>
-    <p class="hero-subtitle">Wir kaufen Ihr Gold zu fairen Tagespreisen</p>
-    <p class="hero-desc">Bringen Sie Ihr Altgold einfach vorbei — wir bewerten es kostenlos, zahlen faire Tagespreise ohne versteckte Gebühren und Sie erhalten Ihr Geld sofort und sicher in bar. Kein Termin nötig.</p>
+    <div class="hero-eyebrow" data-fw="elit.hero.eyebrow">Seit 2001 · 25 Jahre Erfahrung</div>
+    <h1 class="hero-h1"><span data-fw="elit.hero.headline">Gold</span><em data-fw="elit.hero.headline_em">kauf</em></h1>
+    <p class="hero-subtitle" data-fw="elit.hero.subtitle">Wir kaufen Ihr Gold zu fairen Tagespreisen</p>
+    <p class="hero-desc" data-fw="elit.hero.desc">Bringen Sie Ihr Altgold einfach vorbei — wir bewerten es kostenlos, zahlen faire Tagespreise ohne versteckte Gebühren und Sie erhalten Ihr Geld sofort und sicher in bar. Kein Termin nötig.</p>
     <div class="hero-chips">
-      <span class="hero-chip">585er &amp; 750er Gold</span>
-      <span class="hero-chip">Faire Tagespreise</span>
-      <span class="hero-chip">Sofortauszahlung</span>
-      <span class="hero-chip">Kein Termin nötig</span>
+      <span class="hero-chip" data-fw="elit.hero.chips.0">585er &amp; 750er Gold</span>
+      <span class="hero-chip" data-fw="elit.hero.chips.1">Faire Tagespreise</span>
+      <span class="hero-chip" data-fw="elit.hero.chips.2">Sofortauszahlung</span>
+      <span class="hero-chip" data-fw="elit.hero.chips.3">Kein Termin nötig</span>
     </div>
     <div class="hero-btns">
-      <a class="btn-primary" href="#kontakt">Termin anfragen →</a>
-      <a class="btn-secondary" href="#kollekton">Kollektion ansehen</a>
+      <a class="btn-primary" href="#kontakt" data-fw="elit.hero.primary_btn_text">Termin anfragen →</a>
+      <a class="btn-secondary" href="#kollekton" data-fw="elit.hero.secondary_btn_text">Kollektion ansehen</a>
     </div>
     <div class="hero-badge">
-      <span class="hero-badge-num">25</span>
-      <span class="hero-badge-txt">Jahre<br>Erfahrung</span>
+      <span class="hero-badge-num" data-fw="elit.hero.badge_number">25</span>
+      <span class="hero-badge-txt" data-fw="elit.hero.badge_text">Jahre<br>Erfahrung</span>
     </div>
   </div>
   <div class="hero-right">
     <div class="hero-img-wrap">
-      <img src="public/images/elit-hero-goldkauf.png" alt="Goldankauf — Trauringe und Verlobungsringe, Elit Juwelier" loading="eager">
+      <img data-fw="elit.hero.image" src="public/images/elit-hero-goldkauf.png" alt="Goldankauf — Trauringe und Verlobungsringe, Elit Juwelier" loading="eager">
     </div>
     <div class="hero-img-frame"></div>
   </div>
@@ -670,8 +670,8 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   <div class="gallery-inner">
     <div class="gallery-head fade-up">
       <div>
-        <div class="section-eyebrow">Unsere Kollektion</div>
-        <h2 class="section-h2">Handverlesene<br><em>Schmuckstücke</em></h2>
+        <div class="section-eyebrow" data-fw="elit.gallery.eyebrow">Unsere Kollektion</div>
+        <h2 class="section-h2"><span data-fw="elit.gallery.heading">Handverlesene</span><br><em data-fw="elit.gallery.heading_em">Schmuckstücke</em></h2>
       </div>
       <div class="gallery-filters">
         <button class="gf-btn active" onclick="filterGallery('all',this)">Alle</button>
@@ -687,22 +687,22 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
       <div class="gl-track" id="gl-track">
-      <div class="g-item" data-cat="ring" onclick="openLightbox(0)"><img src="public/images/elit-1.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(1)"><img src="public/images/elit-2.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(2)"><img src="public/images/elit-3.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(3)"><img src="public/images/elit-4.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(4)"><img src="public/images/elit-5.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Ring-Set</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(5)"><img src="public/images/elit-6.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(6)"><img src="public/images/elit-7.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(7)"><img src="public/images/elit-8.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(8)"><img src="public/images/elit-9.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Ringe mit Steinen</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(9)"><img src="public/images/elit-10.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Gold-Bandringe</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(10)"><img src="public/images/elit-11.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="ring" onclick="openLightbox(11)"><img src="public/images/elit-12.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldring</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(12)"><img src="public/images/elit-13.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(13)"><img src="public/images/elit-14.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(14)"><img src="public/images/elit-15.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldarmband</span></div></div>
-      <div class="g-item" data-cat="armband" onclick="openLightbox(15)"><img src="public/images/elit-16.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text">Goldkette Armbänder</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(0)"><img data-fw="elit.gallery.items.0.image" src="public/images/elit-1.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.0.caption">Ringe mit Steinen</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(1)"><img data-fw="elit.gallery.items.1.image" src="public/images/elit-2.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.1.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(2)"><img data-fw="elit.gallery.items.2.image" src="public/images/elit-3.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.2.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(3)"><img data-fw="elit.gallery.items.3.image" src="public/images/elit-4.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.3.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(4)"><img data-fw="elit.gallery.items.4.image" src="public/images/elit-5.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.4.caption">Ring-Set</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(5)"><img data-fw="elit.gallery.items.5.image" src="public/images/elit-6.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.5.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(6)"><img data-fw="elit.gallery.items.6.image" src="public/images/elit-7.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.6.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(7)"><img data-fw="elit.gallery.items.7.image" src="public/images/elit-8.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.7.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(8)"><img data-fw="elit.gallery.items.8.image" src="public/images/elit-9.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.8.caption">Ringe mit Steinen</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(9)"><img data-fw="elit.gallery.items.9.image" src="public/images/elit-10.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.9.caption">Gold-Bandringe</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(10)"><img data-fw="elit.gallery.items.10.image" src="public/images/elit-11.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.10.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="ring" onclick="openLightbox(11)"><img data-fw="elit.gallery.items.11.image" src="public/images/elit-12.png" alt="Ring" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.11.caption">Goldring</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(12)"><img data-fw="elit.gallery.items.12.image" src="public/images/elit-13.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.12.caption">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(13)"><img data-fw="elit.gallery.items.13.image" src="public/images/elit-14.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.13.caption">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(14)"><img data-fw="elit.gallery.items.14.image" src="public/images/elit-15.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.14.caption">Goldarmband</span></div></div>
+      <div class="g-item" data-cat="armband" onclick="openLightbox(15)"><img data-fw="elit.gallery.items.15.image" src="public/images/elit-16.png" alt="Armband" loading="lazy"><div class="g-overlay"><span class="g-overlay-text" data-fw="elit.gallery.items.15.caption">Goldkette Armbänder</span></div></div>
       </div>
     </div>
     <div class="gl-dots" id="glDots"></div>
@@ -721,18 +721,18 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
 <section class="about" id="ueber-uns">
   <div class="about-inner">
     <div class="about-img-wrap fade-up">
-      <img class="about-img-main" src="public/images/elit-10.png" alt="Elit Juwelier — 25 Jahre Erfahrung">
+      <img class="about-img-main" data-fw="elit.about.image" src="public/images/elit-10.png" alt="Elit Juwelier — 25 Jahre Erfahrung">
       <div class="about-deco"></div>
       <div class="about-stamp">
-        <div class="about-stamp-num">25</div>
-        <div class="about-stamp-txt">Jahre<br>Tradition</div>
+        <div class="about-stamp-num" data-fw="elit.about.stamp_number">25</div>
+        <div class="about-stamp-txt" data-fw="elit.about.stamp_text">Jahre<br>Tradition</div>
       </div>
     </div>
     <div class="about-text fade-up">
-      <div class="section-eyebrow">Über Elit Juwelier</div>
-      <h2 class="section-h2">25 Jahre Leidenschaft<br><em>für Goldschmuck</em></h2>
-      <p>Seit 2001 sind wir Ihr vertrauensvoller Juwelier in Hagen. Was als kleine Familienwerkstatt begann, ist heute ein etabliertes Fachgeschäft mit tiefer Leidenschaft für hochwertigen Goldschmuck.</p>
-      <p>Unser Anspruch ist einfach: Jeder Kunde verdient persönliche Aufmerksamkeit und ehrliche Beratung — ob beim Kauf Ihres Traumrings oder beim Verkauf von Altgold. Faire Preise, kein Druck, kein Stress.</p>
+      <div class="section-eyebrow" data-fw="elit.about.eyebrow">Über Elit Juwelier</div>
+      <h2 class="section-h2"><span data-fw="elit.about.heading">25 Jahre Leidenschaft</span><br><em data-fw="elit.about.heading_em">für Goldschmuck</em></h2>
+      <p data-fw="elit.about.body_1">Seit 2001 sind wir Ihr vertrauensvoller Juwelier in Hagen. Was als kleine Familienwerkstatt begann, ist heute ein etabliertes Fachgeschäft mit tiefer Leidenschaft für hochwertigen Goldschmuck.</p>
+      <p data-fw="elit.about.body_2">Unser Anspruch ist einfach: Jeder Kunde verdient persönliche Aufmerksamkeit und ehrliche Beratung — ob beim Kauf Ihres Traumrings oder beim Verkauf von Altgold. Faire Preise, kein Druck, kein Stress.</p>
       <div class="about-features">
         <div class="about-feat">
           <div class="about-feat-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:18px;height:18px;color:var(--gold2);"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/></svg></div>
@@ -995,11 +995,11 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
         <div class="hours-label">Öffnungszeiten</div>
         <div class="hours-row">
           <span>Montag – Samstag</span>
-          <span class="hours-time">10:00 – 19:00 Uhr</span>
+          <span class="hours-time" data-fw="elit.contact.hours_weekday">10:00 – 19:00 Uhr</span>
         </div>
         <div class="hours-row hours-closed">
           <span>Sonntag</span>
-          <span class="hours-time">Geschlossen</span>
+          <span class="hours-time" data-fw="elit.contact.hours_sunday">Geschlossen</span>
         </div>
       </div>
       <div class="contact-info-list">
@@ -1007,21 +1007,21 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div class="ci-content">
             <strong>Adresse</strong>
-            <span>Elberfelder Str. 22<br>58095 Hagen, NRW</span>
+            <span data-fw="elit.contact.address">Elberfelder Str. 22<br>58095 Hagen, NRW</span>
           </div>
         </div>
         <div class="ci-item">
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.77 9.13a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L9.91 15a16 16 0 006.29 6.29l1.09-1.09a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg></div>
           <div class="ci-content">
             <strong>Telefon</strong>
-            <a href="tel:+4923315936841">02331 / 5936841</a>
+            <a href="tel:+4923315936841" data-fw="elit.contact.phone">02331 / 5936841</a>
           </div>
         </div>
         <div class="ci-item">
           <div class="ci-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
           <div class="ci-content">
             <strong>WhatsApp</strong>
-            <a href="https://wa.me/491749155488">0174 / 9155488</a>
+            <a href="https://wa.me/491749155488" data-fw="elit.contact.whatsapp">0174 / 9155488</a>
           </div>
         </div>
       </div>
@@ -1047,8 +1047,8 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
   <div class="footer-inner">
     <div class="footer-top">
       <div>
-        <img class="footer-logo-full" src="public/images/elit-logo-transparent.png" alt="Elit Juwelier">
-        <p class="footer-tagline">Ihr Juwelier für Trauringe, Verlobungsringe und Goldankauf in Hagen. 25 Jahre Erfahrung, persönliche Beratung, faire Preise.</p>
+        <img class="footer-logo-full" data-fw="elit.site.logo" src="public/images/elit-logo-transparent.png" alt="Elit Juwelier">
+        <p class="footer-tagline" data-fw="elit.footer.tagline">Ihr Juwelier für Trauringe, Verlobungsringe und Goldankauf in Hagen. 25 Jahre Erfahrung, persönliche Beratung, faire Preise.</p>
       </div>
       <div class="footer-col">
         <h4>Leistungen</h4>
@@ -1079,7 +1079,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 Elit Juwelier Hagen. Alle Rechte vorbehalten.</span>
+      <span class="footer-copy" data-fw="elit.footer.copyright">© 2026 Elit Juwelier Hagen. Alle Rechte vorbehalten.</span>
       <div class="footer-legal">
         <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
         <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
@@ -1531,5 +1531,6 @@ document.addEventListener('keydown',function(e){
   }
 });
 </script>
+<script src="/admin/page-loader.js" defer></script>
 </body>
 </html>

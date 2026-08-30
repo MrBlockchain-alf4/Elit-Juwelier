@@ -1,0 +1,66 @@
+{
+  "_schema": "elit-juwelier-v1",
+  "_updated": "2026-08-30",
+  "elit": {
+    "site": { "logo": "public/images/elit-logo-transparent.png" },
+    "hero": {
+      "eyebrow": "Seit 2001 · 25 Jahre Erfahrung",
+      "headline": "Gold",
+      "headline_em": "kauf",
+      "subtitle": "Wir kaufen Ihr Gold zu fairen Tagespreisen",
+      "desc": "Bringen Sie Ihr Altgold einfach vorbei — wir bewerten es kostenlos, zahlen faire Tagespreise ohne versteckte Gebühren und Sie erhalten Ihr Geld sofort und sicher in bar. Kein Termin nötig.",
+      "chips": ["585er & 750er Gold", "Faire Tagespreise", "Sofortauszahlung", "Kein Termin nötig"],
+      "primary_btn_text": "Termin anfragen →",
+      "secondary_btn_text": "Kollektion ansehen",
+      "badge_number": "25",
+      "badge_text": "Jahre\nErfahrung",
+      "image": "public/images/elit-hero-goldkauf.png",
+      "image_position": { "x": 50, "y": 50, "scale": 100 }
+    },
+    "gallery": {
+      "eyebrow": "Unsere Kollektion",
+      "heading": "Handverlesene",
+      "heading_em": "Schmuckstücke",
+      "items": [
+        { "image": "public/images/elit-1.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Ringe mit Steinen", "category": "ring" },
+        { "image": "public/images/elit-2.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-3.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-4.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-5.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Ring-Set", "category": "ring" },
+        { "image": "public/images/elit-6.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-7.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-8.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-9.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Ringe mit Steinen", "category": "ring" },
+        { "image": "public/images/elit-10.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Gold-Bandringe", "category": "ring" },
+        { "image": "public/images/elit-11.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-12.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldring", "category": "ring" },
+        { "image": "public/images/elit-13.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldarmband", "category": "armband" },
+        { "image": "public/images/elit-14.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldarmband", "category": "armband" },
+        { "image": "public/images/elit-15.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldarmband", "category": "armband" },
+        { "image": "public/images/elit-16.png", "image_position": { "x": 50, "y": 50, "scale": 100 }, "caption": "Goldkette Armbänder", "category": "armband" }
+      ]
+    },
+    "about": {
+      "eyebrow": "Über Elit Juwelier",
+      "heading": "25 Jahre Leidenschaft",
+      "heading_em": "für Goldschmuck",
+      "body_1": "Seit 2001 sind wir Ihr vertrauensvoller Juwelier in Hagen. Was als kleine Familienwerkstatt begann, ist heute ein etabliertes Fachgeschäft mit tiefer Leidenschaft für hochwertigen Goldschmuck.",
+      "body_2": "Unser Anspruch ist einfach: Jeder Kunde verdient persönliche Aufmerksamkeit und ehrliche Beratung — ob beim Kauf Ihres Traumrings oder beim Verkauf von Altgold. Faire Preise, kein Druck, kein Stress.",
+      "image": "public/images/elit-10.png",
+      "image_position": { "x": 50, "y": 50, "scale": 100 },
+      "stamp_number": "25",
+      "stamp_text": "Jahre\nTradition"
+    },
+    "contact": {
+      "address": "Elberfelder Str. 22\n58095 Hagen, NRW",
+      "phone": "02331 / 5936841",
+      "whatsapp": "0174 / 9155488",
+      "hours_weekday": "10:00 – 19:00 Uhr",
+      "hours_sunday": "Geschlossen"
+    },
+    "footer": {
+      "tagline": "Ihr Juwelier für Trauringe, Verlobungsringe und Goldankauf in Hagen. 25 Jahre Erfahrung, persönliche Beratung, faire Preise.",
+      "copyright": "© 2026 Elit Juwelier Hagen. Alle Rechte vorbehalten."
+    }
+  }
+}
