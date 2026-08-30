@@ -59,11 +59,10 @@
   /* ── live preview: patch instantly from postMessage while editing in
      the kundenzugang admin panel — this is a preview-only page, never
      writes anything; Supabase is only ever touched by /admin/api/data
-     via the admin's explicit Save action. Click-to-select and
-     highlight-on-select (which framework-berlin's page-loader.js has) are
-     deliberately not implemented yet for Elit — editing works fully via the
-     admin's left sidebar, this just skips the "click inside the preview to
-     jump to that field" convenience for now. ─────────────────────────────── */
+     via the admin's explicit Save action. Same protocol as
+     framework-berlin's page-loader.js: FW_ADMIN_PREVIEW patches content,
+     FW_ADMIN_HIGHLIGHT outlines the selected field, and a click inside the
+     iframe posts FW_ADMIN_SELECT back so the sidebar can jump to it. ──── */
   const ADMIN_ORIGINS = [
     'https://www.afa-ai.com',
     'https://afa-ai.com',
@@ -71,12 +70,56 @@
     'http://localhost:3001',
   ];
 
+  let highlighted = [];
+  function applyHighlight(paths, section) {
+    highlighted.forEach(el => el.classList.remove('fw-admin-hl'));
+    highlighted = [];
+    let targets = [];
+    if (paths && paths.length) {
+      targets = paths.flatMap(p => Array.from(document.querySelectorAll(`[data-fw="${p}"]`)));
+    } else if (section) {
+      targets = Array.from(document.querySelectorAll(`[data-fw-section="${section}"]`));
+    }
+    targets.forEach(el => el.classList.add('fw-admin-hl'));
+    highlighted = targets;
+    if (targets[0]) targets[0].scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
   window.addEventListener('message', function (event) {
     if (ADMIN_ORIGINS.indexOf(event.origin) === -1) return;
     const msg = event.data;
     if (!msg || !msg.type) return;
     if (msg.type === 'FW_ADMIN_PREVIEW' && msg.data) {
       try { applyData(msg.data); } catch (_) { /* ignore malformed preview payloads */ }
+    } else if (msg.type === 'FW_ADMIN_HIGHLIGHT') {
+      applyHighlight(msg.paths || null, msg.section || null);
     }
   });
+
+  /* ── click-to-edit — only active when actually embedded in the admin
+     panel (never for a normal visitor loading the page directly), and only
+     ever posts a field path string back — no data leaves the page, nothing
+     is written anywhere from here. ──────────────────────────────────────── */
+  if (window.self !== window.top) {
+    const hlStyle = document.createElement('style');
+    hlStyle.textContent = '.fw-admin-hl{outline:2px solid #00D4FF !important;outline-offset:2px;border-radius:2px;}';
+    document.head.appendChild(hlStyle);
+
+    document.addEventListener('click', function (e) {
+      const fwEl = e.target.closest('[data-fw]');
+      const sectionEl = e.target.closest('[data-fw-section]');
+      const path = fwEl ? fwEl.getAttribute('data-fw') : null;
+      if (!path && !sectionEl) return;
+      e.preventDefault();
+      e.stopPropagation();
+      window.parent.postMessage(
+        {
+          type: 'FW_ADMIN_SELECT',
+          path: path,
+          section: sectionEl ? sectionEl.getAttribute('data-fw-section') : null,
+        },
+        '*',
+      );
+    }, true);
+  }
 })();
