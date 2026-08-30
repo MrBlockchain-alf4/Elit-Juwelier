@@ -96,7 +96,7 @@
       var label={'999':'999er Gold','750':'750er Gold','585':'585er Gold','333':'333er Gold'}[calcType];
       calcStep=null;calcType=null;
       later(function(){renderChips(CHIPS_DEFAULT);});
-      return 'Schätzwert für '+display+' g '+label+':\n\n📊 Aktueller Goldwert: ca. '+fmtEUR(realPrice)+' €\n💰 Unser Ankaufspreis: ca. '+fmtEUR(offerPrice)+' €\n\nHinweis: Dies ist ein Richtwert nach aktuellem Marktpreis (inkl. Bewertungs- und Bearbeitungsabzug von 15%). Den verbindlichen Ankaufpreis bestimmen wir kostenlos und transparent in unserem Geschäft.\n\n📍 Elberfelder Str. 22, Hagen\nKein Termin nötig!';
+      return 'Schätzwert für '+display+' g '+label+':\n\n💰 Unser Ankaufspreis: ca. '+fmtEUR(offerPrice)+' €\n\nHinweis: Dies ist ein Richtwert. Den verbindlichen Ankaufspreis bestimmen wir kostenlos und transparent in unserem Geschäft.\n\nWenn dich unser Ankaufspreis interessiert, besuche uns in unserem Geschäft in Hagen oder kontaktiere uns für eine kostenlose Bewertung!';
     }
 
     // Normal Q&A knowledge base
