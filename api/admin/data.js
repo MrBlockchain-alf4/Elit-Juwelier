@@ -1,6 +1,10 @@
 // Vercel native serverless function (not a Next.js route — this project has
 // no working app/pages directory, so `next build` fails; files under /api
 // are picked up by Vercel as functions regardless of framework preset).
+// Lives at the repo root (not under website/) because this project's
+// vercel.json uses `outputDirectory: "website"` rather than a dashboard
+// "Root Directory" setting — Vercel's zero-config function discovery scans
+// /api relative to the actual project root, which is the repo root here.
 //
 // Exposed at /admin/api/data via the rewrite in vercel.json, matching the
 // path admin/page-loader.js already fetches.
@@ -15,8 +19,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const bundledData = require('../../admin/data.json');
-const DATA_PATH = path.join(__dirname, '../../admin/data.json');
+const bundledData = require('../../website/admin/data.json');
+const DATA_PATH = path.join(__dirname, '../../website/admin/data.json');
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
