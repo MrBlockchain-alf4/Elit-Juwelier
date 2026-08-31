@@ -58,19 +58,23 @@ function focalStyle(pos) {
 function patchImg(html, key, src, pos) {
   if (src == null) return html;
   const k = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const srcRe = new RegExp(`(<img\\b[^>]*\\bdata-fw="${k}"[^>]*?)\\ssrc="[^"]*"`, 'g');
-  let out = html.replace(srcRe, (_m, pre) => `${pre} src="${escapeAttr(src)}"`);
-  const style = focalStyle(pos);
-  if (style) {
-    const tagRe = new RegExp(`<img\\b[^>]*\\bdata-fw="${k}"[^>]*>`, 'g');
-    out = out.replace(tagRe, (tag) => {
-      if (/\sstyle="/.test(tag)) {
-        return tag.replace(/\sstyle="([^"]*)"/, (_m, existing) => ` style="${existing}${style}"`);
-      }
-      return tag.replace(/\/?>$/, ` style="${style}"$&`);
-    });
-  }
-  return out;
+  // Matches the whole tag first rather than assuming src comes after
+  // data-fw — attribute order isn't guaranteed across every img tag, so a
+  // "data-fw then src" regex could silently match nothing on one that has
+  // src first.
+  const tagRe = new RegExp(`<img\\b[^>]*\\bdata-fw="${k}"[^>]*>`, 'g');
+  return html.replace(tagRe, (tag) => {
+    let out = /\ssrc="[^"]*"/.test(tag)
+      ? tag.replace(/\ssrc="[^"]*"/, ` src="${escapeAttr(src)}"`)
+      : tag.replace(/\/?>$/, ` src="${escapeAttr(src)}"$&`);
+    const style = focalStyle(pos);
+    if (style) {
+      out = /\sstyle="/.test(out)
+        ? out.replace(/\sstyle="([^"]*)"/, (_m, existing) => ` style="${existing}${style}"`)
+        : out.replace(/\/?>$/, ` style="${style}"$&`);
+    }
+    return out;
+  });
 }
 
 module.exports = async (req, res) => {
