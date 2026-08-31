@@ -1,34 +1,32 @@
 (function () {
-  /* ── admin-managed photos start hidden (opacity:0, set in index.html's own
-     <head> so nothing can paint before it) — real visitors never see whatever
-     is baked into this HTML, only the confirmed-current value from Supabase.
-     Every code path that resolves what an image should show (unchanged,
-     changed, or missing) must end by revealing it; the timers below are a
-     safety net so a slow/failed/malformed fetch can never leave a photo
-     invisible forever. ───────────────────────────────────────────────── */
-  function revealImage(el) {
-    if (el.style.opacity !== '1') el.style.opacity = '1';
-  }
-  function revealAllImages() {
-    document.querySelectorAll('img[data-fw]').forEach(revealImage);
-  }
-  setTimeout(revealAllImages, 3000); // absolute backstop
+  /* ── real visitors load the page's static HTML first (instant), then this
+     script fetches the latest saved content and patches it in — for a photo
+     that differs from the static default, swapping `src` outright causes a
+     visible pop from the old image to the new one. Preloading the new image
+     off-screen and only revealing it once it's actually ready, via a short
+     fade, turns that into a deliberate transition instead. ─────────────── */
+  const fadeStyle = document.createElement('style');
+  fadeStyle.textContent = 'img[data-fw]{transition:opacity .25s ease;}';
+  document.head.appendChild(fadeStyle);
 
   function patchImage(el, val) {
-    if (val == null || el.getAttribute('src') === val) {
-      revealImage(el);
-      return;
-    }
+    if (el.getAttribute('src') === val) return;
     const next = new Image();
-    next.onload = () => { el.src = val; requestAnimationFrame(() => revealImage(el)); };
-    next.onerror = () => { el.src = val; revealImage(el); };
+    next.onload = () => {
+      el.style.opacity = '0';
+      setTimeout(() => {
+        el.src = val;
+        requestAnimationFrame(() => { el.style.opacity = '1'; });
+      }, 200);
+    };
+    next.onerror = () => { el.src = val; };
     next.src = val;
   }
 
   /* ── shared patch logic — used for both the initial GET and any live
      postMessage update from the kundenzugang admin panel ─────────────── */
   function applyData(D) {
-    if (!D || !D.elit) { revealAllImages(); return; }
+    if (!D || !D.elit) return;
     const E = D.elit;
 
     /* ── patch data-fw elements (dotted path support) ────────── */
@@ -38,12 +36,12 @@
     document.querySelectorAll('[data-fw]').forEach(el => {
       const key = el.getAttribute('data-fw');
       const val = resolvePath(D, key);
+      if (val == null) return;
       if (el.tagName === 'IMG') {
         patchImage(el, val);
-        return;
+      } else {
+        el.innerHTML = String(val).replace(/\n/g, '<br>');
       }
-      if (val == null) return;
-      el.innerHTML = String(val).replace(/\n/g, '<br>');
     });
 
     /* ── image focal point + zoom (admin-set, optional) — same convention
@@ -76,14 +74,10 @@
   (async function () {
     try {
       const res = await fetch('/admin/api/data');
-      if (!res.ok) { revealAllImages(); return; }
+      if (!res.ok) return;
       const D = await res.json();
       applyData(D);
-    } catch (_) {
-      // Offline or the endpoint is down — fall back to whatever is baked
-      // into this HTML rather than leaving photos invisible forever.
-      revealAllImages();
-    }
+    } catch (_) { /* silent — page renders fine with hardcoded content */ }
   })();
 
   /* ── live preview: patch instantly from postMessage while editing in
