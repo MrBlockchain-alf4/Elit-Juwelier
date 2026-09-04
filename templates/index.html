@@ -6,8 +6,16 @@
 <title>Elit Juwelier — Trauringe & Verlobungsringe | Hagen</title>
 <link rel="icon" href="public/images/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="public/images/elit-diamond.png" type="image/png">
-<!-- Google Fonts loaded dynamically after cookie consent (DSGVO §25 TTDSG) -->
+<!-- Fonts are self-hosted (public/fonts/) so they always load regardless of
+     cookie consent — no request ever leaves the browser for them, so there's
+     nothing to gate under DSGVO/TTDSG. Loading them unconditionally also
+     avoids the layout reflow that happened before consent was given, when
+     the page rendered in fallback fonts (Georgia/Helvetica Neue) instead of
+     Playfair Display/Inter. -->
 <style>
+@font-face{font-family:'Inter';font-style:normal;font-weight:300 700;font-display:swap;src:url('public/fonts/inter-var.woff2') format('woff2');}
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 800;font-display:swap;src:url('public/fonts/playfair-var.woff2') format('woff2');}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 600;font-display:swap;src:url('public/fonts/playfair-italic-var.woff2') format('woff2');}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 :root{
   --cream:#F5F1E8;
@@ -784,7 +792,7 @@ body{background:var(--cream);color:var(--ink);font-family:var(--sans);line-heigh
       <div class="ga-card">
         <span class="ga-card-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
         <div class="ga-card-title" data-fw="elit.goldankauf_info.cards.3.title">Sofortauszahlung</div>
-        <div class="ga-card-desc" data-fw="elit.goldankauf_info.cards.3.desc">Kein Warten, keine Überweisungen — Barzahlung direkt bei der Bewertung.</div>
+        <div class="ga-card-desc" data-fw="elit.goldankauf_info.cards.3.desc">Kein Warten — Barzahlung direkt bei der Bewertung, auf Wunsch auch per Überweisung.</div>
       </div>
     </div>
   </div>
@@ -1392,8 +1400,8 @@ document.addEventListener('keydown', e => {
       <h4>3. Lokale Speicherung (localStorage)</h4>
       <p>Wir speichern Ihre Cookie-Einwilligung ausschließlich lokal in Ihrem Browser (localStorage). Diese Daten verlassen Ihr Gerät nicht und werden nicht an uns übertragen.</p>
 
-      <h4>4. Google Fonts (externe Schriftarten)</h4>
-      <p>Diese Website verwendet Schriftarten von Google Fonts, einem Dienst der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Beim Laden der Schriftarten wird Ihre IP-Adresse an Google übertragen. Dies geschieht nur mit Ihrer ausdrücklichen Einwilligung. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO. Datenschutzerklärung Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+      <h4>4. Schriftarten</h4>
+      <p>Die auf dieser Website verwendeten Schriftarten (Playfair Display, Inter) sind lokal auf unserem Server gespeichert (selbst gehostet). Beim Laden der Schriftarten findet keine Verbindung zu Google oder einem anderen externen Anbieter statt, es werden keine Daten übertragen.</p>
 
       <h4>5. Google Maps</h4>
       <p>Zur Darstellung unseres Standorts nutzen wir Google Maps, einen Dienst der Google Ireland Limited. Das Einbetten der Karte überträgt Ihre IP-Adresse an Google. Dies geschieht nur nach Ihrer Einwilligung durch Klick auf „Karte aktivieren". Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO.</p>
@@ -1417,7 +1425,7 @@ document.addEventListener('keydown', e => {
 <div id="ej-cb" role="dialog" aria-label="Cookie-Einstellungen" aria-live="polite" data-fw-section="elit.cookie">
   <div class="ej-cb-text">
     <strong>Datenschutzeinstellungen</strong>
-    <span data-fw="elit.cookie.text">Wir nutzen externe Dienste (Google Maps &amp; Google Fonts). Diese übertragen Daten an Google. Mit „Alle akzeptieren" stimmen Sie zu.</span> Details: <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.
+    <span data-fw="elit.cookie.text">Wir nutzen einen externen Dienst (Google Maps). Dieser überträgt Daten an Google. Mit „Alle akzeptieren" stimmen Sie zu.</span> Details: <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.
   </div>
   <div class="ej-cb-btns">
     <button class="ej-cb-btn ej-cb-essential" id="ej-cb-essential" data-fw="elit.cookie.essential_text">Nur Notwendige</button>
@@ -1430,7 +1438,6 @@ document.addEventListener('keydown', e => {
 (function(){
   var KEY='ej_consent_v1';
   var MAPS='https://maps.google.com/maps?q=Elberfelder+Str.+22%2C+58095+Hagen%2C+Germany&output=embed&hl=de&z=15';
-  var FONTS='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap';
 
   function getConsent(){
     try{var r=localStorage.getItem(KEY);return r?JSON.parse(r):null;}
@@ -1441,12 +1448,6 @@ document.addEventListener('keydown', e => {
     catch(e){}
   }
 
-  function loadFonts(){
-    if(document.querySelector('link[data-ej-fonts]'))return;
-    var l=document.createElement('link');
-    l.rel='stylesheet';l.setAttribute('data-ej-fonts','1');
-    l.href=FONTS;document.head.appendChild(l);
-  }
   function loadMap(){
     var gate=document.getElementById('ej-map-gate');
     var container=document.getElementById('ej-map-container');
@@ -1458,7 +1459,7 @@ document.addEventListener('keydown', e => {
     container.innerHTML='';
     container.appendChild(iframe);
   }
-  function applyExternal(){loadFonts();loadMap();}
+  function applyExternal(){loadMap();}
 
   function hideBanner(){
     var b=document.getElementById('ej-cb');
